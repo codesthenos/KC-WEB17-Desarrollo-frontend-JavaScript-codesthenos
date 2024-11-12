@@ -17,7 +17,7 @@ body {
   color: var(--color);
 }
 
-h1, h3, a {
+h1, h2, h3, a, label, input, form {
   display: block;
   margin-top: .5rem;
   margin-left: .5rem;

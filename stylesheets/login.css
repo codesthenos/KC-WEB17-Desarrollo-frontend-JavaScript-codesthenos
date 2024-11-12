@@ -1,0 +1,12 @@
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  form {
+    max-width: 300px;
+    margin: 0 auto;
+    .input-text {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
