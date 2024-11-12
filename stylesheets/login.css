@@ -7,6 +7,9 @@ main {
     .input-text {
       display: flex;
       flex-direction: column;
+      .first-label {
+        margin-top: 1rem;
+      }
     }
   }
 }
