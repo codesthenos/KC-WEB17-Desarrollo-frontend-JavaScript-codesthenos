@@ -1,4 +1,5 @@
 import { fetchAdds } from './model.js'
+import { showPaginatedAdds } from './controller.js'
 
 export const loadingView = () => {
   const loadingDiv = document.createElement('div')
@@ -48,13 +49,21 @@ export const addsHeading = async () => {
   return addsH2
 }
 
-export const paginateNavView = async () => {
+export const paginateNavView = () => {
   // crear un navbar con 3 botones, paginar/no paginar, next page, previous page
   const paginationNav = document.createElement('nav')
-  const paginationNavInnerHTML = `
-  <button class="btn" id="pagination-on-off">PAGINATE</button>
-  `
-  paginationNav.innerHTML = paginationNavInnerHTML
+
+  const paginationButton = document.createElement('button')
+  paginationButton.textContent = 'PAGINATE'
+  paginationButton.classList.add('btn')
+
+  const paginateButtonHandler = async () => {
+    await showPaginatedAdds()
+  }
+  paginationButton.addEventListener('click', paginateButtonHandler)
+
+  paginationNav.appendChild(paginationButton)
+
   return paginationNav
 }
 

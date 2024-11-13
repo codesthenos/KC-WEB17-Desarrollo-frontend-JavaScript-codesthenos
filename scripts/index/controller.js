@@ -11,9 +11,8 @@ export const showLoading = () => {
 export const showAdds = async () => {
   const targetId = 'adds-list'
   const target = document.getElementById(targetId)
-  const addsH2 = await addsHeading()
-  const paginateNav = await paginateNavView()
-  const adds = await addsView()
+  const paginateNav = paginateNavView()
+  const [addsH2, adds] = await Promise.all([addsHeading(), addsView()])
   target.innerHTML = ''
   target.appendChild(addsH2)
   target.appendChild(paginateNav)
@@ -23,9 +22,9 @@ export const showAdds = async () => {
 export const showPaginatedAdds = async () => {
   const targetId = 'adds-list'
   const target = document.getElementById(targetId)
-  const addsH2 = await addsHeading()
-  const paginateNav = await paginateNavView()
-  const paginatedAdds = await paginatedAddsView()
+  const paginateNav = paginateNavView()
+  const [addsH2, paginatedAdds] = await Promise.all([addsHeading(), paginatedAddsView()])
+  target.innerHTML = ''
   target.appendChild(addsH2)
   target.appendChild(paginateNav)
   target.appendChild(paginatedAdds)
