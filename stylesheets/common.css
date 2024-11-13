@@ -15,6 +15,7 @@
 body {
   background-color: var(--bg-color);
   color: var(--color);
+  margin: .5rem;
 }
 
 h1, h2, h3, a, label, input, form, pre {
@@ -44,6 +45,8 @@ h1, h2, h3, a, label, input, form, pre {
 
 img {
   max-height: 150px;
+  aspect-ratio: 1;
+  border-radius: 100px;
 }
 
 .loading {
@@ -63,14 +66,3 @@ img {
     transform: rotate(360deg);
   }
 }
-
-/* HTML: <div class="loader"></div> */
-.loader {
-  width: 50px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 8px solid lightblue;
-  border-right-color: orange;
-  animation: l2 1s infinite linear;
-}
-@keyframes l2 {to{transform: rotate(1turn)}}

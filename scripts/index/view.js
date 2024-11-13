@@ -7,10 +7,11 @@ export const addsView = () => {
       <a href="/routes/ad-details.html">
         <li>
           <img src="${add.image}" alt="${add.description}" />
-          <h4>Name: ${add.name}</h4>
-          <p>Description: ${add.description}</p>
-          <p>Price: ${add.price}</p>
-          <p>For: ${add.for}</p>
+          <h3>${add.name}</h3>
+          <p><span>Description:</span></p>
+          <p>${add.description}</p>
+          <p><span>Price:</span> ${add.price}€</p>
+          <p><span>For:</span> ${add.for}</p>
         </li>
       </a>
       `).join('\n')
@@ -24,6 +25,7 @@ export const addsView = () => {
     const errorPre = document.createElement('pre')
     errorPre.textContent = errorView
     errorPre.style.color = 'yellow'
+    errorPre.style.textAlign = 'center'
     return errorPre
   }
 }
@@ -36,5 +38,6 @@ export const addsHeading = () => {
     addsH2.style.color = 'yellow'
   }
   addsH2.textContent = addsH2Text
+  addsH2.style.textAlign = 'center'
   return addsH2
 }
