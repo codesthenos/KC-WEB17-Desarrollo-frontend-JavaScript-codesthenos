@@ -1,8 +1,10 @@
 export const fetchAdds = async () => {
   try {
-    const fetchedAdds = await fetch('http://localhost:8000/api/adds').then(res => res.json())
-    return { adds: fetchedAdds }
+    const response = await fetch('http://localhost:8000/api/adds')
+    if (response.status === 404) return { error: '404 Not found\n\nThat collection doesnt exist' }
+    const fetchedAdds = { adds: await response.json() }
+    return fetchedAdds.adds.length > 0 ? fetchedAdds : { error: 'No adds' }
   } catch (error) {
-    return { error: error }
+    return { error }
   }
-} 
+}

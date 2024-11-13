@@ -1,7 +1,6 @@
 import { fetchAdds } from './model.js'
 
 const response = await fetchAdds()
-
 export const addsView = () => {
   if (response.adds) {
     const addsUlInnerHTML = response.adds.map(add => `
@@ -22,18 +21,20 @@ export const addsView = () => {
   }
   if (response.error) {
     const errorView = `${response.error}`
-    const errorP = document.createElement('p')
-    errorP.textContent = errorView
-    return errorP
+    const errorPre = document.createElement('pre')
+    errorPre.textContent = errorView
+    errorPre.style.color = 'yellow'
+    return errorPre
   }
 }
 
 export const addsHeading = () => {
   let addsH2Text = 'Adds'
+  const addsH2 = document.createElement('h2')
   if (response.error) {
     addsH2Text = 'Error'
+    addsH2.style.color = 'yellow'
   }
-  const addsH2 = document.createElement('h2')
   addsH2.textContent = addsH2Text
   return addsH2
 }
