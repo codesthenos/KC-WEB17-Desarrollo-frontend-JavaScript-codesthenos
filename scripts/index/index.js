@@ -1,3 +1,9 @@
-import { showAdds } from './controller.js'
+import { showAdds, showLoading } from './controller.js'
+const loadAddsButtonId = 'load-adds-button-id'
+const loadAddsButtonHandler = async () => {
+  showLoading()
+  await showAdds()
+}
+const loadAddsButton = document.getElementById(loadAddsButtonId)
 
-showAdds()
+loadAddsButton.addEventListener('click', loadAddsButtonHandler)

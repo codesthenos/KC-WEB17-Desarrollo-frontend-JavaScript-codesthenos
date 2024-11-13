@@ -1,4 +1,6 @@
 const addsEndpoint = 'adds'
+const emptyArrayEndpoint = 'test'
+const unExistentEndpoint = 'aslkdas'
 export const fetchAdds = async () => {
   try {
     const response = await fetch(`http://localhost:8000/api/${addsEndpoint}`)

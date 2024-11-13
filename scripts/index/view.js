@@ -1,7 +1,15 @@
 import { fetchAdds } from './model.js'
 
-const response = await fetchAdds()
-export const addsView = () => {
+export const loadingView = () => {
+  const loadingDiv = document.createElement('div')
+  loadingDiv.classList.add('loading')
+  return loadingDiv
+}
+
+
+export const addsView = async () => {
+  const response = await fetchAdds()
+
   if (response.adds) {
     const addsUlInnerHTML = response.adds.map(add => `
       <a href="/routes/ad-details.html">
@@ -24,20 +32,18 @@ export const addsView = () => {
     const errorView = `${response.error}`
     const errorPre = document.createElement('pre')
     errorPre.textContent = errorView
-    errorPre.style.color = 'yellow'
-    errorPre.style.textAlign = 'center'
     return errorPre
   }
 }
 
-export const addsHeading = () => {
-  let addsH2Text = 'Adds'
+export const addsHeading = async () => {
+  const response = await fetchAdds()
+  let addsH2Text = 'ADDS'
   const addsH2 = document.createElement('h2')
   if (response.error) {
-    addsH2Text = 'Error'
+    addsH2Text = 'ERROR'
     addsH2.style.color = 'yellow'
   }
   addsH2.textContent = addsH2Text
-  addsH2.style.textAlign = 'center'
   return addsH2
 }
