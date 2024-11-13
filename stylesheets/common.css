@@ -45,3 +45,32 @@ h1, h2, h3, a, label, input, form, pre {
 img {
   max-height: 150px;
 }
+
+.loading {
+  width: 75px;
+  height: 75px;
+  border-radius: 100px;
+  background-color: var(--bg-color);
+  border: 12px solid var(--brand-color);
+  border-top-color: var(--color);
+  border-left-color: var(--color);
+  margin: 5rem auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid lightblue;
+  border-right-color: orange;
+  animation: l2 1s infinite linear;
+}
+@keyframes l2 {to{transform: rotate(1turn)}}
