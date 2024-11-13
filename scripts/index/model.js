@@ -1,0 +1,1 @@
+export const adds = () => fetch('http://localhost:8000/api/adds').then(res => res.json())

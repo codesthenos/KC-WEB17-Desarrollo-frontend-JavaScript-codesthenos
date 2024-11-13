@@ -1,0 +1,12 @@
+#adds-list {
+  max-width: 900px;
+  margin: 0 auto;
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
+    a {
+      color: var(--color);
+    }
+  }
+}

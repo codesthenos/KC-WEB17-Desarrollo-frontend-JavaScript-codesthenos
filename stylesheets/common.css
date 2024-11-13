@@ -41,3 +41,7 @@ h1, h2, h3, a, label, input, form {
   border: 2px solid var(--brand-color);
   scale: 1.1;
 }
+
+img {
+  max-height: 150px;
+}
