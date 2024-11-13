@@ -1,5 +1,5 @@
 import { fetchAdds } from './model.js'
-import { showPaginatedAdds } from './controller.js'
+import { paginateButtonHandler } from './lib.js'
 
 export const loadingView = () => {
   const loadingDiv = document.createElement('div')
@@ -57,9 +57,6 @@ export const paginateNavView = () => {
   paginationButton.textContent = 'PAGINATE'
   paginationButton.classList.add('btn')
 
-  const paginateButtonHandler = async () => {
-    await showPaginatedAdds()
-  }
   paginationButton.addEventListener('click', paginateButtonHandler)
 
   paginationNav.appendChild(paginationButton)
