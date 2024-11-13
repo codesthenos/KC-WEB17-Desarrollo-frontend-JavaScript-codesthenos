@@ -25,6 +25,7 @@ h1, h2, h3, a, label, input, form, pre {
 }
 
 .btn {
+  cursor: pointer;
   color: var(--color);
   background-color: var(--brand-color);
   border: 3px solid var(--color);

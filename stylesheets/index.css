@@ -40,6 +40,11 @@
     padding: 1.5rem;
     margin: 0 auto;
   }
+  nav {
+    button {
+      margin-top: 2rem;
+    }
+  }
   .error-h2 {
     color: yellow;
     background-color: var(--bg-color);
