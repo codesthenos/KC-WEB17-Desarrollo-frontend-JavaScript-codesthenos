@@ -30,6 +30,7 @@ h1, h2, h3, a, label, input, form, pre {
   border: 2px solid var(--color);
   padding: .75em;
   max-width: fit-content;
+  max-height: fit-content;
   text-align: center;
   border-radius: 15px;
   font-weight: bold;
@@ -47,6 +48,20 @@ img {
   max-height: 150px;
   aspect-ratio: 1;
   border-radius: 100px;
+}
+
+.sr-only {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap; 
 }
 
 .loading {

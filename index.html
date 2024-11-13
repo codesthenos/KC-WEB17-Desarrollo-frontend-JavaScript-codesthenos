@@ -9,10 +9,17 @@
   <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
 <body>
-  <h1>WALLAPOP HOME</h1>
-  <a class="btn" href="/routes/register.html">REGISTER</a>
-  <a class="btn" href="/routes/login.html">LOGIN</a>
-  <a class="btn" href="/routes/create-ad.html">CREATE AD</a>
+  <header class="index-header">
+    <h1 class="sr-only">WALLAPOP</h1>
+    <div class="header-logo">
+      <img src="/public/wallapopLogo.png" alt="">
+    </div>
+    <nav>
+      <a class="btn" href="/routes/create-ad.html">CREATE AD</a>
+      <a class="btn" href="/routes/register.html">REGISTER</a>
+      <a class="btn" href="/routes/login.html">LOGIN</a>
+    </nav>
+  </header>
 
   <div id="adds-list">
     <button class="btn" id="load-adds-button-id">LOAD ADDS</button>
