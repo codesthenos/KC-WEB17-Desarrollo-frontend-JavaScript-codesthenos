@@ -42,7 +42,7 @@ export const addsHeading = async () => {
   const addsH2 = document.createElement('h2')
   if (response.error) {
     addsH2Text = 'ERROR'
-    addsH2.style.color = 'yellow'
+    addsH2.classList.add('error-h2')
   }
   addsH2.textContent = addsH2Text
   return addsH2

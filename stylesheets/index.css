@@ -40,6 +40,11 @@
     padding: 1.5rem;
     margin: 0 auto;
   }
+  .error-h2 {
+    color: yellow;
+    background-color: var(--bg-color);
+    border: 0;
+  }
   pre {
     color: yellow;
     font-size: 2rem;
