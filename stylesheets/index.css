@@ -8,6 +8,7 @@
     background-color: var(--brand-color);
     border-radius: 40px;
     padding: .5rem;
+    border: 3px solid var(--color);
     img {
       height: 40px;
       width: 120px;
