@@ -7,8 +7,8 @@ export const loadingView = () => {
 }
 
 
-export const addsView = async () => {
-  const response = await fetchAdds()
+export const addsView = async (queryParams = {}) => {
+  const response = await fetchAdds(queryParams)
 
   if (response.adds) {
     const addsUlInnerHTML = response.adds.map(add => `
@@ -46,4 +46,13 @@ export const addsHeading = async () => {
   }
   addsH2.textContent = addsH2Text
   return addsH2
+}
+
+export const paginateNavView = async () => {
+  // crear un navbar con 3 botones, paginar/no paginar, next page, previous page
+}
+
+export const paginatedAddsView = async () => {
+  const queryParams = { pageValue: 1, limitValue: 1 }
+  return await addsView(queryParams)
 }
