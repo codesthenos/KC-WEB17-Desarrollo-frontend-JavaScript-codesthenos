@@ -51,6 +51,8 @@ export const addsHeading = async () => {
 
 export const paginateNavView = () => {
   // crear un navbar con 3 botones, paginar/no paginar, next page, previous page
+
+  // create the nav that will contain the buttons
   const paginationNav = document.createElement('nav')
 
   const paginationButton = document.createElement('button')
