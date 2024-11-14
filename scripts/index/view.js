@@ -1,5 +1,5 @@
 import { fetchAdds } from './model.js'
-import { addsHeader, errorHeader, paginateButtonId, paginateButtonText } from './lib.js'
+import { addsHeader, addsPerPage, errorHeader, initialPage, paginateButtonId, paginateButtonText } from './lib.js'
 import { paginateButtonHandler } from './eventHandlers.js'
 
 export const loadingView = () => {
@@ -68,6 +68,10 @@ export const paginateNavView = () => {
 }
 
 export const paginatedAddsView = async () => {
-  const queryParams = { pageValue: 1, limitValue: 1 }
+  const queryParams = { pageValue: initialPage, limitValue: addsPerPage }
   return await addsView(queryParams)
+}
+// ?????
+export const nextPageView = async () => {
+  return await addsView({ pageValue: pageValue + 1, limitValue })
 }

@@ -12,3 +12,9 @@ export const paginateButtonHandler = async () => {
   showLoading()
   paginationButton.textContent === showAllButtonText ? await showAdds() : await showPaginatedAdds()
 }
+
+// nextPage button handler
+export const nextPageButtonHandler = async () => {
+  
+}
+// previousPage button handler

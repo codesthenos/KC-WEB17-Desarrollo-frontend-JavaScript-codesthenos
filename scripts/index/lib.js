@@ -10,6 +10,12 @@ export const noCollectionErrorMessage = '404 Not found\n\nThat collection doesnt
 // endpoint collection of adds
 export const API = 'http://localhost:8000/api/adds/'
 
+// adds per page
+export const addsPerPage = 1
+
+// initial page
+export const initialPage = 1
+
 // main DIV id
 export const mainDivId = 'adds-list'
 
