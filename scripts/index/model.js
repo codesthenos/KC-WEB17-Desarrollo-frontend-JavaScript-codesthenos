@@ -1,7 +1,8 @@
 // const emptyArrayEndpoint = 'http://localhost:8000/api/test'
 // const unExistentEndpoint = 'http://localhost:8000/api/aslkdas'
-// endpoint collection of adds
-const API = 'http://localhost:8000/api/adds/'
+
+import { API, noAddsErrorMessage, noCollectionErrorMessage } from "./lib.js"
+
 // query params for pagination
 // _page & _limit
 export const fetchAdds = async (queryParams = {}) => {
@@ -11,11 +12,11 @@ export const fetchAdds = async (queryParams = {}) => {
 
     const response = await fetch(query)
 
-    if (response.status === 404) return { error: '404 Not found\n\nThat collection doesnt exist' }
+    if (response.status === 404) return { error: noCollectionErrorMessage }
 
     const fetchedAdds = { adds: await response.json() }
 
-    return fetchedAdds.adds.length > 0 ? fetchedAdds : { error: 'No adds' }
+    return fetchedAdds.adds.length > 0 ? fetchedAdds : { error: noAddsErrorMessage }
   } catch (error) {
     return { error }
   }

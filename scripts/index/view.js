@@ -1,5 +1,6 @@
 import { fetchAdds } from './model.js'
-import { paginateButtonHandler } from './lib.js'
+import { addsHeader, errorHeader, paginateButtonId, paginateButtonText } from './lib.js'
+import { paginateButtonHandler } from './eventHandlers.js'
 
 export const loadingView = () => {
   const loadingDiv = document.createElement('div')
@@ -39,10 +40,10 @@ export const addsView = async (queryParams = {}) => {
 
 export const addsHeading = async () => {
   const response = await fetchAdds()
-  let addsH2Text = 'ADDS'
+  let addsH2Text = addsHeader
   const addsH2 = document.createElement('h2')
   if (response.error) {
-    addsH2Text = 'ERROR'
+    addsH2Text = errorHeader
     addsH2.classList.add('error-h2')
   }
   addsH2.textContent = addsH2Text
@@ -52,12 +53,12 @@ export const addsHeading = async () => {
 export const paginateNavView = () => {
   // crear un navbar con 3 botones, paginar/no paginar, next page, previous page
 
-  // create the nav that will contain the buttons
   const paginationNav = document.createElement('nav')
 
   const paginationButton = document.createElement('button')
-  paginationButton.textContent = 'PAGINATE'
+  paginationButton.setAttribute('id', paginateButtonId)
   paginationButton.classList.add('btn')
+  paginationButton.textContent = paginateButtonText
 
   paginationButton.addEventListener('click', paginateButtonHandler)
 
