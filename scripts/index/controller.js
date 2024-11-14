@@ -37,7 +37,6 @@ export const showPaginatedAdds = async () => {
     // get number of ALL adds for pagination too
     const allAddsLength = adds.childElementCount
     // get the pagination button
-    console.log(paginateNav)
     const paginationButton = document.getElementById(paginateButtonId)
     paginationButton.textContent = allAddsLength > paginatedAddsLength ? showAllButtonText : paginateButtonText
   }

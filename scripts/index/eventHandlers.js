@@ -1,4 +1,5 @@
-import { showLoading, showAdds, showPaginatedAdds } from "./controller.js"
+import { showLoading, showAdds, showPaginatedAdds } from './controller.js'
+import { paginateButtonId, showAllButtonText } from './lib.js'
 
 // load button handler
 export const loadAddsButtonHandler = async () => {
@@ -7,6 +8,7 @@ export const loadAddsButtonHandler = async () => {
 }
 // paginate button handler
 export const paginateButtonHandler = async () => {
+  const paginationButton = document.getElementById(paginateButtonId)
   showLoading()
-  await showPaginatedAdds()
+  paginationButton.textContent === showAllButtonText ? await showAdds() : await showPaginatedAdds()
 }

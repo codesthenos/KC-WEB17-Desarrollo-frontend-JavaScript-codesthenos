@@ -1,5 +1,3 @@
-import { showPaginatedAdds, showAdds, showLoading } from './controller.js'
-
 // ERROR header
 export const errorHeader = 'ERROR'
 
