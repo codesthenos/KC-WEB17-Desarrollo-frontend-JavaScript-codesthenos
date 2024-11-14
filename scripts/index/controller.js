@@ -15,7 +15,7 @@ export const showAdds = async () => {
   const [addsH2, adds] = await Promise.all([addsHeading(), addsView()])
   target.innerHTML = ''
   target.appendChild(addsH2)
-  target.appendChild(paginateNav)
+  if (addsH2.textContent !== 'ERROR') target.appendChild(paginateNav)
   target.appendChild(adds)
 }
 
@@ -26,6 +26,6 @@ export const showPaginatedAdds = async () => {
   const [addsH2, paginatedAdds] = await Promise.all([addsHeading(), paginatedAddsView()])
   target.innerHTML = ''
   target.appendChild(addsH2)
-  target.appendChild(paginateNav)
+  if (addsH2.textContent !== 'ERROR') target.appendChild(paginateNav)
   target.appendChild(paginatedAdds)
 }

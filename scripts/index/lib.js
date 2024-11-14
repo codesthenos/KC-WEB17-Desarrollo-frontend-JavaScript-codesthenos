@@ -10,5 +10,6 @@ export const loadAddsButtonHandler = async () => {
 }
 // paginate button handler
 export const paginateButtonHandler = async () => {
+  showLoading()
   await showPaginatedAdds()
 }
