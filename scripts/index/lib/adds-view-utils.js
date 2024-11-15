@@ -34,12 +34,12 @@ export const addsHeading = () => {
   return addsH2
 }
 // Pagination nav
-export const addsPaginationButtons = ({ pagButtonText }) => {
+export const addsPaginationButtons = ({ pagButtonText, isLastPage }) => {
   const paginationNav = document.createElement('nav')
   const paginationButton = createPaginationButton({ pagButtonText })
   if (pagButtonText === showAllButtonText) {
-    const nextPageButton = createNextPageButton()
-    const previousPageButton = createPreviousPageButton()
+    const nextPageButton = createNextPageButton({ isLastPage })
+    const previousPageButton = createPreviousPageButton({ isLastPage })
     paginationNav.appendChild(previousPageButton)
     paginationNav.appendChild(paginationButton)
     paginationNav.appendChild(nextPageButton)

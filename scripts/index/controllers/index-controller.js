@@ -5,7 +5,7 @@ import { addsController } from './adds-controller.js'
 import { errorController } from './error-controller.js'
 import { loadingController } from './loading-controller.js'
 
-export const indexController = async (options = { queryParams: {}, pagButtonText }) => {
+export const indexController = async (options = { queryParams: {}, pagButtonText, isLastPage }) => {
   loadingController()
   const [response, response2] = await Promise.all([addsModel(options.queryParams), addsModel()])
 
@@ -13,7 +13,7 @@ export const indexController = async (options = { queryParams: {}, pagButtonText
     errorController({ errorMessage: response.error })
   } else {
     const numberOfTotalAdds = response2.adds.length // In a future this will be a numberOfFilteredAdds
-    addsController({ adds: response.adds, pagButtonText: options.pagButtonText, numTotalAdds: numberOfTotalAdds })
+    addsController({ adds: response.adds, pagButtonText: options.pagButtonText, isLastPage: options.isLastPage })
     // pagination events
     const paginateButton = document.getElementById(paginateButtonId)
     paginateButton.addEventListener('click', paginateButtonHandler)
