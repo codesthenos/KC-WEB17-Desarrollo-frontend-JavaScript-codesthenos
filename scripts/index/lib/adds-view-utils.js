@@ -1,4 +1,4 @@
-import { addsHeader } from "./consts.js"
+import { addsH2Text } from "./consts.js"
 
 const addIntoHTML = add => {
   const addHTML = `
@@ -29,6 +29,6 @@ export const addsList = ({ adds }) => {
 
 export const addsHeading = () => {
   const addsH2 = document.createElement('h2')
-  addsH2.textContent = addsHeader
+  addsH2.textContent = addsH2Text
   return addsH2
 }

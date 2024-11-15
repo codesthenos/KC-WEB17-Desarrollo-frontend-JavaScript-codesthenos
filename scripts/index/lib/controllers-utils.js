@@ -1,7 +1,7 @@
-import { mainDivId } from "./consts.js"
+import { mainId } from "./consts.js"
 
-export const mainDivBody = ({ child }) => {
-  const target = document.getElementById(mainDivId)
+export const setMainBody = ({ child }) => {
+  const target = document.getElementById(mainId)
   target.innerHTML = ''
   target.appendChild(child)
 }
