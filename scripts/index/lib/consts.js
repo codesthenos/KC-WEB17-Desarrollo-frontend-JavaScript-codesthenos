@@ -3,6 +3,9 @@ export const errorMessage = 'No adds'
 // ERROR css className
 export const errorClassName = 'error-h2'
 
+// Loading css classname
+export const loadingClassName = 'loading'
+
 // ADDS h2 textContent
 export const addsH2Text = 'ADDS'
 
@@ -18,6 +21,9 @@ export const addsPerPage = 1
 
 // initial page
 export const initialPage = 1
+
+// css class button
+export const buttonClassName = 'btn'
 
 // paginate button
 export const paginateButtonId = 'paginate-on-off-button'

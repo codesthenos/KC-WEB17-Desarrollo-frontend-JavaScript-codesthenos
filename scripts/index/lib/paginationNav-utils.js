@@ -1,10 +1,10 @@
-import { paginateButtonId } from "./consts.js"
+import { buttonClassName, paginateButtonId, paginateButtonText } from "./consts.js"
 
 export const createPaginationButton = ({ pagButtonText }) => {
   const paginationButton = document.createElement('button')
   paginationButton.setAttribute('id', paginateButtonId)
-  paginationButton.classList.add('btn')
-  paginationButton.textContent = pagButtonText ? pagButtonText : 'PAGINATE'
+  paginationButton.classList.add(buttonClassName)
+  paginationButton.textContent = pagButtonText ? pagButtonText : paginateButtonText
 
   return paginationButton
 }
