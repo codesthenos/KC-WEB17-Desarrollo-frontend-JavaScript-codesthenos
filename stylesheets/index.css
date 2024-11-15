@@ -41,6 +41,9 @@
     margin: 0 auto;
   }
   nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
     button {
       margin-top: 2rem;
     }

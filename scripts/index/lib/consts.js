@@ -31,4 +31,8 @@ export const showAllButtonText = 'SHOW ALL'
 export const paginateButtonText = 'PAGINATE'
 
 // nextPage button
+export const nextPageButtonId = 'next-page-button'
+export const nextPageButtonText = 'NEXT PAGE'
 // previousPage button
+export const previousPageButtonId = 'previous-page-button'
+export const previousPageButtonText = 'PREV PAGE'

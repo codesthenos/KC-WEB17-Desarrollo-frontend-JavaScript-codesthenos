@@ -1,5 +1,5 @@
-import { addsH2Text } from "./consts.js"
-import { createPaginationButton } from "./paginationNav-utils.js"
+import { addsH2Text, showAllButtonText } from "./consts.js"
+import { createNextPageButton, createPaginationButton, createPreviousPageButton } from "./paginationNav-utils.js"
 
 const addIntoHTML = add => {
   const addHTML = `
@@ -37,6 +37,15 @@ export const addsHeading = () => {
 export const addsPaginationButtons = ({ pagButtonText }) => {
   const paginationNav = document.createElement('nav')
   const paginationButton = createPaginationButton({ pagButtonText })
-  paginationNav.appendChild(paginationButton)
-  return paginationNav
+  if (pagButtonText === showAllButtonText) {
+    paginationNav.appendChild(paginationButton)
+    return paginationNav
+  } else {
+    const nextPageButton = createNextPageButton()
+    const previousPageButton = createPreviousPageButton()
+    paginationNav.appendChild(previousPageButton)
+    paginationNav.appendChild(paginationButton)
+    paginationNav.appendChild(nextPageButton)
+    return paginationNav
+  }
 }

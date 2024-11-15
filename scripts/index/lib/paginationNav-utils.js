@@ -1,4 +1,4 @@
-import { buttonClassName, paginateButtonId, paginateButtonText } from "./consts.js"
+import { buttonClassName, nextPageButtonId, nextPageButtonText, paginateButtonId, paginateButtonText, previousPageButtonId, previousPageButtonText } from "./consts.js"
 
 export const createPaginationButton = ({ pagButtonText }) => {
   const paginationButton = document.createElement('button')
@@ -10,9 +10,17 @@ export const createPaginationButton = ({ pagButtonText }) => {
 }
 
 export const createNextPageButton = () => {
-
+  const nextPageButton = document.createElement('button')
+  nextPageButton.setAttribute('id', nextPageButtonId)
+  nextPageButton.classList.add(buttonClassName)
+  nextPageButton.textContent = nextPageButtonText
+  return nextPageButton
 }
 
 export const createPreviousPageButton = () => {
-
+  const previousPageButton = document.createElement('button')
+  previousPageButton.setAttribute('id', previousPageButtonId)
+  previousPageButton.classList.add(buttonClassName)
+  previousPageButton.textContent = previousPageButtonText
+  return previousPageButton
 }
