@@ -1,4 +1,5 @@
 import { addsH2Text } from "./consts.js"
+import { createPaginationButton } from "./paginationNav-utils.js"
 
 const addIntoHTML = add => {
   const addHTML = `
@@ -31,4 +32,11 @@ export const addsHeading = () => {
   const addsH2 = document.createElement('h2')
   addsH2.textContent = addsH2Text
   return addsH2
+}
+// Pagination nav
+export const addsPaginationButtons = ({ pagButtonText }) => {
+  const paginationNav = document.createElement('nav')
+  const paginationButton = createPaginationButton({ pagButtonText })
+  paginationNav.appendChild(paginationButton)
+  return paginationNav
 }

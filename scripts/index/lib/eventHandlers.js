@@ -1,12 +1,15 @@
-/*
-import { showLoading, showAdds, showPaginatedAdds } from '../controllers/controller.js'
-import { paginateButtonId, showAllButtonText } from './lib.js'
+import { indexController } from '../controllers/index-controller.js'
+import { addsPerPage, initialPage, paginateButtonId, paginateButtonText, showAllButtonText } from './consts.js'
 
 // paginate button handler
 export const paginateButtonHandler = async () => {
+  const queryParams = { pageValue: initialPage, limitValue: addsPerPage }
   const paginationButton = document.getElementById(paginateButtonId)
-  showLoading()
-  paginationButton.textContent === showAllButtonText ? await showAdds() : await showPaginatedAdds()
+  if (paginationButton.textContent === paginateButtonText) {
+    await indexController({ queryParams, pagButtonText: showAllButtonText })
+  } else {
+    await indexController({ pagButtonText: paginateButtonText })
+  }
 }
 
 // nextPage button handler
@@ -14,4 +17,4 @@ export const nextPageButtonHandler = async () => {
   
 }
 // previousPage button handler
-*/
+
