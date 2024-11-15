@@ -1,4 +1,4 @@
-import { mainDivId } from "./lib.js"
+import { mainDivId } from "./consts.js"
 
 export const mainDivBody = ({ child }) => {
   const target = document.getElementById(mainDivId)

@@ -1,4 +1,4 @@
-import { addsHeader } from "./lib.js"
+import { addsHeader } from "./consts.js"
 
 const addIntoHTML = add => {
   const addHTML = `

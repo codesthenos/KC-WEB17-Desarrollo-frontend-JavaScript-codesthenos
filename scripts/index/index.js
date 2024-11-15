@@ -1,3 +1,3 @@
-import { indexController } from './controllers/controller.js'
+import { indexController } from './controllers/indexController.js'
 
 document.addEventListener('DOMContentLoaded', indexController)

@@ -1,3 +1,4 @@
+/*
 import { showLoading, showAdds, showPaginatedAdds } from '../controllers/controller.js'
 import { paginateButtonId, showAllButtonText } from './lib.js'
 
@@ -13,3 +14,4 @@ export const nextPageButtonHandler = async () => {
   
 }
 // previousPage button handler
+*/
