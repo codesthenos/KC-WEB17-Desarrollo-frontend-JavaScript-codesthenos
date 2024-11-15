@@ -6,9 +6,9 @@ export const paginateButtonHandler = async () => {
   const queryParams = { pageValue: initialPage, limitValue: addsPerPage }
   const paginationButton = document.getElementById(paginateButtonId)
   if (paginationButton.textContent === paginateButtonText) {
-    await indexController({ queryParams, pagButtonText: showAllButtonText })
+    await indexController({ queryParams, paginationOptions: { pagButtonText: showAllButtonText } })
   } else {
-    await indexController({ pagButtonText: paginateButtonText })
+    await indexController({ paginationOptions: { pagButtonText: paginateButtonText } })
   }
 }
 
@@ -19,9 +19,10 @@ export const nextPageButtonHandler = ({ paginationParams }, numberOfTotalAdds) =
     const limitAdds = paginationParams.limitValue
     const isLastPage = currentPage * limitAdds >= numberOfTotalAdds
     if (!isLastPage) {
-      await indexController({ queryParams : { pageValue: currentPage + 1, limitValue: limitAdds }, pagButtonText: showAllButtonText })
+      console.log('hola')
+      await indexController({ queryParams : { pageValue: currentPage + 1, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText } })
     } else {
-      await indexController({ queryParams : { pageValue: currentPage, limitValue: limitAdds }, pagButtonText: showAllButtonText, isLastPage })
+      await indexController({ queryParams : { pageValue: currentPage, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText, nextPageButtonIsLastPage: isLastPage } })
     }
 }
 // previousPage button handler
@@ -31,8 +32,8 @@ export const previousPageButtonHandler = ({ paginationParams }) =>
     const limitAdds = paginationParams.limitValue
     const isLastPage = currentPage <= 1
     if (!isLastPage) {
-      await indexController({ queryParams : { pageValue: currentPage - 1, limitValue: limitAdds }, pagButtonText: showAllButtonText })
+      await indexController({ queryParams : { pageValue: currentPage - 1, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText } })
     } else {
-      await indexController({ queryParams : { pageValue: currentPage, limitValue: limitAdds }, pagButtonText: showAllButtonText, isLastPage })
+      await indexController({ queryParams : { pageValue: currentPage, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText, prevPageButtonIsLastPage: isLastPage } })
     }
 }

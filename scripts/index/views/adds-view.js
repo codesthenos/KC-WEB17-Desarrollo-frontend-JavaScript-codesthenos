@@ -1,9 +1,9 @@
 import { addsHeading, addsList, addsPaginationButtons } from '../lib/adds-view-utils.js'
 
-export const addsView = ({ adds, pagButtonText, isLastPage }) => {
+export const addsView = ({ adds, pagButtonText, nextPageButtonIsLastPage, prevPageButtonIsLastPage }) => {
   const addsDiv = document.createElement('div')
   const addsH2 = addsHeading()
-  const addsPaginationNav = addsPaginationButtons({ pagButtonText, isLastPage })
+  const addsPaginationNav = addsPaginationButtons({ pagButtonText, nextPageButtonIsLastPage, prevPageButtonIsLastPage })
   const addsUl = addsList({ adds })
     
   addsDiv.appendChild(addsH2)
