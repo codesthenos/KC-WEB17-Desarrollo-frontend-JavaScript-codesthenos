@@ -1,4 +1,3 @@
-import { loadAddsButton } from './lib.js'
-import { loadAddsButtonHandler } from './eventHandlers.js'
+import { indexController } from './controllers/controller.js'
 
-loadAddsButton.addEventListener('click', loadAddsButtonHandler)
+document.addEventListener('DOMContentLoaded', indexController)

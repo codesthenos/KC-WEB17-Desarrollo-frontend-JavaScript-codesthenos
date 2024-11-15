@@ -1,11 +1,5 @@
-// ERROR header
-export const errorHeader = 'ERROR'
-
-// ERROR messages
-// No ads
+// ERROR message
 export const noAddsErrorMessage = 'No adds'
-// No collection
-export const noCollectionErrorMessage = '404 Not found\n\nThat collection doesnt exist'
 
 // endpoint collection of adds
 export const API = 'http://localhost:8000/api/adds/'
@@ -17,7 +11,7 @@ export const addsPerPage = 1
 export const initialPage = 1
 
 // main DIV id
-export const mainDivId = 'adds-list'
+export const mainDivId = 'index'
 
 // ADDS header
 export const addsHeader = 'ADDS'

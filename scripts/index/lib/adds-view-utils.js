@@ -1,0 +1,34 @@
+import { addsHeader } from "./lib.js"
+
+const addIntoHTML = add => {
+  const addHTML = `
+    <a href="/routes/ad-details.html">
+      <li>
+        <img src="${add.image}" alt="${add.description}" />
+        <h3>${add.name}</h3>
+        <p><span>Description:</span></p>
+        <p>${add.description}</p>
+        <p><span>Price:</span> ${add.price}€</p>
+        <p><span>For:</span> ${add.for}</p>
+      </li>
+    </a>
+    `
+    return addHTML
+}
+
+const addListHTML = ({ adds }) => {
+  const addsHTML = adds.map(addIntoHTML).join('\n')
+  return addsHTML
+}
+
+export const addsList = ({ adds }) => {
+  const addsUl = document.createElement('ul')
+  addsUl.innerHTML = addListHTML({ adds })
+  return addsUl
+}
+
+export const addsHeading = () => {
+  const addsH2 = document.createElement('h2')
+  addsH2.textContent = addsHeader
+  return addsH2
+}
