@@ -38,14 +38,14 @@ export const addsPaginationButtons = ({ pagButtonText }) => {
   const paginationNav = document.createElement('nav')
   const paginationButton = createPaginationButton({ pagButtonText })
   if (pagButtonText === showAllButtonText) {
-    paginationNav.appendChild(paginationButton)
-    return paginationNav
-  } else {
     const nextPageButton = createNextPageButton()
     const previousPageButton = createPreviousPageButton()
     paginationNav.appendChild(previousPageButton)
     paginationNav.appendChild(paginationButton)
     paginationNav.appendChild(nextPageButton)
+    return paginationNav
+  } else {
+    paginationNav.appendChild(paginationButton)
     return paginationNav
   }
 }
