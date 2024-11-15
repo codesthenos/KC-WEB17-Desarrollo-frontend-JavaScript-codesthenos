@@ -1,9 +1,16 @@
+import { addsModel } from '../models/adds-model.js'
 import { addListController } from './adds-controller.js'
 import { errorController } from './error-controller.js'
 import { loadingController } from './loading-controller.js'
 
-export const indexController = () => {
+export const indexController = async () => {
   loadingController()
+  const response = await addsModel()
+  if (response.error) {
+    errorController({ errorMessage: response.error })
+  } else {
+    addListController({ adds: response.adds })
+  }
 }
 /*
 export const showPaginatedAdds = async () => {

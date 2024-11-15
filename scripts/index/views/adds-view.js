@@ -1,9 +1,6 @@
-import { addsModel } from '../models/adds-model.js'
 import { addsHeading, addsList } from '../lib/adds-view-utils.js'
 
-export const addsView = async (queryParams = {}) => {
-  const response = await addsModel(queryParams)
-  const adds = response.adds
+export const addsView = ({ adds }) => {
   const addsDiv = document.createElement('div')
   const addsH2 = addsHeading()
   const addsUl = addsList({ adds })

@@ -1,9 +1,6 @@
-import { addsModel } from "../models/adds-model.js"
-
-export const errorView = async (queryParams = {}) => {
-  const response = await addsModel(queryParams)
+export const errorView = ({ errorMessage }) => {
   const errorH2 = document.createElement('h2')
-  errorH2.textContent = response.error
+  errorH2.textContent = errorMessage
   errorH2.classList.add('error-h2')
   return errorH2
 }
