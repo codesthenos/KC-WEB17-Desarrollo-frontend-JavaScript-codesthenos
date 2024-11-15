@@ -1,5 +1,5 @@
 import { paginateButtonId, nextPageButtonId, previousPageButtonId } from '../lib/consts.js'
-import { paginateButtonHandler } from '../lib/eventHandlers.js'
+import { paginateButtonHandler, nextPageButtonHandler, previousPageButtonHandler } from '../lib/eventHandlers.js'
 import { addsModel } from '../models/adds-model.js'
 import { addsController } from './adds-controller.js'
 import { errorController } from './error-controller.js'
@@ -17,8 +17,12 @@ export const indexController = async (options = { queryParams: {}, pagButtonText
     paginateButton.addEventListener('click', paginateButtonHandler)
     // TODO
     const nextPageButton = document.getElementById(nextPageButtonId)
-    nextPageButton.addEventListener('click', nextPageButtonHandler)
+    if (nextPageButton) {
+      nextPageButton.addEventListener('click', nextPageButtonHandler({ paginationParams: options.queryParams }))
+    }
     const previousPageButton = document.getElementById(previousPageButtonId)
-    previousPageButton.addEventListener('click', previousPageButtonHandler)
+    if (previousPageButton) {
+      previousPageButton.addEventListener('click', previousPageButtonHandler({ paginationParams: options.queryParams }))
+    }
   }
 }

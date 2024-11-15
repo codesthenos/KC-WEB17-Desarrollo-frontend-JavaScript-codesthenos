@@ -13,8 +13,12 @@ export const paginateButtonHandler = async () => {
 }
 
 // nextPage button handler
-export const nextPageButtonHandler = async () => {
-  
+export const nextPageButtonHandler = ({ paginationParams }) =>
+  async () => {
+    await indexController({ queryParams : { pageValue: paginationParams.pageValue + 1, limitValue: paginationParams.limitValue }, pagButtonText: showAllButtonText })
 }
 // previousPage button handler
-
+export const previousPageButtonHandler = ({ paginationParams }) => 
+  async () => {
+    await indexController({ queryParams : { pageValue: paginationParams.pageValue - 1, limitValue: paginationParams.limitValue }, pagButtonText: showAllButtonText })
+}
