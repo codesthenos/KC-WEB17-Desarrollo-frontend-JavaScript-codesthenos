@@ -7,18 +7,20 @@ import { loadingController } from './loading-controller.js'
 
 export const indexController = async (options = { queryParams: {}, pagButtonText }) => {
   loadingController()
-  const response = await addsModel(options.queryParams)
-  if (response.error) {
+  const [response, response2] = await Promise.all([addsModel(options.queryParams), addsModel()])
+
+  if (response.error || response2.error) {
     errorController({ errorMessage: response.error })
   } else {
-    addsController({ adds: response.adds, pagButtonText: options.pagButtonText })
+    const numberOfTotalAdds = response2.adds.length // In a future this will be a numberOfFilteredAdds
+    addsController({ adds: response.adds, pagButtonText: options.pagButtonText, numTotalAdds: numberOfTotalAdds })
     // pagination events
     const paginateButton = document.getElementById(paginateButtonId)
     paginateButton.addEventListener('click', paginateButtonHandler)
     // TODO
     const nextPageButton = document.getElementById(nextPageButtonId)
     if (nextPageButton) {
-      nextPageButton.addEventListener('click', nextPageButtonHandler({ paginationParams: options.queryParams }))
+      nextPageButton.addEventListener('click', nextPageButtonHandler({ paginationParams: options.queryParams }, numberOfTotalAdds))
     }
     const previousPageButton = document.getElementById(previousPageButtonId)
     if (previousPageButton) {

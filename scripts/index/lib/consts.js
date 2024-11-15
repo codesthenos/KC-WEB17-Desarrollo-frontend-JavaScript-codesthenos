@@ -16,11 +16,11 @@ export const mainId = 'index'
 export const API = 'http://localhost:8000/api/adds/'
 
 // PAGINATION
-// adds per page
-export const addsPerPage = 1
-
 // initial page
 export const initialPage = 1
+
+// adds per page
+export const addsPerPage = 2
 
 // css class button
 export const buttonClassName = 'btn'
