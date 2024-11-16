@@ -1,6 +1,5 @@
 import { indexController } from '../controllers/index-controller.js'
 import { addsPerPage, initialPage, paginateButtonText, showAllButtonText } from './consts.js'
-import { calculateIsFirstPage, calculateIsLastPage } from './utils.js'
 
 // paginate button handler
 export const paginateButtonHandler = ({ paginationParams }) =>

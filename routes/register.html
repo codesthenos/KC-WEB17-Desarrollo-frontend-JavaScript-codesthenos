@@ -6,10 +6,32 @@
   <title>WALLAPOP - REGISTER</title>
   <link rel="stylesheet" href="/stylesheets/reset.css">
   <link rel="stylesheet" href="/stylesheets/common.css">
+  <link rel="stylesheet" href="/stylesheets/login-register.css">
 </head>
 <body>
-  <h1>WALLAPOP REGISTER</h1>
-  <a class="btn" href="/">HOME</a>
-  <a class="btn" href="/routes/login.html">LOGIN</a>
+  <header class="header">
+    <h1 class="sr-only">WALLAPOP</h1>
+    <div class="header-logo">
+      <img src="/public/wallapopLogo.png" alt="">
+    </div>
+    <nav>
+      <a class="btn" href="/routes/login.html">LOGIN</a>
+      <a class="btn" href="/">HOME</a>
+    </nav>
+  </header>
+  <main>
+    <form method="post">
+      <h2>Register</h2>
+      <div class="input-text">
+        <label class="first-label" for="name">Username</label>
+        <input id="name" type="text" name="username" required>
+      </div>
+      <div class="input-text">
+        <label for="password">Password</label>
+        <input id="password" type="text" name="password" required>
+      </div>
+      <button class="btn" type="submit">REGISTER</button>
+    </form>
+  </main>
 </body>
 </html>
