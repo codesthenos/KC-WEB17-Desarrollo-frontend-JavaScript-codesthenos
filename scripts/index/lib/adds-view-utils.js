@@ -1,9 +1,9 @@
 import { addsH2Text, showAllButtonText } from "./consts.js"
 import { createNextPageButton, createPaginationButton, createPreviousPageButton } from "./paginationNav-utils.js"
 
-const addIntoHTML = add => {
+const addIntoHTML = (add, index) => {
   const addHTML = `
-    <a href="/routes/ad-details.html">
+    <a href="/routes/ad-details.html?id=${index}">
       <li>
         <img src="${add.image}" alt="${add.description}" />
         <h3>${add.name}</h3>
