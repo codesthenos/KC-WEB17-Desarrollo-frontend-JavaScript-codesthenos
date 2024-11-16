@@ -1,5 +1,6 @@
-// ERROR message, will be the ERROR h2 textContent
-export const errorMessage = 'No adds'
+// ERROR message, will be the ERROR h2 textContent if no adds
+export const noAddsMessage = 'No adds'
+
 // ERROR css className
 export const errorClassName = 'error-h2'
 
