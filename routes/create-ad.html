@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WALLAPOP - CREATE AD</title>
-  <link rel="stylesheet" href="/stylesheets/reset.css">
-  <link rel="stylesheet" href="/stylesheets/common.css">
+  <link rel="stylesheet" href="/stylesheets/reset.css" />
+  <link rel="stylesheet" href="/stylesheets/common.css" />
+  <link rel="stylesheet" href="/stylesheets/create-ad.css" />
 </head>
 <body>
-  <h1>WALLAPOP CREATE AD</h1>
-  <a class="btn" href="/">HOME</a>
+  <header class="header">
+    <h1 class="sr-only">WALLAPOP</h1>
+    <div class="header-logo">
+      <img src="/public/wallapopLogo.png" alt="" />
+    </div>
+    <nav>
+      <a class="btn" href="/">HOME</a>
+    </nav>
+  </header>
+  <main>
+    <form method="post">
+      <h2>Create add</h2>
+      <div class="input-text">
+        <label class="first-label" for="name">Add name</label>
+        <input id="name" type="text" name="name" required />
+      </div>
+      <div class="input-text">
+        <label for="price">Price</label>
+        <input id="price" type="number" name="price" min="0" required />
+      </div>
+      <div class="input-text">
+        <label for="image">Image</label>
+        <input id="image" type="text" name="image" />
+      </div>
+      <div class="input-text">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" rows="7" required></textarea>
+      </div>
+      <div class="input-text radio-divs-container">
+        <div class="radio-input-div">
+          <label for="sell">Sell</label>
+          <input type="radio" name="action" id="sell" required>
+        </div>
+        <div class="radio-input-div">
+          <input type="radio" name="action" id="buy" required>
+          <label for="buy">Buy</label>
+        </div>
+      </div>
+      <button class="btn" type="submit">CREATE</button>
+    </form>
+  </main>
 </body>
 </html>

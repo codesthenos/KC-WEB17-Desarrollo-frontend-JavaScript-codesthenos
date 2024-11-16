@@ -13,13 +13,17 @@ main {
       text-align: left;
       display: flex;
       flex-direction: column;
+      font-weight: bold;
       .first-label {
         text-align: left;
         margin-top: 1rem;
       }
+      .last-label {
+        margin-top: 1rem;
+      }
     }
     .btn {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
   }
 }
