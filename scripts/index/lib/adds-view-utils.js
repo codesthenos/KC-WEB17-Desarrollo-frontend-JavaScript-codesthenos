@@ -3,7 +3,7 @@ import { createNextPageButton, createPaginationButton, createPreviousPageButton 
 
 const addIntoHTML = (add, index) => {
   const addHTML = `
-    <a href="/routes/ad-details.html?id=${index}">
+    <a href="/routes/add-details.html?id=${index}">
       <li>
         <img src="${add.image}" alt="${add.description}" />
         <h3>${add.name}</h3>
