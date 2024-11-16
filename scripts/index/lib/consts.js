@@ -6,6 +6,9 @@ export const errorClassName = 'error-h2'
 // Loading css classname
 export const loadingClassName = 'loading'
 
+// disabled css classname
+export const disabledClassName = 'disabled'
+
 // ADDS h2 textContent
 export const addsH2Text = 'ADDS'
 
@@ -20,7 +23,7 @@ export const API = 'http://localhost:8000/api/adds/'
 export const initialPage = 1
 
 // adds per page
-export const addsPerPage = 2
+export const addsPerPage = 1
 
 // css class button
 export const buttonClassName = 'btn'
