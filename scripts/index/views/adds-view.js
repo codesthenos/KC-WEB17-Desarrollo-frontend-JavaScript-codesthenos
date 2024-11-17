@@ -1,4 +1,6 @@
-import { addsHeading, addsList, addsPaginationButtons } from '../lib/adds-view-utils.js'
+import { addsHeading } from './addsH2-view.js'
+import { addsPaginationButtons } from './addsPaginationNav-view.js'
+import { addsList } from './addsUl-view.js'
 
 export const addsView = ({ state }) => {
   const addsDiv = document.createElement('div')
