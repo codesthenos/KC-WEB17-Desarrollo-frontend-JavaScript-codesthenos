@@ -1,4 +1,4 @@
-import { addsH2Text, showAllButtonText } from "./consts.js"
+import { addsH2Text, addsH2ClassName, showAllButtonText } from "./consts.js"
 import { createNextPageButton, createPaginationButton, createPreviousPageButton } from "./paginationNav-utils.js"
 
 const addIntoHTML = (add) => {
@@ -31,6 +31,7 @@ export const addsList = ({ adds }) => {
 export const addsHeading = () => {
   const addsH2 = document.createElement('h2')
   addsH2.textContent = addsH2Text
+  addsH2.classList.add(addsH2ClassName)
   return addsH2
 }
 // Pagination nav

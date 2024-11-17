@@ -1,4 +1,4 @@
-import { errorClassName } from "../lib/consts.js"
+import { errorClassName } from '../lib/consts.js'
 
 export const errorView = ({ errorMessage }) => {
   const errorH2 = document.createElement('h2')

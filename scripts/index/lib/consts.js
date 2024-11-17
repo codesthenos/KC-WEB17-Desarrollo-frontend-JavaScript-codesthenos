@@ -1,20 +1,11 @@
 // ERROR message, will be the ERROR h2 textContent if no adds
 export const noAddsMessage = 'No adds'
 
-// ERROR css className
-export const errorClassName = 'error-h2'
-
-// Loading css classname
-export const loadingClassName = 'loading'
-
-// disabled css classname
-export const disabledClassName = 'disabled'
-
 // ADDS h2 textContent
 export const addsH2Text = 'ADDS'
 
-// id of the <main> HTMLElement where we will place our main web content
-export const mainId = 'index'
+// ADDS h2 CSS class name
+export const addsH2ClassName = 'adds-h2'
 
 // API endpoint to get a list of ADDS
 export const API = 'http://localhost:8000/api/adds/'
@@ -28,6 +19,9 @@ export const addsPerPage = 1
 
 // css class button
 export const buttonClassName = 'btn'
+
+// disabled css classname
+export const disabledClassName = 'disabled'
 
 // paginate button
 export const paginateButtonId = 'paginate-on-off-button'

@@ -107,6 +107,14 @@ img {
   animation: spin 1s linear infinite;
 }
 
+.error-h2 {
+  margin-top: 6rem;
+  font-size: 3rem;
+  color: yellow;
+  background-color: var(--bg-color);
+  border: 0;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

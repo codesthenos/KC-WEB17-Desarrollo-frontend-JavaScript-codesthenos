@@ -3,12 +3,7 @@
   margin: 0 auto;
   margin-top: 4rem;
   text-align: center;
-  #load-adds-button-id {
-    cursor: pointer;
-    line-height: 1.5rem;
-    font-size: 1rem;
-  }
-  h2 {
+  .adds-h2 {
     font-size: 3rem;
     color: var(--color);
     background-color: var(--brand-color);
@@ -25,11 +20,6 @@
     button {
       margin-top: 2rem;
     }
-  }
-  .error-h2 {
-    color: yellow;
-    background-color: var(--bg-color);
-    border: 0;
   }
   ul {
     margin-top: 3rem;

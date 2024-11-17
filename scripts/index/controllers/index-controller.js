@@ -3,8 +3,8 @@ import { paginateButtonHandler, nextPageButtonHandler, previousPageButtonHandler
 import { calculateIsFirstPage, calculateIsLastPage } from '../lib/utils.js'
 import { addsModel } from '../models/adds-model.js'
 import { addsController } from './adds-controller.js'
-import { errorController } from './error-controller.js'
-import { loadingController } from './loading-controller.js'
+import { errorController } from '../../error/error-controller.js'
+import { loadingController } from '../../loading/loading-controller.js'
 
 export const indexController = async (options = { queryParams: {}, paginationOptions: {} }) => {
   const queryParams = options.queryParams

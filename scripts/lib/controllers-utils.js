@@ -1,7 +1,5 @@
-import { mainId } from "./consts.js"
-
 export const setMainBody = ({ child }) => {
-  const target = document.getElementById(mainId)
+  const target = document.querySelector('main')
   target.innerHTML = ''
   target.appendChild(child)
 }
