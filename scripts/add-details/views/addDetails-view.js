@@ -1,3 +1,3 @@
-import { addDetailsModel } from '../models/addDetails-model'
+import { addDetailsModel } from '../models/addDetails-model.js'
 
 export const addDetailsView = () => {}

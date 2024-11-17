@@ -1,10 +1,15 @@
+// pagination button ids
 import { paginateButtonId, nextPageButtonId, previousPageButtonId, paginateButtonText } from '../lib/consts.js'
+// pagination event handlers
 import { paginateButtonHandler, nextPageButtonHandler, previousPageButtonHandler } from '../lib/eventHandlers.js'
+// utils to calculate first and last page
 import { calculateIsFirstPage, calculateIsLastPage } from '../lib/utils.js'
+// data model
 import { addsModel } from '../models/adds-model.js'
-import { addsController } from './adds-controller.js'
-import { errorController } from '../../error/error-controller.js'
+// loading, error, and success controllers
 import { loadingController } from '../../loading/loading-controller.js'
+import { errorController } from '../../error/error-controller.js'
+import { addsController } from './adds-controller.js'
 
 export const indexController = async (options = { queryParams: {}, paginationOptions: {} }) => {
   const queryParams = options.queryParams
