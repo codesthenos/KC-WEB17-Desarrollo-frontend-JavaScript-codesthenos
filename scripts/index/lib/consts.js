@@ -15,7 +15,7 @@ export const API = 'http://localhost:8000/api/adds/'
 export const initialPage = 1
 
 // adds per page
-export const addsPerPage = 1
+export const addsPerPage = 3
 
 // css class button
 export const buttonClassName = 'btn'

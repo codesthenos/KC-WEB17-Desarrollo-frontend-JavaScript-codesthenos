@@ -4,7 +4,7 @@ export const loadingClassName = 'loading'
 export const errorClassName = 'error-h2'
 // li add CSS class name
 export const addLiClassName = 'add-card'
-// p description class name
-export const pDescription = 'description-p'
+// div description class name
+export const divDescriptionClassName = 'description-div'
 // p for class name
 export const pFor = 'for-p'

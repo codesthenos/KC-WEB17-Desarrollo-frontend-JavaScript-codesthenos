@@ -24,7 +24,9 @@
   ul {
     margin-top: 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: center;
+    align-items: end;
     gap: 2rem;
     a {
       margin: 0;
