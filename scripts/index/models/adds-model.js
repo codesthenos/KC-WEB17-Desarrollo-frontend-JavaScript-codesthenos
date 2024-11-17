@@ -16,6 +16,8 @@ export const addsModel = async (queryParams = {}) => {
     if (!fetchedAdds.adds.length){
       return { error: noAddsMessage }
     } else {
+      sessionStorage.clear()
+      sessionStorage.setItem('addsDB', JSON.stringify(fetchedAdds))
       return fetchedAdds
     }
   } catch (error) {
