@@ -19,11 +19,13 @@
       max-height: 310px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: end;
+      gap: 1rem;
       .buttons-div {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: start;
         align-items: center;
+        gap: 1rem;
       }
       .description-div {
         max-height: 240px;
@@ -47,8 +49,11 @@
       flex-direction: column;
       align-items: center;
       .buttons-desc-div {
-        margin-top: 1rem;
+        .buttons-div {
+          justify-content: space-between;
+        }
         .description-div {
+          margin-top: .5rem;
           overflow-y: scroll;
           max-width: 320px;
         }
