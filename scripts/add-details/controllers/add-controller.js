@@ -1,7 +1,7 @@
 import { setMainBody } from '../../lib/controllers-utils.js'
 import { addDetailsView } from '../views/addDetails-view.js'
 
-export const addController = () => {
-  const addDetailDiv = addDetailsView()
+export const addController = ({ add }) => {
+  const addDetailDiv = addDetailsView({ add })
   setMainBody({ child: addDetailDiv })
 }

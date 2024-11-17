@@ -10,7 +10,8 @@ export const addDetailsController = () => {
     if (data.error) {
       errorController({ errorMessage: data.error })
     } else if (data.add) {
-      errorController({ errorMessage: `Add id: ${data.add.id}` })
+      //errorController({ errorMessage: `Add id: ${data.add.id}` })
+      addController({ add: data.add })
     }
   }, 1000)
 }

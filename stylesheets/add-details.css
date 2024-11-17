@@ -1,5 +1,16 @@
 #add-details {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  text-align: center;
   .error-h2 {
     color: red;
   }
+  .add-details-h2 {
+    
+  }
+  .add-details-img {
+
+  }
+
 }
