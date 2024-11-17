@@ -47,7 +47,7 @@
     }
   }
 }
-@media (width < 768px) {
+@media (width < 610px) {
   #add-details {
     article {
       flex-direction: column;
@@ -58,7 +58,7 @@
           justify-content: space-between;
         }
         .description-div {
-          overflow-y: scroll;
+          overflow: scroll;
           max-width: 320px;
         }
       }
