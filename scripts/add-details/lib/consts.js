@@ -17,3 +17,5 @@ export const updateAddButtonText = 'UPDATE ADD'
 export const buttonsDivClassName = 'buttons-div'
 
 export const buttonDescDivClassName = 'buttons-desc-div'
+
+export const addUpdateButtonHref = '/routes/create-ad.html?id='

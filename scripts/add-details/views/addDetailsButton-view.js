@@ -1,10 +1,14 @@
 import { buttonClassName } from '../../lib/consts.js'
 
-export const addDetailButtonView = ({ buttonId, buttonText }) => {
-  const deleteAddButton = document.createElement('button')
-  deleteAddButton.setAttribute('id', buttonId)
-  deleteAddButton.classList.add(buttonClassName)
-  deleteAddButton.textContent = buttonText
+export const addDetailButtonView = ({ buttonId, buttonText, buttonHref, add }) => {
+  const addButton = document.createElement('a')
+  addButton.setAttribute('id', buttonId)
+  addButton.classList.add(buttonClassName)
+  addButton.textContent = buttonText
+  if (buttonHref) {
+    const addButtonHref = `${buttonHref}${add.id}`
+    addButton.setAttribute('href', addButtonHref)
+  }
 
-  return deleteAddButton
+  return addButton
 }
