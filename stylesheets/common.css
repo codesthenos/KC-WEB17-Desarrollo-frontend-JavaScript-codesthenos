@@ -41,6 +41,8 @@ input, textarea {
   &:focus {
     cursor: text;
     box-shadow: 0 0 5px 5px var(--brand-color);
+    color: var(--color);
+    background-color: var(--bg-color);
     +label {
       color: var(--brand-color);
     }
@@ -101,6 +103,36 @@ img {
     a {
       margin: 0;
     }
+  }
+}
+
+.add-card {
+  max-width: 180px;
+  background-color: var(--brand-color);
+  border: 3px solid var(--color);
+  border-radius: 15px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  h3 {
+    margin: 0;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+  }
+  span {
+    text-align: left;
+    font-weight: bold;
+  }
+  p {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .for-p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
   }
 }
 

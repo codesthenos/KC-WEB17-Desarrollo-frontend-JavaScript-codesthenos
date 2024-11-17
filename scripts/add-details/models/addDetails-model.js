@@ -1,4 +1,4 @@
-import { noId, noAdd } from '../../add-details/lib/consts.js'
+import { noId, noAdd, noAddsDB } from '../../add-details/lib/consts.js'
 
 export const addDetailsModel = () => {
   try {
@@ -6,6 +6,7 @@ export const addDetailsModel = () => {
     const addId = params.get('id')
     if (!addId) throw new Error(noId)
     const addsDB = JSON.parse(sessionStorage.getItem('addsDB'))
+    if (!addsDB) throw new Error(noAddsDB)
     const adds = addsDB.adds
     const add = adds.find(add => add.id === addId)
     if (!add) throw new Error(noAdd)
