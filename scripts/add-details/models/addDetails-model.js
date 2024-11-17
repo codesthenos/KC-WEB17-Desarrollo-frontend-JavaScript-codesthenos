@@ -1,11 +1,11 @@
-import { noId, noAdd, noAddsDB } from '../../add-details/lib/consts.js'
+import { noId, noAdd, noAddsDB, addsDBName } from '../../add-details/lib/consts.js'
 
 export const addDetailsModel = () => {
   try {
     const params = new URLSearchParams(window.location.search)
     const addId = params.get('id')
     if (!addId) throw new Error(noId)
-    const addsDB = JSON.parse(sessionStorage.getItem('addsDB'))
+    const addsDB = JSON.parse(sessionStorage.getItem(addsDBName))
     if (!addsDB) throw new Error(noAddsDB)
     const adds = addsDB.adds
     const add = adds.find(add => add.id === addId)
