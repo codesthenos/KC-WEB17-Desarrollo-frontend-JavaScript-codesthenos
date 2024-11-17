@@ -1,4 +1,5 @@
-import { previousPageButtonId, previousPageButtonText, buttonClassName, disabledClassName } from '../../lib/consts.js'
+import { previousPageButtonId, previousPageButtonText } from '../../lib/consts.js'
+import { buttonClassName, disabledClassName } from '../../../lib/consts.js'
 
 export const createPreviousPageButton = ({ isFirstPage }) => {
   const previousPageButton = document.createElement('button')

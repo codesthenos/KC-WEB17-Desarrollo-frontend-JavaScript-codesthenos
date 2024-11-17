@@ -8,3 +8,7 @@ export const addLiClassName = 'add-card'
 export const divDescriptionClassName = 'description-div'
 // p for class name
 export const pFor = 'for-p'
+// css class button
+export const buttonClassName = 'btn'
+// disabled css classname
+export const disabledClassName = 'disabled'

@@ -17,12 +17,6 @@ export const initialPage = 1
 // adds per page
 export const addsPerPage = 3
 
-// css class button
-export const buttonClassName = 'btn'
-
-// disabled css classname
-export const disabledClassName = 'disabled'
-
 // paginate button
 export const paginateButtonId = 'paginate-on-off-button'
 export const showAllButtonText = 'SHOW ALL'

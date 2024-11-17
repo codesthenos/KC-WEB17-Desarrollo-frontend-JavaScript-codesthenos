@@ -1,4 +1,5 @@
-import { nextPageButtonId, nextPageButtonText, buttonClassName, disabledClassName } from '../../lib/consts.js'
+import { nextPageButtonId, nextPageButtonText } from '../../lib/consts.js'
+import { buttonClassName, disabledClassName } from '../../../lib/consts.js'
 
 export const createNextPageButton = ({ isLastPage }) => {
   const nextPageButton = document.createElement('button')
