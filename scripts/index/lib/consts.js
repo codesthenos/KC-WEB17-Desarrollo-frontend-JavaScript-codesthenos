@@ -7,9 +7,6 @@ export const addsH2Text = 'ADDS'
 // ADDS h2 CSS class name
 export const addsH2ClassName = 'adds-h2'
 
-// API endpoint to get a list of ADDS
-export const API = 'http://localhost:8000/api/adds/'
-
 // PAGINATION
 // initial page
 export const initialPage = 1

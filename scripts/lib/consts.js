@@ -12,3 +12,5 @@ export const pFor = 'for-p'
 export const buttonClassName = 'btn'
 // disabled css classname
 export const disabledClassName = 'disabled'
+// API endpoint to get a list of ADDS
+export const API = 'http://localhost:8000/api/adds/'
