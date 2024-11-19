@@ -1,31 +1,35 @@
-import { indexController } from '../controllers/index-controller.js'
+import { indexController } from '../index-controller.js'
 import { addsPerPage, initialPage, paginateButtonText, showAllButtonText } from './consts.js'
 
 // paginate button handler
 export const paginateButtonHandler = ({ paginationParams }) =>
-  async () => {
+  () => {
   const queryParams = { pageValue: initialPage, limitValue: addsPerPage }
   const pagButtonText = paginationParams.pagButtonText
 
   if (pagButtonText === paginateButtonText) {
-    await indexController({ queryParams, paginationOptions: { pagButtonText: showAllButtonText } })
+    const state = { queryParams, paginationOptions: { pagButtonText: showAllButtonText } }
+    indexController({ state })
   } else {
-    await indexController({ paginationOptions: { pagButtonText: paginateButtonText } })
+    const state = { paginationOptions: { pagButtonText: paginateButtonText } }
+    indexController({ state })
   }
 }
 // nextPage button handler
 export const nextPageButtonHandler = ({ queryParams }) =>
-  async () => {
+  () => {
     const currentPage = queryParams.pageValue
     const limitAdds = queryParams.limitValue
 
-    await indexController({ queryParams : { pageValue: currentPage + 1, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText } })
+    const state = { queryParams : { pageValue: currentPage + 1, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText } }
+    indexController({ state })
 }
 // previousPage button handler
 export const previousPageButtonHandler = ({ queryParams }) => 
-  async () => {
+  () => {
     const currentPage = queryParams.pageValue
     const limitAdds = queryParams.limitValue
 
-    await indexController({ queryParams : { pageValue: currentPage - 1, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText } })
+    const state = { queryParams : { pageValue: currentPage - 1, limitValue: limitAdds }, paginationOptions: { pagButtonText: showAllButtonText } }
+    indexController({ state })
 }

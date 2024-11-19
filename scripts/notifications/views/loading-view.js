@@ -1,4 +1,4 @@
-import { loadingClassName } from "../lib/consts.js"
+import { loadingClassName } from "../../lib/consts.js"
 
 export const loadingView = () => {
   const loadingDiv = document.createElement('div')

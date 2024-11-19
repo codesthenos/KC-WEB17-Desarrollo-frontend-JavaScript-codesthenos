@@ -1,9 +1,9 @@
-import { noAddsMessage } from '../lib/consts.js'
-import { API } from '../../lib/consts.js'
+import { noAddsMessage } from './lib/consts.js'
+import { API } from '../lib/consts.js'
 
 // query params for pagination
 // _page & _limit
-export const addsModel = async (queryParams = {}) => {
+export const addsModel = async ({ queryParams }) => {
   try {
     let query = API
     if (queryParams.pageValue || queryParams.limitValue) {
@@ -11,7 +11,6 @@ export const addsModel = async (queryParams = {}) => {
     }
 
     const response = await fetch(query)
-
     const fetchedAdds = { adds: await response.json() }
 
     if (!fetchedAdds.adds.length){
@@ -22,6 +21,6 @@ export const addsModel = async (queryParams = {}) => {
       return fetchedAdds
     }
   } catch (error) {
-    return { error: error.message }
+    throw new Error(error.message)
   }
 }
