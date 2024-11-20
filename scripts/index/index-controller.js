@@ -11,7 +11,7 @@ import { addsView } from './views/adds-view.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, loadingNoti, successMsg, successNoti } from '../lib/consts.js'
 
-export const indexController = async ({ element, state }) => {
+export const indexController = async ({ element, notificationElement, state }) => {
   
   fireNotificationEvent({ element, type: loadingNoti, message: '' })
   try {
@@ -30,7 +30,11 @@ export const indexController = async ({ element, state }) => {
     const addsDiv = addsView({ viewState: currentViewState })
     element.innerHTML = ''
     element.appendChild(addsDiv)
-    fireNotificationEvent({ element, type: successNoti, message: successMsg })
+    notificationElement.innerHTML = ''
+    notificationElement.classList.remove(loadingNoti)
+    notificationElement.classList.remove('notifications-div')
+    // I think i dont want to throw a 'loaded succesfully after loading the homepage, that why its commented
+    // fireNotificationEvent({ element, type: successNoti, message: successMsg })
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, message: error.message })
   }

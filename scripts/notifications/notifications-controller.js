@@ -14,7 +14,9 @@ export const notificationsController = ({ element }) => {
     } else if (type === loadingNoti) {
       element.classList.remove(errorNoti)
       element.classList.remove(successNoti)
-      element.classList.add(loadingNoti)
+      if (!element.classList.contains(loadingNoti)) {
+        element.classList.add(loadingNoti)
+      }
     } else if (type === successNoti) {
       const successDiv = successView({ successMessage: message })
       element.innerHTML = ''
@@ -24,7 +26,9 @@ export const notificationsController = ({ element }) => {
       element.appendChild(successDiv)
       setTimeout(() => {
         element.innerHTML = ''
-      }, 4000)
+        element.classList.remove(successNoti)
+        element.classList.remove('notifications-div')
+      }, 2000)
     }
   }
 

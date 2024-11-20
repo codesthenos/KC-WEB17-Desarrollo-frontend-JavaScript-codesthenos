@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showNotifications({ message: event.detail.message, type: event.detail.type })
   })
 
-  indexController({ element: indexMain, state: initialState })
+  indexController({ element: indexMain, notificationElement: notificationsDiv, state: initialState })
 
 
 })
