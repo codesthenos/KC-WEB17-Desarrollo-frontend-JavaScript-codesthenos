@@ -1,6 +1,7 @@
 import { notiDiv, notificationEventName } from '../lib/consts.js'
 import { notificationsController } from '../notifications/notifications-controller.js'
 import { indexController } from './index-controller.js'
+import { paginateButtonText } from './lib/consts.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const indexMain = document.querySelector('main')
@@ -12,9 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       limitValue: null
     },
     paginationParams: {
-      pagButtonText: null,
-      isFirstPage: null,
-      isLastPage: null
+      pagButtonText: paginateButtonText
     }
   }
   

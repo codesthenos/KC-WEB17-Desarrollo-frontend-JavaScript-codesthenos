@@ -5,11 +5,11 @@ import { addsList } from './addsUl-view.js'
 export const addsView = ({ viewState }) => {
   const addsDiv = document.createElement('div')
   const addsH2 = addsHeading()
-  //const addsPaginationNav = addsPaginationButtons({ pagButtonText: state.pagButtonText, isLastPage: state.isLastPage, isFirstPage: state.isFirstPage })
+  const addsPaginationNav = addsPaginationButtons({ pagButtonText: viewState.pagButtonText, isLastPage: viewState.isLastPage, isFirstPage: viewState.isFirstPage })
   const addsUl = addsList({ adds: viewState.adds })
     
   addsDiv.appendChild(addsH2)
-  //addsDiv.appendChild(addsPaginationNav)
+  addsDiv.appendChild(addsPaginationNav)
   addsDiv.appendChild(addsUl)
   return addsDiv
 }
