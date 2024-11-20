@@ -1,29 +1,39 @@
-import { errorNoti, loadingNoti, successNoti } from '../lib/consts.js'
-import { errorView } from './views/error-view.js'
-import { successView } from './views/success-view.js'
+import { errorClassName, errorNoti, loadingNoti, successClassName, successNoti } from '../lib/consts.js'
+import { setNotification } from '../lib/setNotification.js'
+import { notificationView } from './notification-view.js'
 
 export const notificationsController = ({ element }) => {
   const showNotifications = ({ message, type }) => {
     if (type === errorNoti) {
-      const errorDiv = errorView({ errorMessage: message })
-      element.innerHTML = ''
-      element.classList.remove(loadingNoti)
-      element.classList.remove(successNoti)
-      element.classList.add(errorNoti)
+      const errorDiv = notificationView({ notificationMessage: message, notificationClassName: errorClassName })
+
+      setNotification({
+        notification: element,
+        removeClassName1: loadingNoti,
+        removeClassName2: successNoti,
+        addClassName: errorNoti
+      })
+
       element.appendChild(errorDiv)
     } else if (type === loadingNoti) {
-      element.classList.remove(errorNoti)
-      element.classList.remove(successNoti)
-      if (!element.classList.contains(loadingNoti)) {
-        element.classList.add(loadingNoti)
-      }
+      setNotification({
+        notification: element,
+        removeClassName1: errorNoti,
+        removeClassName2: successNoti,
+        addClassName: loadingNoti
+      })
     } else if (type === successNoti) {
-      const successDiv = successView({ successMessage: message })
-      element.innerHTML = ''
-      element.classList.remove(errorNoti)
-      element.classList.remove(loadingNoti)
-      element.classList.add(successNoti)
+      const successDiv = notificationView({ notificationMessage: message, notificationClassName: successClassName })
+
+      setNotification({
+        notification: element,
+        removeClassName1: loadingNoti,
+        removeClassName2: errorNoti,
+        addClassName: successNoti
+      })
+
       element.appendChild(successDiv)
+      // clearing success nati after 2000ms
       setTimeout(() => {
         element.innerHTML = ''
         element.classList.remove(successNoti)

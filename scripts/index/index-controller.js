@@ -30,7 +30,6 @@ export const indexController = async ({ element, notificationElement, state }) =
     const addsDiv = addsView({ viewState: currentViewState })
     element.innerHTML = ''
     element.appendChild(addsDiv)
-    notificationElement.innerHTML = ''
     notificationElement.classList.remove(loadingNoti)
     notificationElement.classList.remove('notifications-div')
     // I think i dont want to throw a 'loaded succesfully after loading the homepage, that why its commented
