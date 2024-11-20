@@ -23,8 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   indexMain.addEventListener(notificationEventName, event => {
     showNotifications({ message: event.detail.message, type: event.detail.type })
   })
-
+  // pass to the index the notification element remove the loading classNames
   indexController({ element: indexMain, notificationElement: notificationsDiv, state: initialState })
-
 
 })

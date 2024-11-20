@@ -1,7 +1,7 @@
-import { addListHTML } from './addsUl-innerHTML.js'
+import { addIntoAnchorHTML } from '../lib/addIntoAnchorHTML.js'
 
 export const addsList = ({ adds }) => {
   const addsUl = document.createElement('ul')
-  addsUl.innerHTML = addListHTML({ adds })
+  addsUl.innerHTML = adds.map(addIntoAnchorHTML).join('\n')
   return addsUl
 }

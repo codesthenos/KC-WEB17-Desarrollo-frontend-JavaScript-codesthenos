@@ -3,13 +3,14 @@ import { paginateButtonId, nextPageButtonId, previousPageButtonId, paginateButto
 // pagination event handlers
 import { paginateButtonHandler, nextPageButtonHandler, previousPageButtonHandler } from './lib/eventHandlers.js'
 // utils to calculate first and last page
-import { calculateIsFirstPage, calculateIsLastPage } from './lib/utils.js'
+import { calculateIsFirstPage, calculateIsLastPage } from './lib/paginationUtils.js'
 // data model
 import { addsModel } from './adds-model.js'
 // loading, error, and success controllers
 import { addsView } from './views/adds-view.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, loadingNoti, successMsg, successNoti } from '../lib/consts.js'
+import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 
 export const indexController = async ({ element, notificationElement, state }) => {
   
@@ -22,6 +23,7 @@ export const indexController = async ({ element, notificationElement, state }) =
 
     const [response, response2] = await Promise.all([
       addsModel({ queryParams: currentQueryParams }),
+      // to get the count of filtered but not paginated and calculate the last page
       addsModel({ queryParams: countAddsQueryParams })
     ])
 
@@ -30,8 +32,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     const addsDiv = addsView({ viewState: currentViewState })
     element.innerHTML = ''
     element.appendChild(addsDiv)
-    notificationElement.classList.remove(loadingNoti)
-    notificationElement.classList.remove('notifications-div')
+    removeLoadingClassNames({ element: notificationElement })
     // I think i dont want to throw a 'loaded succesfully after loading the homepage, that why its commented
     // fireNotificationEvent({ element, type: successNoti, message: successMsg })
   } catch (error) {
