@@ -1,5 +1,7 @@
 // pagination button ids
 import { paginateButtonId, nextPageButtonId, previousPageButtonId, paginateButtonText, showAllButtonText, initialPage, addsPerPage } from './lib/consts.js'
+// pag state
+import { calculatePagState } from './lib/paginationState.js'
 // data model
 import { addsModel } from './adds-model.js'
 // loading, error, and success controllers
@@ -43,8 +45,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     const paginateButton = document.getElementById(paginateButtonId)
     paginateButton.addEventListener('click', () => {
       if (pagButtonText === paginateButtonText) {
-        const queryPagParams = { pageValue: initialPage, limitValue: addsPerPage }
-        const state = { queryParams: queryPagParams, paginationParams: { pagButtonText: showAllButtonText } }
+        const state = calculatePagState({ page: initialPage, addsPerPage, pagButtonText: showAllButtonText })
         indexController({ element, notificationElement, state })
       } else {
         const state = { queryParams: {}, paginationParams: { pagButtonText: paginateButtonText } }
@@ -55,8 +56,8 @@ export const indexController = async ({ element, notificationElement, state }) =
     const nextPageButton = document.getElementById(nextPageButtonId)
     if (nextPageButton) {
       nextPageButton.addEventListener('click', () => {
-        const queryPagParams = { pageValue: currentPage + 1, limitValue: currentQueryParams.limitValue }
-        const state = { queryParams: queryPagParams, paginationParams: { pagButtonText } }
+        const state = calculatePagState({ page: currentPage + 1, addsPerPage: currentQueryParams.limitValue, pagButtonText })
+
         indexController({ element, notificationElement, state })
       })
     }
@@ -64,8 +65,8 @@ export const indexController = async ({ element, notificationElement, state }) =
     const previousPageButton = document.getElementById(previousPageButtonId)
     if (previousPageButton) {
       previousPageButton.addEventListener('click', () => {
-        const queryPagParams = { pageValue: currentPage - 1, limitValue: currentQueryParams.limitValue }
-        const state = { queryParams: queryPagParams, paginationParams: { pagButtonText }}
+        const state = calculatePagState({ page: currentPage - 1, addsPerPage: currentQueryParams.limitValue, pagButtonText })
+
         indexController({ element, notificationElement, state })
       })
     }
