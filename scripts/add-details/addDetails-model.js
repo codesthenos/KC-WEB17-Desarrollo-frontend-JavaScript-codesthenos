@@ -1,5 +1,5 @@
-import { API } from '../../lib/consts.js'
-import { noId, noAdd, addsDBName } from '../lib/consts.js'
+import { API } from '../lib/consts.js'
+import { noId, noAdd, addsDBName } from './lib/consts.js'
 
 export const addDetailsModel = async () => {
   try {
@@ -20,6 +20,6 @@ export const addDetailsModel = async () => {
       return { add }
     }
   } catch (error) {
-    return { error: error.message }
+    throw new Error(error.message)
   }
 }
