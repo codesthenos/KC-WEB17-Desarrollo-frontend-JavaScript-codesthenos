@@ -1,7 +1,5 @@
 // pagination button ids
-import { paginateButtonId, nextPageButtonId, previousPageButtonId, paginateButtonText } from './lib/consts.js'
-// pagination event handlers
-import { paginateButtonHandler, nextPageButtonHandler, previousPageButtonHandler } from './lib/eventHandlers.js'
+import { paginateButtonId, nextPageButtonId, previousPageButtonId, paginateButtonText, showAllButtonText, initialPage, addsPerPage } from './lib/consts.js'
 // data model
 import { addsModel } from './adds-model.js'
 // loading, error, and success controllers
@@ -40,41 +38,41 @@ export const indexController = async ({ element, notificationElement, state }) =
     const addsDiv = addsView({ viewState: currentViewState })
     element.innerHTML = ''
     element.appendChild(addsDiv)
+    // after adding the pagination buttons to the DOM, i add the listeners
+    // PAGINATE/SHOW ALL button
+    const paginateButton = document.getElementById(paginateButtonId)
+    paginateButton.addEventListener('click', () => {
+      if (pagButtonText === paginateButtonText) {
+        const queryPagParams = { pageValue: initialPage, limitValue: addsPerPage }
+        const state = { queryParams: queryPagParams, paginationParams: { pagButtonText: showAllButtonText } }
+        indexController({ element, notificationElement, state })
+      } else {
+        const state = { queryParams: {}, paginationParams: { pagButtonText: paginateButtonText } }
+        indexController({ element, notificationElement, state })
+      }
+    })
+    // NEXT PAGE button
+    const nextPageButton = document.getElementById(nextPageButtonId)
+    if (nextPageButton) {
+      nextPageButton.addEventListener('click', () => {
+        const queryPagParams = { pageValue: currentPage + 1, limitValue: currentQueryParams.limitValue }
+        const state = { queryParams: queryPagParams, paginationParams: { pagButtonText } }
+        indexController({ element, notificationElement, state })
+      })
+    }
+    // PREV PAGE button
+    const previousPageButton = document.getElementById(previousPageButtonId)
+    if (previousPageButton) {
+      previousPageButton.addEventListener('click', () => {
+        const queryPagParams = { pageValue: currentPage - 1, limitValue: currentQueryParams.limitValue }
+        const state = { queryParams: queryPagParams, paginationParams: { pagButtonText }}
+        indexController({ element, notificationElement, state })
+      })
+    }
     removeLoadingClassNames({ element: notificationElement })
     // I think i dont want to throw a 'loaded succesfully after loading the homepage, that why its commented
     // fireNotificationEvent({ element, type: successNoti, message: successMsg })
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, message: error.message })
   }
-
-  /*
-  if (queryParams) {
-    const currentPage = queryParams.pageValue
-    const limitAdds = queryParams.limitValue
-    isLastPage = calculateIsLastPage({ currentPage, limitAdds, numberOfTotalAdds })
-    isFirstPage = calculateIsFirstPage({ currentPage })
-  }
-
-  const paginateOptions = state.paginationOptions
-
-  if (paginateOptions && paginateOptions.pagButtonText) {
-    pagButtonText = paginateOptions.pagButtonText
-  }
-
-  const initialState = { adds: response.adds, pagButtonText, isLastPage, isFirstPage }
-
-  addsController({ state: initialState })
-
-  const paginateButton = document.getElementById(paginateButtonId)
-  paginateButton.addEventListener('click', paginateButtonHandler({ paginationParams: { pagButtonText } }))
-
-  const nextPageButton = document.getElementById(nextPageButtonId)
-  if (nextPageButton) {
-    nextPageButton.addEventListener('click', nextPageButtonHandler({ queryParams }))
-  }
-  const previousPageButton = document.getElementById(previousPageButtonId)
-  if (previousPageButton) {
-    previousPageButton.addEventListener('click', previousPageButtonHandler({ queryParams }))
-  }
-  */
 }

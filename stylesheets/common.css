@@ -188,6 +188,9 @@ img {
   &.error {
     border-color: red;
     background-color: lightcoral;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
     .error-h2 {
       margin: 0;
       color: rgb(204, 31, 31);
