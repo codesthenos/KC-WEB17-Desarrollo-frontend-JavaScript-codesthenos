@@ -27,12 +27,16 @@
     <form>
       <h2>Register</h2>
       <div class="input-text">
-        <input id="name" type="text" name="username" required>
-        <label class="first-label" for="name">Username</label>
+        <input id="email" type="email" name="email" required>
+        <label class="first-label" for="email">Email</label>
       </div>
       <div class="input-text">
-        <input id="password" type="password" name="password" required>
-        <label class="last-label" for="password">Password</label>
+        <input id="password" type="password" name="password" minlength="4" required>
+        <label for="password">Password</label>
+      </div>
+      <div class="input-text">
+        <input id="password-confirm" type="password" name="password-confirm" minlength="4" required>
+        <label class="last-label" for="password-confirm">Confirm password</label>
       </div>
       <button class="btn" type="submit">REGISTER</button>
     </form>

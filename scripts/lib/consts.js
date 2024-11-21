@@ -26,3 +26,5 @@ export const successNoti = 'success'
 export const successMsg = 'LOADED SUCCESSFULLY'
 // notifications HTMLElement node
 export const notiDiv = 'notifications-div'
+// REGEXP
+export const REGEXP = { email: /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/ }

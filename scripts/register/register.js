@@ -1,6 +1,6 @@
 import { notiDiv, notificationEventName } from '../lib/consts.js'
 import { notificationsController } from '../notifications/notifications-controller.js'
-import { loginController } from './register-controller.js'
+import { registerController } from './register-controller.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const registerMain = document.querySelector('main')
@@ -12,5 +12,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showNotifications({ message: event.detail.message, type: event.detail.type })
   })
 
-  loginController({ element: registerMain, notificationElement: notificationsDiv })
+  registerController({ element: registerMain, notificationElement: notificationsDiv })
 })
