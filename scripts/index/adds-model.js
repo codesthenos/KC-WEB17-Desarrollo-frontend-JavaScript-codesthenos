@@ -25,7 +25,6 @@ export const addsModel = async ({ queryParams }) => {
       throw new Error(noAddsMessage)
     } else {
       if (!pageValue && !limitValue) {
-        sessionStorage.clear()
         sessionStorage.setItem('addsDB', JSON.stringify(fetchedAdds))
       }
       return { adds: fetchedAdds }
