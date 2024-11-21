@@ -12,7 +12,6 @@ import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 
 export const indexController = async ({ element, notificationElement, state }) => {
   
-  fireNotificationEvent({ element, type: loadingNoti, message: '' })
   try {
     const currentQueryParams = state.queryParams
     const currentPaginationParams = state.paginationParams

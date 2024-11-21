@@ -8,6 +8,7 @@
     margin: 0 auto;
     h2 {
       text-align: left;
+      margin-left: 0;
     }
     .input-text {
       text-align: left;
@@ -16,9 +17,11 @@
       font-weight: bold;
       input {
         order: 2;
+        margin-left: 0;
       }
       label {
         order: 1;
+        margin-left: 0;
       }
       .first-label {
         text-align: left;

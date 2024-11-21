@@ -5,7 +5,7 @@ import { notificationView } from './notification-view.js'
 export const notificationsController = ({ element }) => {
   const showNotifications = ({ message, type }) => {
     if (type === errorNoti) {
-      const errorDiv = notificationView({ notificationMessage: message, notificationClassName: errorClassName })
+      const errorH2 = notificationView({ notificationMessage: message, notificationClassName: errorClassName })
 
       setNotification({
         notification: element,
@@ -14,7 +14,7 @@ export const notificationsController = ({ element }) => {
         addClassName: errorNoti
       })
 
-      element.appendChild(errorDiv)
+      element.appendChild(errorH2)
     } else if (type === loadingNoti) {
       setNotification({
         notification: element,
@@ -23,7 +23,7 @@ export const notificationsController = ({ element }) => {
         addClassName: loadingNoti
       })
     } else if (type === successNoti) {
-      const successDiv = notificationView({ notificationMessage: message, notificationClassName: successClassName })
+      const successH2 = notificationView({ notificationMessage: message, notificationClassName: successClassName })
 
       setNotification({
         notification: element,
@@ -32,7 +32,7 @@ export const notificationsController = ({ element }) => {
         addClassName: successNoti
       })
 
-      element.appendChild(successDiv)
+      element.appendChild(successH2)
       // clearing success nati after 2000ms
       setTimeout(() => {
         element.innerHTML = ''

@@ -8,6 +8,7 @@
     margin: 0 auto;
     h2 {
       text-align: left;
+      margin-left: 0;
     }
     .input-text {
       text-align: left;
@@ -15,9 +16,11 @@
       flex-direction: column;
       input {
         order: 2;
+        margin-left: 0;
       }
       label {
         order: 1;
+        margin-left: 0;
       }
       >label {
         text-align: left;
@@ -28,6 +31,7 @@
         order: 2;
         font-family: Arial, Helvetica, sans-serif;
         resize: none;
+        margin-left: 0;
       }
       &.radio-divs-container {
         flex-direction: row;
@@ -36,10 +40,24 @@
         margin-top: 1rem;
         font-size: 1.25rem;
         .radio-input-div {
+          border-radius: 10px;
           display: flex;
+          gap: 1rem;
           input {
             box-shadow: none;
           }
+          input:checked {
+            accent-color: var(--brand-color);
+            +label {
+              color: var(--brand-color);
+            }
+          }
+          #buy {
+            order: 1;
+          }
+        }
+        .radio-input-div:hover {
+          color: var(--brand-color);
         }
       }
     }

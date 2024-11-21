@@ -178,12 +178,18 @@ img {
     width: 75px;
     height: 75px;
     border-radius: 100px;
-    background-color: var(--bg-color);
+    background-color: transparent;
     border: 12px solid var(--brand-color);
     border-top-color: var(--color);
     border-left-color: var(--color);
     margin: 5rem auto;
     animation: spin 1s linear infinite;
+    position: absolute;
+    inset: 20% 0;
+    z-index: 10;
+    + main {
+      opacity: .3;
+    }
   }
   &.error {
     border-color: red;
