@@ -5,20 +5,30 @@ import { API } from '../lib/consts.js'
 // _page & _limit
 export const addsModel = async ({ queryParams }) => {
   try {
-    let query = API
-    if (queryParams.pageValue || queryParams.limitValue) {
-      query = `${query}?_page=${queryParams.pageValue}&_limit=${queryParams.limitValue}`
+    const { pageValue, limitValue } = queryParams
+
+    const addsDB = JSON.parse(sessionStorage.getItem('addsDB'))
+    if (!pageValue && !limitValue && addsDB) {
+      return { adds: addsDB }
     }
 
-    const response = await fetch(query)
-    const fetchedAdds = { adds: await response.json() }
+    let query = API
+    if (pageValue && limitValue) {
+      query = `${query}?_page=${pageValue}&_limit=${limitValue}`
+    }
 
-    if (!fetchedAdds.adds.length){
+
+    const response = await fetch(query)
+    const fetchedAdds = await response.json()
+
+    if (!fetchedAdds.length){
       throw new Error(noAddsMessage)
     } else {
-      sessionStorage.clear()
-      sessionStorage.setItem('addsDB', JSON.stringify(fetchedAdds))
-      return fetchedAdds
+      if (!pageValue && !limitValue) {
+        sessionStorage.clear()
+        sessionStorage.setItem('addsDB', JSON.stringify(fetchedAdds))
+      }
+      return { adds: fetchedAdds }
     }
   } catch (error) {
     throw new Error(error.message)

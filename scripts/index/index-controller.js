@@ -7,7 +7,7 @@ import { addsModel } from './adds-model.js'
 // loading, error, and success controllers
 import { addsView } from './views/adds-view.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
-import { errorNoti, loadingNoti, successMsg, successNoti } from '../lib/consts.js'
+import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 
 export const indexController = async ({ element, notificationElement, state }) => {
@@ -21,7 +21,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     const limitAdds = currentQueryParams.limitValue
 
     // In a future here he will use the current filters applied
-    const countAddsQueryParams = {}
+    const countAddsQueryParams = { pageValue: null, limitValue: null }
     
     const [response, response2] = await Promise.all([
       addsModel({ queryParams: currentQueryParams }),
@@ -48,7 +48,7 @@ export const indexController = async ({ element, notificationElement, state }) =
         const state = calculatePagState({ page: initialPage, addsPerPage, pagButtonText: showAllButtonText })
         indexController({ element, notificationElement, state })
       } else {
-        const state = { queryParams: {}, paginationParams: { pagButtonText: paginateButtonText } }
+        const state = calculatePagState({ page: null, addsPerPage: null, pagButtonText: paginateButtonText })
         indexController({ element, notificationElement, state })
       }
     })
