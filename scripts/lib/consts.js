@@ -23,7 +23,8 @@ export const successNoti = 'success'
 // success messages
 export const SUCCESS_MESSAGES = {
   REGISTERED: 'SUCCESSFULLY REGISTERED',
-  LOGGED: 'SUCCESSFULLY LOGGED'
+  LOGGED: 'SUCCESSFULLY LOGGED',
+  LOGOUT: 'SUCCESSFULLY LOGGED OUT'
 }
 // notifications HTMLElement node
 export const notiDiv = 'notifications-div'

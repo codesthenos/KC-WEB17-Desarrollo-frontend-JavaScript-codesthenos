@@ -1,4 +1,4 @@
-import { headerController } from '../header/header-controller.js'
+import { headerController } from '../sessionNav/sessionNav-controller.js'
 import { isUserLogged } from '../lib/auth-utils.js'
 import { notiDiv, notificationEventName } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const addDetailsMain = document.querySelector('main')
   const notificationsDiv = document.getElementById(notiDiv)
 
-  const { setHeader } = headerController()
+  const { setHeader } = headerController({ element: addDetailsMain })
 
   if (isUserLogged()) {
     setHeader({
