@@ -1,3 +1,4 @@
+import { headerController } from '../header/header-controller.js'
 import { isUserLogged } from '../lib/auth-utils.js'
 import { notiDiv, notificationEventName } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
@@ -11,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const loginMain = document.querySelector('main')
   const notificationsDiv = document.getElementById(notiDiv)
+
+  const { setHeader } = headerController()
+
+  setHeader({ homeButtonClass: 'shown', createAddButtonClass: '_', registerButtonClass: 'shown', loginButtonClass: '_' })
 
   removeLoadingClassNames({ element: notificationsDiv })
 

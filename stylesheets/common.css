@@ -114,6 +114,10 @@ img {
     gap: 1rem;
     a {
       margin: 0;
+      display: none;
+      &.shown {
+        display: block;
+      }
     }
   }
 }
