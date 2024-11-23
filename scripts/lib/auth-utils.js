@@ -13,7 +13,7 @@ export const validateLogin = ({ userEmail }) => {
   return errors
 }
 
-export const validateRegisterLogin = ({ userEmail, userPassword, userPasswordConfirm }) => {
+export const validateRegister = ({ userEmail, userPassword, userPasswordConfirm }) => {
   const errors = validateLogin({ userEmail })
 
   if (userPasswordConfirm && userPassword !== userPasswordConfirm) {
@@ -52,7 +52,7 @@ export const handleLogin = async ({ element, userEmail, userPassword, endpoint }
 
     setTimeout(() => {
       window.location.href = '/'
-    }, 1500)
+    }, 750)
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
   }
@@ -62,7 +62,11 @@ export const handleRegister = async ({ element, userEmail, userPassword, endpoin
   try {
     await authUser({ userEmail, userPassword, endpoint })
 
-    await handleLogin({ element, userEmail, userPassword, endpoint: API.LOGIN })
+    fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.REGISTERED })
+
+    setTimeout(async () => {
+      await handleLogin({ element, userEmail, userPassword, endpoint: API.LOGIN })
+    }, 750)
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
   }

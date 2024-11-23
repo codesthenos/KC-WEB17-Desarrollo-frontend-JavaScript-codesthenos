@@ -119,6 +119,7 @@ img {
 }
 
 .add-card {
+  max-height: 344px;
   max-width: 180px;
   background-color: var(--brand-color);
   border: 3px solid var(--color);
@@ -137,7 +138,7 @@ img {
     font-weight: bold;
   }
   p {
-    max-height: 40px;
+    max-height: 1.1em;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
