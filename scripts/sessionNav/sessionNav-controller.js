@@ -1,8 +1,8 @@
 import { SUCCESS_MESSAGES, successNoti } from '../lib/consts.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 
-export const headerController = ({ element }) => {
-  const setHeader = ({ homeButtonClass, createAddButtonClass, registerButtonClass, loginButtonClass, logoutButtonClass }) => {
+export const sessionNavController = ({ element }) => {
+  const setSessionNav = ({ homeButtonClass, createAddButtonClass, registerButtonClass, loginButtonClass, logoutButtonClass }) => {
     const homeButton = document.getElementById('home-button')
     const createAddButton = document.getElementById('create-add-button')
     const registerButton = document.getElementById('register-button')
@@ -27,5 +27,5 @@ export const headerController = ({ element }) => {
     }
   }
 
-  return { setHeader }
+  return { setSessionNav }
 }
