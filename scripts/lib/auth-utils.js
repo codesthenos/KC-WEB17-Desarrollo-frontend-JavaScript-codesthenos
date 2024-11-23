@@ -2,7 +2,7 @@ import { errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from './consts.js'
 import { fireNotificationEvent } from './fire-notification-event.js'
 import { registerUser } from '../auth-models/register-model.js'
 
-export const validateRegisterLogin = ({ userEmail, userPassword, userPasswordConfirm }) => {
+export const validateLogin = ({ userEmail }) => {
   const errors = []
 
   const emailRegExp = new RegExp(REGEXP.email)
@@ -10,6 +10,12 @@ export const validateRegisterLogin = ({ userEmail, userPassword, userPasswordCon
   if (!emailRegExp.test(userEmail)) {
     errors.push('Wrong email format')
   }
+  return errors
+}
+
+export const validateRegisterLogin = ({ userEmail, userPassword, userPasswordConfirm }) => {
+  const errors = validateLogin({ userEmail })
+
   if (userPasswordConfirm && userPassword !== userPasswordConfirm) {
     errors.push('Passwords doesn\'t match')
   }
@@ -32,7 +38,7 @@ export const takeRegisterInputsValue = ({ emailId, passId, passConfirmId }) => {
   const { userEmail, userPassword } = takeLoginInputsValue({ emailId, passId })
 
   const userPasswordConfirm = userPasswordConfirmInput.value
-  
+
   return { userEmail, userPassword, userPasswordConfirm }
 }
 
