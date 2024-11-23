@@ -43,6 +43,24 @@
         p {
           margin-top: .5rem;
         }
+        &::-webkit-scrollbar {
+          width: 15px;
+          height: 15px;
+        }
+        &::-webkit-scrollbar-corner {
+          background-color: var(--brand-color);
+        }
+        &::-webkit-scrollbar-track {
+          border-radius: 10px;
+          background-color: var(--brand-color);
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--scroll-thumb-color);
+          border-radius: 10px;
+        }
+        &:hover {
+          --scroll-thumb-color: var(--bg-color);
+        }
       }
     }
   }
