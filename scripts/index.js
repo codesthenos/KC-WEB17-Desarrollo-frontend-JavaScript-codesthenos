@@ -1,10 +1,10 @@
-import { sessionNavController } from '../sessionNav/sessionNav-controller.js'
-import { isUserLogged } from '../lib/auth-utils.js'
-import { notiDiv, notificationEventName } from '../lib/consts.js'
-import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
-import { notificationsController } from '../notifications/notifications-controller.js'
-import { indexController } from './index-controller.js'
-import { paginateButtonText } from './lib/consts.js'
+import { notiDiv, notificationEventName } from './lib/consts.js'
+import { removeLoadingClassNames } from './lib/removeLoadingClassNames.js'
+import { isUserLogged } from './lib/auth-utils.js'
+import { paginateButtonText } from './index/lib/consts.js'
+import { sessionNavController } from './sessionNav/sessionNav-controller.js'
+import { notificationsController } from './notifications/notifications-controller.js'
+import { indexController } from './index/index-controller.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const indexMain = document.querySelector('main')
