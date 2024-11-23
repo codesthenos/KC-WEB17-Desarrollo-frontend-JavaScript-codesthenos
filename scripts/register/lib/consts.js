@@ -1,1 +1,0 @@
-export const REGISTER_API = 'http://localhost:8000/auth/register'

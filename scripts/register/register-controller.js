@@ -1,7 +1,7 @@
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, REGEXP } from '../lib/consts.js'
-import { registerUser } from './register-model.js'
+import { registerUser } from '../auth-models/register-model.js'
 
 export const registerController = ({ element, notificationElement }) => {
   removeLoadingClassNames({ element: notificationElement })

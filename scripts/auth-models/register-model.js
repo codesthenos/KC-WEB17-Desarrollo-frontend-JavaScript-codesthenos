@@ -1,8 +1,8 @@
-import { REGISTER_API } from './lib/consts.js'
+import { API } from '../lib/consts.js'
 
 export const registerUser = async ({ userEmail, userPassword }) => {
   try {
-    const response = await fetch(REGISTER_API, {
+    const response = await fetch(API.REGISTER, {
       method: 'POST',
       body: JSON.stringify({
         username: userEmail,

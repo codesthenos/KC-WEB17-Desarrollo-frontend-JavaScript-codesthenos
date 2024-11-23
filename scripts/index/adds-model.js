@@ -12,7 +12,7 @@ export const addsModel = async ({ queryParams }) => {
       return { adds: addsDB }
     }
 
-    let query = API
+    let query = API.ADDS
     if (pageValue && limitValue) {
       query = `${query}?_page=${pageValue}&_limit=${limitValue}`
     }

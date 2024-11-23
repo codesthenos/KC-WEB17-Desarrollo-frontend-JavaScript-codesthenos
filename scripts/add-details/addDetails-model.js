@@ -14,7 +14,7 @@ export const addDetailsModel = async () => {
       
       return { add: findAdd({ adds: addsDB, addId }) }
     } else {
-      const query = `${API}${addId}`
+      const query = `${API.ADDS}/${addId}`
       const response = await fetch(query)
       const fetchedAdd = await response.json()
 

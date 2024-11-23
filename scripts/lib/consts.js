@@ -14,8 +14,6 @@ export const pFor = 'for-p'
 export const buttonClassName = 'btn'
 // disabled css classname
 export const disabledClassName = 'disabled'
-// API endpoint to get a list of ADDS
-export const API = 'http://localhost:8000/api/adds/'
 // notification event name
 export const notificationEventName = 'notification'
 // notification event detail types
@@ -28,3 +26,17 @@ export const successMsg = 'LOADED SUCCESSFULLY'
 export const notiDiv = 'notifications-div'
 // REGEXP
 export const REGEXP = { email: /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/ }
+// Host
+const HOST = 'http://localhost:8000'
+// Routes
+const ROUTES = {
+  AUTH: '/auth',
+  PUBLIC: '/api'
+}
+// API endpoints
+export const API = {
+  ADDS: `${HOST}${ROUTES.PUBLIC}/adds`,
+  REGISTER: `${HOST}${ROUTES.AUTH}/register`,
+  LOGIN: `${HOST}${ROUTES.AUTH}/login`,
+  GET_USER_LOGGED_INFO: `${HOST}${ROUTES.AUTH}/me`
+}
