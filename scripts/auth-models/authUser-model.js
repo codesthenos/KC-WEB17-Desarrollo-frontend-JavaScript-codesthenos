@@ -1,8 +1,6 @@
-import { API } from '../lib/consts.js'
-
-export const registerUser = async ({ userEmail, userPassword }) => {
+export const authUser = async ({ userEmail, userPassword, endpoint }) => {
   try {
-    const response = await fetch(API.REGISTER, {
+    const response = await fetch(endpoint, {
       method: 'POST',
       body: JSON.stringify({
         username: userEmail,
@@ -15,6 +13,8 @@ export const registerUser = async ({ userEmail, userPassword }) => {
     if (!response.ok) {
       const error = await response.json()
       throw new Error(error.message)
+    } else {
+      return await response.json()
     }
   } catch (error) {
     throw new Error(error.message)

@@ -15,5 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showNotifications({ errorList: event.detail.errorList, message: event.detail.message, type: event.detail.type })
   })
 
-  loginController({ element: loginMain, notificationElement: notificationsDiv })
+  loginController({ element: loginMain })
 })

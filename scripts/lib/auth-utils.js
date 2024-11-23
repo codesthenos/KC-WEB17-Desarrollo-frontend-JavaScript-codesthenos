@@ -1,6 +1,6 @@
-import { errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from './consts.js'
+import { API, errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from './consts.js'
 import { fireNotificationEvent } from './fire-notification-event.js'
-import { registerUser } from '../auth-models/register-model.js'
+import { authUser } from '../auth-models/authUser-model.js'
 
 export const validateLogin = ({ userEmail }) => {
   const errors = []
@@ -42,13 +42,27 @@ export const takeRegisterInputsValue = ({ emailId, passId, passConfirmId }) => {
   return { userEmail, userPassword, userPasswordConfirm }
 }
 
-export const handleRegister = async ({ element, userEmail, userPassword }) => {
+export const handleLogin = async ({ element, userEmail, userPassword, endpoint }) => {
   try {
-    await registerUser({ userEmail, userPassword })
-    fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.REGISTERED })
+    const { accessToken } = await authUser({ userEmail, userPassword, endpoint })
+
+    localStorage.setItem('JWT', accessToken)
+
+    fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.LOGGED })
+
     setTimeout(() => {
       window.location.href = '/'
     }, 1500)
+  } catch (error) {
+    fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+  }
+}
+
+export const handleRegister = async ({ element, userEmail, userPassword, endpoint }) => {
+  try {
+    await authUser({ userEmail, userPassword, endpoint })
+
+    await handleLogin({ element, userEmail, userPassword, endpoint: API.LOGIN })
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
   }

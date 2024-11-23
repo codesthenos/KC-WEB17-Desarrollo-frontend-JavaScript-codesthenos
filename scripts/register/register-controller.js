@@ -1,4 +1,4 @@
-import { errorNoti, loadingNoti } from '../lib/consts.js'
+import { API, errorNoti, loadingNoti } from '../lib/consts.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { handleRegister, takeRegisterInputsValue, validateRegisterLogin } from '../lib/auth-utils.js'
 
@@ -23,7 +23,7 @@ export const registerController = ({ element }) => {
     if (errors.length > 0) {
       fireNotificationEvent({ element, type: errorNoti, errorList: errors })
     } else {
-      handleRegister({ element, userEmail, userPassword })
+      handleRegister({ element, userEmail, userPassword, endpoint: API.REGISTER })
     }
   })
 }
