@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const { showNotifications } = notificationsController({ element: notificationsDiv })
 
   registerMain.addEventListener(notificationEventName, event => {
-    showNotifications({ message: event.detail.message, type: event.detail.type })
+    showNotifications({ errorList: event.detail.errorList, message: event.detail.message, type: event.detail.type })
   })
 
   registerController({ element: registerMain, notificationElement: notificationsDiv })

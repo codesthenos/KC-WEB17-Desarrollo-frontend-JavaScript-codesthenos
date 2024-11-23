@@ -1,11 +1,11 @@
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
-import { handleRegisterUser } from './lib/handleRegister.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, REGEXP } from '../lib/consts.js'
+import { registerUser } from './register-model.js'
 
 export const registerController = ({ element, notificationElement }) => {
   removeLoadingClassNames({ element: notificationElement })
-  element.addEventListener('submit', event => {
+  element.addEventListener('submit', async (event) => {
     event.preventDefault()
 
     const userEmailInput = document.getElementById('email')
@@ -27,12 +27,15 @@ export const registerController = ({ element, notificationElement }) => {
       errors.push('Passwords doesnt match')
     }
 
-    for (const error of errors) {
-      alert(error)
-    }
-
     if (errors.length === 0) {
-      handleRegisterUser({ userEmail, userPassword, element })
+      try {
+        await registerUser({ userEmail, userPassword })
+        window.location.href = '/'
+      } catch (error) {
+        fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+      }
+    } else {
+      fireNotificationEvent({ element, type: errorNoti, errorList: errors })
     }
   })
 }

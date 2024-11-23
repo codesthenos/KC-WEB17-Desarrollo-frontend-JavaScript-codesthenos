@@ -11,6 +11,8 @@ import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 
 export const indexController = async ({ element, notificationElement, state }) => {
+
+  fireNotificationEvent({ element, type: loadingNoti })
   
   try {
     const currentQueryParams = state.queryParams
@@ -73,6 +75,6 @@ export const indexController = async ({ element, notificationElement, state }) =
     // I think i dont want to throw a 'loaded succesfully after loading the homepage, that why its commented
     // fireNotificationEvent({ element, type: successNoti, message: successMsg })
   } catch (error) {
-    fireNotificationEvent({ element, type: errorNoti, message: error.message })
+    fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
   }
 }

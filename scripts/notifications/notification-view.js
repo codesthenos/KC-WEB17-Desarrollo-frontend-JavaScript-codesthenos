@@ -4,3 +4,12 @@ export const notificationView = ({ notificationMessage, notificationClassName })
   notificationH2.classList.add(notificationClassName)
   return notificationH2
 }
+
+export const errorNotificationView = ({ errorList, notificationClassName }) => {
+  const errorUL = document.createElement('ul')
+  errorList.forEach(error => {
+    const errorH2 = notificationView({ notificationMessage: error, notificationClassName })
+    errorUL.appendChild(errorH2)
+  })
+  return errorUL
+}

@@ -6,7 +6,7 @@ import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 
 export const addDetailsController = async ({ element, notificationElement }) => {
 
-  fireNotificationEvent({ element, type: loadingNoti, message: '' })
+  fireNotificationEvent({ element, type: loadingNoti })
 
   try {
     const response = await addDetailsModel()
@@ -15,6 +15,6 @@ export const addDetailsController = async ({ element, notificationElement }) => 
     element.appendChild(addDetailDiv)
     removeLoadingClassNames({ element: notificationElement })
   } catch (error) {
-    fireNotificationEvent({ element, type: errorNoti, message: error.message})
+    fireNotificationEvent({ element, type: errorNoti, errorList: [error.message]})
   }
 }

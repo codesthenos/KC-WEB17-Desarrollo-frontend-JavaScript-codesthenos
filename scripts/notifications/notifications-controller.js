@@ -1,11 +1,11 @@
 import { errorClassName, errorNoti, loadingNoti, successClassName, successNoti } from '../lib/consts.js'
 import { setNotification } from '../lib/setNotification.js'
-import { notificationView } from './notification-view.js'
+import { errorNotificationView, notificationView } from './notification-view.js'
 
 export const notificationsController = ({ element }) => {
-  const showNotifications = ({ message, type }) => {
+  const showNotifications = ({ errorList, message, type }) => {
     if (type === errorNoti) {
-      const errorH2 = notificationView({ notificationMessage: message, notificationClassName: errorClassName })
+      const errorUl = errorNotificationView({ errorList, notificationClassName: errorClassName })
 
       setNotification({
         notification: element,
@@ -14,7 +14,7 @@ export const notificationsController = ({ element }) => {
         addClassName: errorNoti
       })
 
-      element.appendChild(errorH2)
+      element.appendChild(errorUl)
     } else if (type === loadingNoti) {
       setNotification({
         notification: element,
