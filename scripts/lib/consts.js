@@ -24,7 +24,8 @@ export const successNoti = 'success'
 export const SUCCESS_MESSAGES = {
   REGISTERED: 'SUCCESSFULLY REGISTERED',
   LOGGED: 'SUCCESSFULLY LOGGED',
-  LOGOUT: 'SUCCESSFULLY LOGGED OUT'
+  LOGOUT: 'SUCCESSFULLY LOGGED OUT',
+  CREATED_ADD: 'SUCCESSFULLY CREATED ADD'
 }
 // notifications HTMLElement node
 export const notiDiv = 'notifications-div'

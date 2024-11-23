@@ -1,8 +1,9 @@
-import { notiDiv } from './lib/consts.js'
+import { notiDiv, notificationEventName } from './lib/consts.js'
 import { removeLoadingClassNames } from './lib/removeLoadingClassNames.js'
 import { isUserLogged } from './lib/auth-utils.js'
 import { notificationsController } from './notifications/notifications-controller.js'
 import { sessionNavController } from './sessionNav/sessionNav-controller.js'
+import { createAddController } from './create-add/createAdd-controller.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!isUserLogged()) {
@@ -22,7 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutButtonClass: 'shown'
   })
 
+  removeLoadingClassNames({ element: notificationsDiv })
+
   const { showNotifications } = notificationsController({ element: notificationsDiv })
 
-  removeLoadingClassNames({ element: notificationsDiv })
+  createAddMain.addEventListener(notificationEventName, (event) => {
+    showNotifications({ errorList: event.detail.errorList, message: event.detail.message, type: event.detail.type })
+  })
+
+  createAddController({ element: createAddMain })
 })
