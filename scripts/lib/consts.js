@@ -20,8 +20,10 @@ export const notificationEventName = 'notification'
 export const errorNoti = 'error'
 export const loadingNoti = 'loading'
 export const successNoti = 'success'
-// success message
-export const successMsg = 'LOADED SUCCESSFULLY'
+// success messages
+export const SUCCESS_MESSAGES = {
+  REGISTERED: 'SUCCESSFULLY REGISTERED'
+}
 // notifications HTMLElement node
 export const notiDiv = 'notifications-div'
 // REGEXP

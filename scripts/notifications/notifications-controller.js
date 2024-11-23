@@ -38,7 +38,7 @@ export const notificationsController = ({ element }) => {
         element.innerHTML = ''
         element.classList.remove(successNoti)
         element.classList.remove('notifications-div')
-      }, 2000)
+      }, 99999999999999)
     }
   }
 

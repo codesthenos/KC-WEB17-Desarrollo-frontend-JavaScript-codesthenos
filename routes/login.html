@@ -20,19 +20,24 @@
       <a class="btn" href="/">HOME</a>
     </nav>
   </header>
+
+  <div id="notifications-div" class="notifications-div loading"></div>
+
   <main id="login-register">
     <form method="post">
       <h2>Login</h2>
       <div class="input-text">
-        <input id="name" type="text" name="username" required>
-        <label class="first-label" for="name">Username</label>
+        <input id="email" type="email" name="email" required>
+        <label class="first-label" for="email">Email</label>
       </div>
       <div class="input-text">
-        <input id="password" type="password" name="password" required>
+        <input id="password" type="password" name="password" minlength="4" required>
         <label class="last-label" for="password">Password</label>
       </div>
       <button class="btn" type="submit">LOGIN</button>
     </form>
   </main>
+
+  <script type="module" src="/scripts/login/login.js"></script>
 </body>
 </html>

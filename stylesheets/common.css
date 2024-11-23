@@ -213,15 +213,22 @@ img {
   &.success {
     border-color: blue;
     background-color: lightskyblue;
+    width: fit-content;
+    height: fit-content;
+    padding: 1.5rem;
     position: absolute;
-    width: 95vw;
-    height: 95vh;
-    inset: 0;
+    left: 0;
+    right: 0;
+    top: 20%;
+    z-index: 10;
     .success-h2 {
       margin: 0;
       color: rgb(31, 130, 192);
       background-color: lightskyblue;
       font-size: 2rem;
+    }
+    +main#login-register {
+      opacity: .5;
     }
   }
 }
