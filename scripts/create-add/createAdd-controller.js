@@ -8,15 +8,30 @@ export const createAddController = ({ element }) => {
 
     fireNotificationEvent({ element, type: loadingNoti })
 
-    const {} = takeCreateAddInputsValue()
+    const {
+      addNameValue,
+      addPriceValue,
+      addDescriptionValue,
+      addForValue,
+      addImageValue
+    } = takeCreateAddInputsValue()
 
+    // TODO validation for image url maybe
     const errors = validateCreateAdd()
 
     if (errors.length > 0) {
       fireNotificationEvent({ element, type: errorNoti, errorList: errors })
     } else {
       const token = localStorage.getItem('JWT')
-      handleCreateAdd({ element, addName, addPrice, addDescription, addFor, addImage, token })
+      handleCreateAdd({
+        element,
+        addName: addNameValue,
+        addPrice: addPriceValue,
+        addDescription: addDescriptionValue,
+        addFor: addForValue,
+        addImage: addImageValue,
+        token
+      })
     }
   })
 }

@@ -27,10 +27,10 @@
   <div id="notifications-div" class="notifications-div loading"></div>
 
   <main id="create-ad">
-    <form method="post">
+    <form>
       <h2>Create add</h2>
       <div class="input-text">
-        <input id="name" type="text" name="name" required />
+        <input id="name" type="text" name="name" minlength="3" required />
         <label class="first-label" for="name">Add name</label>
       </div>
       <div class="input-text">
@@ -47,12 +47,12 @@
       </div>
       <div class="input-text radio-divs-container">
         <div class="radio-input-div">
-          <input type="radio" name="action" id="sell" required>
-          <label for="sell">Sell</label>
+          <input type="radio" name="for" id="demand" value="demand" required>
+          <label for="demand">Demand</label>
         </div>
         <div class="radio-input-div">
-          <input type="radio" name="action" id="buy" required>
-          <label for="buy">Buy</label>
+          <input type="radio" name="for" id="offer" value="offer" required>
+          <label for="offer">Offer</label>
         </div>
       </div>
       <button class="btn" type="submit">CREATE</button>

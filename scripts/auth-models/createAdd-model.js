@@ -5,11 +5,11 @@ export const createAddModel = async ({ addName, addPrice, addDescription, addFor
     const response = await fetch(API.ADDS, {
       method: 'POST',
       body: JSON.stringify({
-        addName,
-        addPrice,
-        addDescription,
-        addFor,
-        addImage
+        name: addName,
+        price: addPrice,
+        description: addDescription,
+        for: addFor,
+        image: addImage
       }),
       headers: {
         "Content-Type": "application/json",
