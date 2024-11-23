@@ -1,9 +1,14 @@
+import { isUserLogged } from '../lib/auth-utils.js'
 import { notiDiv, notificationEventName } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 import { notificationsController } from '../notifications/notifications-controller.js'
 import { registerController } from './register-controller.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (isUserLogged()) {
+    window.location.href = '/'
+  }
+  
   const registerMain = document.querySelector('main')
   const notificationsDiv = document.getElementById(notiDiv)
 

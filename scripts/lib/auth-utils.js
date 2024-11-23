@@ -71,3 +71,9 @@ export const handleRegister = async ({ element, userEmail, userPassword, endpoin
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
   }
 }
+
+export const isUserLogged = () => {
+  const token = localStorage.getItem('JWT')
+
+  return !!token
+}
