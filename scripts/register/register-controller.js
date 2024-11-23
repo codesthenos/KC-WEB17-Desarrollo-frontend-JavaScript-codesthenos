@@ -4,7 +4,7 @@ import { validateRegisterLogin } from '../lib/auth-utils.js'
 import { registerUser } from '../auth-models/register-model.js'
 
 export const registerController = ({ element }) => {
-  element.addEventListener('submit', async (event) => {
+  element.addEventListener('submit', (event) => {
     event.preventDefault()
 
     fireNotificationEvent({ element, type: loadingNoti })
@@ -19,18 +19,22 @@ export const registerController = ({ element }) => {
     
     const errors = validateRegisterLogin({ userEmail, userPassword, userPasswordConfirm })
     
-    if (errors.length === 0) {
-      try {
-        await registerUser({ userEmail, userPassword })
-        fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.REGISTERED })
-        setTimeout(() => {
-          window.location.href = '/'
-        }, 1500)
-      } catch (error) {
-        fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
-      }
-    } else {
+    if (errors.length > 0) {
       fireNotificationEvent({ element, type: errorNoti, errorList: errors })
+    } else {
+      handleRegister({ element, userEmail, userPassword })
     }
   })
+}
+
+const handleRegister = async ({ element, userEmail, userPassword }) => {
+  try {
+    await registerUser({ userEmail, userPassword })
+    fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.REGISTERED })
+    setTimeout(() => {
+      window.location.href = '/'
+    }, 1500)
+  } catch (error) {
+    fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+  }
 }
