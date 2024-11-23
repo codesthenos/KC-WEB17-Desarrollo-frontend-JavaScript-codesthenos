@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setHeader({ homeButtonClass: 'shown', createAddButtonClass: '_', registerButtonClass: '_', loginButtonClass: 'shown' })
 
-
   removeLoadingClassNames({ element: notificationsDiv })
 
   const { showNotifications } = notificationsController({ element: notificationsDiv })

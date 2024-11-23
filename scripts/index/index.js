@@ -13,9 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const { setHeader } = headerController()
 
   if (isUserLogged()) {
-    setHeader({ homeButtonClass: '_', createAddButtonClass: 'shown', registerButtonClass: '_', loginButtonClass: '_' })
+    setHeader({
+      homeButtonClass: '_',
+      createAddButtonClass: 'shown',
+      registerButtonClass: '_',
+      loginButtonClass: '_',
+      logoutButtonClass: 'shown'
+    })
   } else {
-    setHeader({ homeButtonClass: '_', createAddButtonClass: '_', registerButtonClass: 'shown', loginButtonClass: 'shown' })
+    setHeader({
+      homeButtonClass: '_',
+      createAddButtonClass: '_',
+      registerButtonClass: 'shown',
+      loginButtonClass: 'shown',
+      logoutButtonClass: '_'
+    })
   }
 
   removeLoadingClassNames({ element: notificationsDiv })
