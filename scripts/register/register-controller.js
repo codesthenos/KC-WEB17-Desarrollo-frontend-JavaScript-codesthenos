@@ -24,7 +24,7 @@ export const registerController = ({ element, notificationElement }) => {
       errors.push('Wrong email format')
     }
     if (userPassword !== userPasswordConfirm) {
-      errors.push('Passwords doesnt match')
+      errors.push('Passwords doesn\'t match')
     }
 
     if (errors.length === 0) {

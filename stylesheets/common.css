@@ -196,12 +196,17 @@ img {
     background-color: lightcoral;
     width: fit-content;
     height: fit-content;
-    padding: 1rem;
-    .error-h2 {
-      margin: 0;
-      color: rgb(204, 31, 31);
-      background-color: lightcoral;
-      font-size: 2rem;
+    padding: 1.5rem;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .error-h2 {
+        margin: 0;
+        color: rgb(204, 31, 31);
+        background-color: lightcoral;
+        font-size: 2rem;
+      }
     }
   }
   &.success {
