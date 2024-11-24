@@ -1,8 +1,9 @@
 import { addDetailsModel } from '../add-details/addDetails-model.js'
+import { takeCreateAddInputsValue, validateCreateAdd } from '../create-add/lib/createAdd-utils.js'
 import { isUserLoggedOwner } from '../lib/auth-utils.js'
 import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
-import { setUpdateAddInputValues } from './utils.js'
+import { handleUpdateAdd, setUpdateAddInputValues } from './utils.js'
 
 export const updateAddController = async ({ element, addId }) => {
   if (!addId) {
@@ -32,6 +33,39 @@ export const updateAddController = async ({ element, addId }) => {
         addImage: add.image,
         addDescription: add.description,
         addFor: add.for
+      })
+      element.addEventListener('submit', (event) => {
+        event.preventDefault()
+
+        fireNotificationEvent({ element, type: loadingNoti })
+
+        const {
+          addNameValue,
+          addPriceValue,
+          addDescriptionValue,
+          addForValue,
+          addImageValue
+        } = takeCreateAddInputsValue()
+
+        const errors = validateCreateAdd({
+          addNameValue,
+          addDescriptionValue,
+          addImageValue
+        })
+
+        if (errors.length > 0) {
+          fireNotificationEvent({ element, type: errorNoti, errorList: errors })
+        } else {
+          handleUpdateAdd({
+            element,
+            add,
+            addNameValue,
+            addPriceValue,
+            addDescriptionValue,
+            addForValue,
+            addImageValue
+          })
+        }
       })
     }
     
