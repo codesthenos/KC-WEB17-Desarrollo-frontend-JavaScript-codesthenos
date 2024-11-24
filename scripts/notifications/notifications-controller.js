@@ -1,4 +1,4 @@
-import { errorClassName, errorNoti, loadingNoti, successClassName, successNoti } from '../lib/consts.js'
+import { errorClassName, errorNoti, loadingNoti, notiDiv, successClassName, successNoti } from '../lib/consts.js'
 import { setNotification } from '../lib/setNotification.js'
 import { errorNotificationView, notificationView } from './notification-view.js'
 
