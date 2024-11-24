@@ -6,6 +6,9 @@ import { notificationsController } from './notifications/notifications-controlle
 import { addDetailsController } from './add-details/addDetails-controller.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+  const searchParams = new URLSearchParams(window.location.search)
+  const addId = searchParams.get('id')
+
   const addDetailsMain = document.querySelector('main')
   const notificationsDiv = document.getElementById(notiDiv)
 
@@ -37,5 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showNotifications({ errorList: event.detail.errorList, message: event.detail.message, type: event.detail.type })
   })
 
-  addDetailsController({ element: addDetailsMain, notificationElement: notificationsDiv })
+  addDetailsController({ element: addDetailsMain, notificationElement: notificationsDiv, addId })
 })

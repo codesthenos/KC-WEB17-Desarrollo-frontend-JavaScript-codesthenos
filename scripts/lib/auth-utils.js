@@ -1,6 +1,7 @@
 import { API, errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from './consts.js'
 import { fireNotificationEvent } from './fire-notification-event.js'
 import { authUser } from '../auth-models/authUser-model.js'
+import { getUserInfo } from '../auth-models/getUserInfo-model.js'
 
 export const takeLoginInputsValue = ({ emailId, passId }) => {
   const userEmailInput = document.getElementById(emailId)
@@ -76,4 +77,21 @@ export const isUserLogged = () => {
   const token = localStorage.getItem('JWT')
 
   return !!token
+}
+
+export const isUserLoggedOwner = async ({ element, add }) => {
+  const token = localStorage.getItem('JWT')
+
+  if (token) {
+    try {
+      const ownerId = add.user.id
+      const user = await getUserInfo({ token })
+
+      return ownerId === user.id
+    } catch (error) {
+      fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+    }
+  } else {
+    return false
+  }
 }

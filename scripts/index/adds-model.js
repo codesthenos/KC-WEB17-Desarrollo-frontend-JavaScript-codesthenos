@@ -18,7 +18,7 @@ export const addsModel = async ({ queryParams }) => {
     */
     let query = API.ADDS
     if (pageValue && limitValue) {
-      query = `${query}?_page=${pageValue}&_limit=${limitValue}`
+      query = `${query}&_page=${pageValue}&_limit=${limitValue}`
     }
 
     const response = await fetch(query)

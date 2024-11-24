@@ -1,6 +1,6 @@
-import { createAddModel } from '../../auth-models/createAdd-model.js'
 import { errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from '../../lib/consts.js'
 import { fireNotificationEvent } from '../../lib/fire-notification-event.js'
+import { createAddModel } from '../createAdd-model.js'
 import { CREATE_ADD_VALUES } from './consts.js'
 
 export const takeCreateAddInputsValue = () => {

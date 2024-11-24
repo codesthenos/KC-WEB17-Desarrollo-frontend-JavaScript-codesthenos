@@ -1,12 +1,8 @@
 import { API, expand } from '../lib/consts.js'
 import { noId, noAdd, addsDBName, findAdd } from './lib/consts.js'
 
-export const addDetailsModel = async () => {
+export const addDetailsModel = async ({ addId }) => {
   try {
-    const params = new URLSearchParams(window.location.search)
-    const addId = params.get('id')
-
-    if (!addId) throw new Error(noId)
     /* It works, but to avoid a fetch of just ONE add
        we are making that a user can see the add details
        of an already deleted add or see oudated add details
