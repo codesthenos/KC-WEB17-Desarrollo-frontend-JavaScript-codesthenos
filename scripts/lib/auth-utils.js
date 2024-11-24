@@ -25,7 +25,7 @@ export const takeRegisterInputsValue = ({ emailId, passId, passConfirmId }) => {
 export const validateLogin = ({ userEmail }) => {
   const errors = []
 
-  const emailRegExp = new RegExp(REGEXP.email)
+  const emailRegExp = new RegExp(REGEXP.email, 'i')
 
   if (!emailRegExp.test(userEmail)) {
     errors.push('Wrong email format')

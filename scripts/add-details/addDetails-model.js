@@ -1,4 +1,4 @@
-import { API } from '../lib/consts.js'
+import { API, expand } from '../lib/consts.js'
 import { noId, noAdd, addsDBName, findAdd } from './lib/consts.js'
 
 export const addDetailsModel = async () => {
@@ -17,7 +17,7 @@ export const addDetailsModel = async () => {
       
       return { add: findAdd({ adds: addsDB, addId }) }
     }*/
-    const query = `${API.ADDS}/${addId}`
+    const query = `${API.ADD}/${addId}${expand}`
     const response = await fetch(query)
     const fetchedAdd = await response.json()
 

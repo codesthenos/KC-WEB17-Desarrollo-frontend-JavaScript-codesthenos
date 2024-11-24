@@ -10,6 +10,9 @@
     align-items: end;
     gap: 1rem;
     .add-card {
+      >h4 {
+        text-align: center;
+      }
       .description-div {
         display: none;
       }

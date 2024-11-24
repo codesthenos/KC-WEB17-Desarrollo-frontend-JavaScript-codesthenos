@@ -1,6 +1,6 @@
-import { noAddsMessage } from './lib/consts.js'
+//import { addsDBName } from '../add-details/lib/consts.js'
 import { API } from '../lib/consts.js'
-import { addsDBName } from '../add-details/lib/consts.js'
+import { noAddsMessage } from './lib/consts.js'
 
 // query params for pagination
 // _page & _limit

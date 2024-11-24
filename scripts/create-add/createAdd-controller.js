@@ -1,4 +1,4 @@
-import { API, errorNoti, loadingNoti } from '../lib/consts.js'
+import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { handleCreateAdd, takeCreateAddInputsValue, validateCreateAdd } from './lib/createAdd-utils.js'
 
@@ -16,8 +16,7 @@ export const createAddController = ({ element }) => {
       addImageValue
     } = takeCreateAddInputsValue()
 
-    // TODO validation for image url maybe
-    const errors = validateCreateAdd()
+    const errors = validateCreateAdd({ addNameValue, addDescriptionValue, addImageValue })
 
     if (errors.length > 0) {
       fireNotificationEvent({ element, type: errorNoti, errorList: errors })
