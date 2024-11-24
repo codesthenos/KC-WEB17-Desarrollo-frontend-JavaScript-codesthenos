@@ -14,8 +14,6 @@ export const updateAddController = async ({ element, addId }) => {
     }, 1000)
   }
 
-  //fireNotificationEvent({ element, type: loadingNoti })
-
   try {
     const response = await addDetailsModel({ addId })
     const add = response.add
