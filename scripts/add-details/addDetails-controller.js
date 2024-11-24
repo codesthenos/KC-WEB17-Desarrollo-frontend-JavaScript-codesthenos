@@ -3,7 +3,7 @@ import { authAddDetailsView, publicAddDetailView } from './views/addDetails-view
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
-import { handleDeleteAdd, isUserLoggedOwner } from '../lib/auth-utils.js'
+import { handleDeleteAdd, isUserLogged, isUserLoggedOwner } from '../lib/auth-utils.js'
 import { deleteAddButtonId } from './lib/consts.js'
 
 export const addDetailsController = async ({ element, notificationElement, addId }) => {
@@ -21,6 +21,19 @@ export const addDetailsController = async ({ element, notificationElement, addId
       const publicAddDetailDiv = publicAddDetailView({ add })
       element.innerHTML = ''
       element.appendChild(publicAddDetailDiv)
+
+      const offerDemandButton = document.getElementById('offer-demand-button')
+
+      offerDemandButton.addEventListener('click', () => {
+        if (!isUserLogged()) {
+          fireNotificationEvent({ element, type: errorNoti, errorList: ['UNATHORIZED, please login'] })
+          setTimeout(() => {
+            window.location.href = '/routes/login.html'
+          }, 1500)
+        } else {
+          fireNotificationEvent({ element, type: errorNoti, errorList: ['Service NOT AVIABLE yet'] })
+        }
+      })
     } else {
       const authAddDetailDiv = authAddDetailsView({ add })
 

@@ -1,6 +1,6 @@
 import { buttonDescDivClassName } from '../lib/consts.js'
 import { addDetailCardView } from './addDetailsCard-view.js'
-import { addDetailButtonsDiv } from './addDetailsButtonsDiv-view.js'
+import { addDetailButtonsDiv, offerDemandButtonDiv } from './addDetailsButtonsDiv-view.js'
 import { addDetailDescView } from './addDetailsDesc-view.js'
 
 export const authAddDetailsView = ({ add }) => {
@@ -26,8 +26,10 @@ export const publicAddDetailView = ({ add }) => {
   const buttonsDescDiv = document.createElement('div')
 
   const addDiv = addDetailCardView(add)
+  const offerDemandButtonsDiv = offerDemandButtonDiv(add)
   const descriptionDiv = addDetailDescView(add)
 
+  buttonsDescDiv.appendChild(offerDemandButtonsDiv)
   buttonsDescDiv.appendChild(descriptionDiv)
   buttonsDescDiv.classList.add(buttonDescDivClassName)
 

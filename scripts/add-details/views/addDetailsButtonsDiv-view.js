@@ -11,3 +11,16 @@ export const addDetailButtonsDiv = add => {
 
   return addButtonsDiv
 }
+
+export const offerDemandButtonDiv = add => {
+  const offerDemandButtonsDiv = document.createElement('div')
+  const offerDemandButton = addDetailButtonView({
+    buttonId: 'offer-demand-button',
+    buttonText: `${add.for === 'demand' ? 'OFFER' : 'DEMAND' }`,
+  })
+
+  offerDemandButtonsDiv.appendChild(offerDemandButton)
+  offerDemandButtonsDiv.classList.add(buttonsDivClassName)
+
+  return offerDemandButtonsDiv
+}
