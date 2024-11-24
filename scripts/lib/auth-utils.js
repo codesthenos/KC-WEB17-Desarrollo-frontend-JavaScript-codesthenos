@@ -1,7 +1,8 @@
-import { API, errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from './consts.js'
+import { API, errorNoti, loadingNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from './consts.js'
 import { fireNotificationEvent } from './fire-notification-event.js'
 import { authUser } from '../auth-models/authUser-model.js'
 import { getUserInfo } from '../auth-models/getUserInfo-model.js'
+import { deleteAddModel } from '../auth-models/deleteAdd-model.js'
 
 export const takeLoginInputsValue = ({ emailId, passId }) => {
   const userEmailInput = document.getElementById(emailId)
@@ -70,6 +71,29 @@ export const handleRegister = async ({ element, userEmail, userPassword, endpoin
     }, 750)
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+  }
+}
+
+export const handleDeleteAdd = async ({ element, add }) => {
+  const token = localStorage.getItem('JWT')
+
+  fireNotificationEvent({ element, type: loadingNoti })
+  
+  if (!token) {
+    fireNotificationEvent({ element, type: errorNoti, errorList: ['UNATHORIZED Not user logged'] })
+    setTimeout(() => {
+      window.location.href = '/routes/login.html'
+    }, 1500)
+  } else {
+    try {
+      await deleteAddModel({ addId: add.id, token })
+      fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.DELETED_ADD })
+      setTimeout(() => {
+        window.location.href = '/'
+      }, 1500)
+    } catch (error) {
+      fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+    }
   }
 }
 

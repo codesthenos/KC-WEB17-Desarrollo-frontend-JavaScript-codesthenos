@@ -3,7 +3,8 @@ import { authAddDetailsView, publicAddDetailView } from './views/addDetails-view
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
-import { isUserLoggedOwner } from '../lib/auth-utils.js'
+import { handleDeleteAdd, isUserLoggedOwner } from '../lib/auth-utils.js'
+import { deleteAddButtonId } from './lib/consts.js'
 
 export const addDetailsController = async ({ element, notificationElement, addId }) => {
   if (!addId) {
@@ -15,18 +16,30 @@ export const addDetailsController = async ({ element, notificationElement, addId
   try {
     const response = await addDetailsModel({ addId })
     const add = response.add
-    
-    let addDetailDiv = null
 
-    if (await isUserLoggedOwner({ element, add })) {
-      addDetailDiv = authAddDetailsView({ add })
-      // add listeners to auth buttons
+    if (!await isUserLoggedOwner({ element, add })) {
+      const publicAddDetailDiv = publicAddDetailView({ add })
+      element.innerHTML = ''
+      element.appendChild(publicAddDetailDiv)
     } else {
-      addDetailDiv = publicAddDetailView({ add })
+      const authAddDetailDiv = authAddDetailsView({ add })
+
+      element.innerHTML = ''
+      element.appendChild(authAddDetailDiv)
+
+      const deleteAddButton = document.getElementById(deleteAddButtonId)
+
+      deleteAddButton.addEventListener('click', () => {
+        const shouldRemove = confirm('Are you sure about DELETING the add PERMANENTLY?')
+        
+        if (shouldRemove) {
+          handleDeleteAdd({ element, add })
+        }
+      })
+
+      // TODO update button is an anchor (change for a butto or e.prevent)
     }
 
-    element.innerHTML = ''
-    element.appendChild(addDetailDiv)
     removeLoadingClassNames({ element: notificationElement })
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message]})

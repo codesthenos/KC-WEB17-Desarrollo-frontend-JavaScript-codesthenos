@@ -15,6 +15,11 @@ export const notificationsController = ({ element }) => {
       })
 
       element.appendChild(errorUl)
+      setTimeout(() => {
+        element.innerHTML = ''
+        element.classList.remove(errorNoti)
+        element.classList.remove('notifications-div')
+      }, 3000)
     } else if (type === loadingNoti) {
       setNotification({
         notification: element,
@@ -33,12 +38,6 @@ export const notificationsController = ({ element }) => {
       })
 
       element.appendChild(successH2)
-      // clearing success nati after 2000ms
-      setTimeout(() => {
-        element.innerHTML = ''
-        element.classList.remove(successNoti)
-        element.classList.remove('notifications-div')
-      }, 99999999999999)
     }
   }
 
