@@ -31,7 +31,7 @@ export const handleCreateAdd = async ({ element, addName, addPrice, addDescripti
 
     fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.CREATED_ADD })
 
-    sessionStorage.clear()
+    // No needed since i quitted the sessionStorage usage from '/' sessionStorage.clear()
 
     setTimeout(() => {
       window.location.href = '/'

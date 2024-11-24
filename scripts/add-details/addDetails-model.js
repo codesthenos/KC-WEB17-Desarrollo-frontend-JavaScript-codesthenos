@@ -7,21 +7,23 @@ export const addDetailsModel = async () => {
     const addId = params.get('id')
 
     if (!addId) throw new Error(noId)
-
+    /* It works, but to avoid a fetch of just ONE add
+       we are making that a user can see the add details
+       of an already deleted add or see oudated add details
+       from an updated add
     const addsDB = JSON.parse(sessionStorage.getItem(addsDBName))
 
     if (addsDB && findAdd({ adds: addsDB, addId })) {
       
       return { add: findAdd({ adds: addsDB, addId }) }
-    } else {
-      const query = `${API.ADDS}/${addId}`
-      const response = await fetch(query)
-      const fetchedAdd = await response.json()
+    }*/
+    const query = `${API.ADDS}/${addId}`
+    const response = await fetch(query)
+    const fetchedAdd = await response.json()
 
-      if (fetchedAdd.id !== addId) throw new Error(noAdd)
+    if (fetchedAdd.id !== addId) throw new Error(noAdd)
 
-      return { add: fetchedAdd }
-    }
+    return { add: fetchedAdd }
   } catch (error) {
     throw new Error(error.message)
   }
