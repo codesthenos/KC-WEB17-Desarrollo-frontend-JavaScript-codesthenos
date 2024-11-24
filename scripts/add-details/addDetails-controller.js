@@ -8,7 +8,10 @@ import { deleteAddButtonId } from './lib/consts.js'
 
 export const addDetailsController = async ({ element, notificationElement, addId }) => {
   if (!addId) {
-    window.location.href = '/'
+    fireNotificationEvent({ element, type: errorNoti, errorList: ['No id provided'] })
+    setTimeout(() => {
+      window.location.href = '/'
+    }, 1000)
   }
 
   fireNotificationEvent({ element, type: loadingNoti })
@@ -49,8 +52,6 @@ export const addDetailsController = async ({ element, notificationElement, addId
           handleDeleteAdd({ element, add })
         }
       })
-
-      // TODO update button is an anchor (change for a butto or e.prevent)
     }
 
     removeLoadingClassNames({ element: notificationElement })
