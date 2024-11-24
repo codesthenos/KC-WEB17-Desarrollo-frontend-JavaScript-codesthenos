@@ -135,6 +135,9 @@ img {
     margin: 0;
     margin-bottom: .5rem;
     font-size: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 1.1em;
   }
   span {
     text-align: left;
