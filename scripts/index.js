@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const initialState = {
     queryParams: {
       pageValue: null,
-      limitValue: null
+      limitValue: null,
+      likeValue: null
     },
     paginationParams: {
       pagButtonText: paginateButtonText
