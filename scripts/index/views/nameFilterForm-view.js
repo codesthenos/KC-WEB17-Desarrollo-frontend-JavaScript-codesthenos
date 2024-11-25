@@ -5,6 +5,7 @@ export const nameFilterFormView = () => {
   const nameLabel = document.createElement('label')
   const nameInput = document.createElement('input')
   const submitButton = document.createElement('button')
+  const clearNameFilterAnchor = document.createElement('a')
 
   nameInput.setAttribute('type', 'text')
   nameInput.setAttribute('id', 'name')
@@ -19,10 +20,15 @@ export const nameFilterFormView = () => {
   submitButton.classList.add(buttonClassName)
   submitButton.textContent = 'FILTER'
 
+  clearNameFilterAnchor.setAttribute('href', '/')
+  clearNameFilterAnchor.classList.add(buttonClassName)
+  clearNameFilterAnchor.textContent = 'CLEAR FILTER'
+
   nameFilterForm.setAttribute('id', 'name-filter-form')
   nameFilterForm.appendChild(nameInput)
   nameFilterForm.appendChild(nameLabel)
   nameFilterForm.appendChild(submitButton)
+  nameFilterForm.appendChild(clearNameFilterAnchor)
 
   return nameFilterForm
 }

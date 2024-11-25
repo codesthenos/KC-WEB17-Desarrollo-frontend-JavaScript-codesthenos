@@ -1,10 +1,6 @@
-// pagination button ids
 import { paginateButtonId, nextPageButtonId, previousPageButtonId, paginateButtonText, showAllButtonText, initialPage, addsPerPage } from './lib/consts.js'
-// pag state
 import { calculatePagState } from './lib/paginationState.js'
-// data model
 import { addsModel } from './adds-model.js'
-// loading, error, and success controllers
 import { addsView } from './views/adds-view.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, loadingNoti } from '../lib/consts.js'

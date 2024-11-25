@@ -16,12 +16,14 @@
   form {
     margin: 0 auto;
     margin-top: 2rem;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     label {
+      font-size: 1.25rem;
+      font-weight: bold;
       order: 1;
       margin: 0;
     }
@@ -30,7 +32,12 @@
       margin: 0;
     }
     button {
+      font-size: 1rem;
       order: 3;
+    }
+    a {
+      margin: 0;
+      order: 4;
     }
   }
   nav {
@@ -38,6 +45,7 @@
     justify-content: center;
     gap: 2rem;
     button {
+      font-size: 1rem;
       margin-top: 2rem;
     }
   }
