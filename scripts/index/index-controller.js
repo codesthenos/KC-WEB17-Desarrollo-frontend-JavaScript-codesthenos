@@ -92,7 +92,10 @@ export const indexController = async ({ element, notificationElement, state }) =
     // I think i dont want to throw a 'loaded succesfully after loading the homepage, that why its commented
     // fireNotificationEvent({ element, type: successNoti, message: successMsg })
   } catch (error) {
-    console.log(error)
+    element.innerHTML = ''
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+    setTimeout(() => {
+      window.location.href = '/'
+    }, 1000)
   }
 }
