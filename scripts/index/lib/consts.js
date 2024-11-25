@@ -12,7 +12,7 @@ export const addsH2ClassName = 'adds-h2'
 export const initialPage = 1
 
 // adds per page
-export const addsPerPage = 4
+export const addsPerPage = 1
 
 // paginate button
 export const paginateButtonId = 'paginate-on-off-button'

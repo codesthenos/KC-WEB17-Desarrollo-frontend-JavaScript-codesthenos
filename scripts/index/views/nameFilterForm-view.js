@@ -9,6 +9,7 @@ export const nameFilterFormView = () => {
   nameInput.setAttribute('type', 'text')
   nameInput.setAttribute('id', 'name')
   nameInput.setAttribute('name', 'name')
+  nameInput.setAttribute('required', true)
 
   nameLabel.setAttribute('for', 'name')
   nameLabel.textContent = 'Name'
@@ -18,6 +19,7 @@ export const nameFilterFormView = () => {
   submitButton.classList.add(buttonClassName)
   submitButton.textContent = 'FILTER'
 
+  nameFilterForm.setAttribute('id', 'name-filter-form')
   nameFilterForm.appendChild(nameInput)
   nameFilterForm.appendChild(nameLabel)
   nameFilterForm.appendChild(submitButton)
