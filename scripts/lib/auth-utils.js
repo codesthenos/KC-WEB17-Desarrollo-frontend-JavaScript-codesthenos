@@ -3,6 +3,7 @@ import { fireNotificationEvent } from './fire-notification-event.js'
 import { authUser } from '../auth-models/authUser-model.js'
 import { getUserInfo } from '../auth-models/getUserInfo-model.js'
 import { deleteAddModel } from '../auth-models/deleteAdd-model.js'
+import { createAddModel } from '../create-add/createAdd-model.js'
 
 export const takeLoginInputsValue = ({ emailId, passId }) => {
   const userEmailInput = document.getElementById(emailId)
@@ -86,6 +87,18 @@ export const handleDeleteAdd = async ({ element, add }) => {
     }, 1500)
   } else {
     try {
+      // No se si te va a gustar Edu, pero para seguir jugando y aprendiendo, se me ocurrio que
+      // borrar un anuncio, no implicase que perdiesemos la info, aunque se que en la vida real
+      // habria que ver el aspecto legal de quedarse con data o avisar al user etc...
+      await createAddModel({
+        addName: add.name,
+        addPrice: add.price,
+        addDescription: add.description,
+        addFor: add.for,
+        addImage: add.image,
+        token,
+        endpoint: API.BACKUP_ADDS
+      })
       await deleteAddModel({ addId: add.id, token })
       fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.DELETED_ADD })
       setTimeout(() => {

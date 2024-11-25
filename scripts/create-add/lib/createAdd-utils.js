@@ -1,4 +1,4 @@
-import { errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from '../../lib/consts.js'
+import { API, errorNoti, REGEXP, SUCCESS_MESSAGES, successNoti } from '../../lib/consts.js'
 import { fireNotificationEvent } from '../../lib/fire-notification-event.js'
 import { createAddModel } from '../createAdd-model.js'
 import { CREATE_ADD_VALUES } from './consts.js'
@@ -44,7 +44,7 @@ export const validateCreateAdd = ({ addNameValue, addDescriptionValue, addImageV
 
 export const handleCreateAdd = async ({ element, addName, addPrice, addDescription, addFor, addImage, token }) => {
   try {
-    await createAddModel({ addName, addPrice, addDescription, addFor, addImage, token })
+    await createAddModel({ addName, addPrice, addDescription, addFor, addImage, token, endpoint: API.ADDS })
 
     fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.CREATED_ADD })
 

@@ -51,5 +51,6 @@ export const API = {
   ADD: `${HOST}${ROUTES.PUBLIC}/adds`,
   REGISTER: `${HOST}${ROUTES.AUTH}/register`,
   LOGIN: `${HOST}${ROUTES.AUTH}/login`,
-  GET_USER_LOGGED_INFO: `${HOST}${ROUTES.AUTH}/me`
+  GET_USER_LOGGED_INFO: `${HOST}${ROUTES.AUTH}/me`,
+  BACKUP_ADDS: `${HOST}${ROUTES.PUBLIC}/backupAdds`
 }

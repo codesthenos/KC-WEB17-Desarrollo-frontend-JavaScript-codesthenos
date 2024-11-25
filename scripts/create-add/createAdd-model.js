@@ -1,8 +1,6 @@
-import { API } from '../lib/consts.js'
-
-export const createAddModel = async ({ addName, addPrice, addDescription, addFor, addImage, token }) => {
+export const createAddModel = async ({ addName, addPrice, addDescription, addFor, addImage, token, endpoint }) => {
   try {
-    const response = await fetch(API.ADDS, {
+    const response = await fetch(endpoint, {
       method: 'POST',
       body: JSON.stringify({
         name: addName,
@@ -17,8 +15,7 @@ export const createAddModel = async ({ addName, addPrice, addDescription, addFor
       }
     })
     if (!response.ok) {
-      const error = await response.json()
-      throw new Error(error.message)
+      throw new Error('Error creating add')
     }
   } catch (error) {
     throw new Error(error.message)
