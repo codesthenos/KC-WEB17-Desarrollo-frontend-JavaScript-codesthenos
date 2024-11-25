@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!isUserLogged()) {
     setSessionNav({
+      deleteUserButtonClass: '_',
       homeButtonClass: 'shown',
       createAddButtonClass: '_',
       registerButtonClass: 'shown',
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1500)
   } else {
     setSessionNav({
+      deleteUserButtonClass: '_',
       homeButtonClass: 'shown',
       createAddButtonClass: '_',
       registerButtonClass: '_',

@@ -1,0 +1,215 @@
+{
+  "users": [
+    {
+      "username": "test@test.com",
+      "password": "$2b$10$ZKNlZ7lxwk9F84LglJ4z/.CRbizKvrFf71/rwsLKGQnlJGEGxOPza",
+      "id": "pIXsV32"
+    },
+    {
+      "username": "test@test2.com",
+      "password": "$2b$10$ZKNlZ7lxwk9F84LglJ4z/.CRbizKvrFf71/rwsLKGQnlJGEGxOPza",
+      "id": "fSdikz_"
+    },
+    {
+      "username": "aa@aa.es",
+      "password": "$2b$10$YJZHTcFEfy0IaeJED.YGW.Lq0evnK7WkEi/xPcn0AS8XZl4e.rctK",
+      "id": "xQWhCqu"
+    },
+    {
+      "username": "aa@aa.po",
+      "password": "$2b$10$E70bMMnuX9va0zjUm35SQ.HUe741d3WMqM.X9rXYxkjfLtQkhkWYa",
+      "id": "lzpBkKA"
+    },
+    {
+      "username": "test@test3.com",
+      "password": "$2b$10$t8X5Vm0KnhmCewbcJ6n9ZeO5hfeB4QEbq4c25b2paFXQWnpIH5Eyy",
+      "id": "zh0OKYM"
+    }
+  ],
+  "adds": [
+    {
+      "id": "randomUUID-0",
+      "userId": "pIXsV32",
+      "image": "https://naisa.es/11236-large_default/camiseta-basica-algodon-atomic-.jpg",
+      "name": "Camiseta",
+      "description": "Camiseta azul",
+      "price": 10,
+      "for": "offer"
+    },
+    {
+      "name": "Camiseta",
+      "price": "20",
+      "description": "mmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmm mmmmmmmmmmmmm mmmmmmmmmmmmmm mmmmmmmmmmm mmmmmmmmmmmmmmmm mmmmmmmmmm mmmmmmmmmmmmmmm mmmmmmmmmmmmmmmm mmmmmmmmmmmm mmmmmmmmmmm mmmmmmmmmm mmmmmmmmm mmmmmmmm mmmmmmmmm mmmmmmm",
+      "for": "offer",
+      "image": "https://vausen.com/wp-content/uploads/2022/01/vausen-camiseta-negra-manga-corta-algodo%CC%81n-peruano-frente-4.jpg",
+      "userId": "pIXsV32",
+      "updatedAt": "2024-11-24T22:03:45.896Z",
+      "id": "randomUUID-1"
+    },
+    {
+      "name": "Camiseta",
+      "price": "100",
+      "description": "Camiseta azul de valor incalculable",
+      "for": "offer",
+      "image": "https://naisa.es/11236-large_default/camiseta-basica-algodon-atomic-.jpg",
+      "userId": "fSdikz_",
+      "updatedAt": "2024-11-24T21:57:13.034Z",
+      "id": "randomUUID-2"
+    },
+    {
+      "id": "randomUUID-3",
+      "userId": "fSdikz_",
+      "image": "https://vausen.com/wp-content/uploads/2022/01/vausen-camiseta-negra-manga-corta-algodo%CC%81n-peruano-frente-4.jpg",
+      "name": "Camiseta",
+      "description": "Camiseta negra",
+      "price": 20,
+      "for": "demand"
+    },
+    {
+      "name": "SARA",
+      "price": "999999",
+      "description": "DIOSA, INDESCRIPTIBLE",
+      "for": "demand",
+      "image": "",
+      "userId": "xQWhCqu",
+      "updatedAt": "2024-11-23T22:51:20.509Z",
+      "id": "SFu8oyQ"
+    },
+    {
+      "name": "add 3",
+      "price": "33",
+      "description": "add 333333",
+      "for": "demand",
+      "image": "",
+      "userId": "xQWhCqu",
+      "updatedAt": "2024-11-24T10:28:14.283Z",
+      "id": "DjiEbUE"
+    },
+    {
+      "name": "add 4",
+      "price": "44",
+      "description": "add 44444444",
+      "for": "demand",
+      "image": "https://ichef.bbci.co.uk/images/ic/640x360/p0j00xkc.jpg",
+      "userId": "xQWhCqu",
+      "updatedAt": "2024-11-24T10:29:36.390Z",
+      "id": "nHDsK4r"
+    },
+    {
+      "name": "add 5",
+      "price": "55",
+      "description": "add 5 description",
+      "for": "demand",
+      "image": "",
+      "userId": "xQWhCqu",
+      "updatedAt": "2024-11-24T10:36:55.781Z",
+      "id": "AVSQ-wj"
+    },
+    {
+      "name": "Football",
+      "price": "23.95",
+      "description": "football new",
+      "for": "offer",
+      "image": "",
+      "userId": "xQWhCqu",
+      "updatedAt": "2024-11-24T15:45:34.149Z",
+      "id": "FOOsSDF"
+    },
+    {
+      "name": "prueba",
+      "price": "12",
+      "description": "prueba",
+      "for": "demand",
+      "image": "",
+      "userId": "lzpBkKA",
+      "updatedAt": "2024-11-24T16:15:58.481Z",
+      "id": "d2ocwFn"
+    },
+    {
+      "id": "randomUUID-10",
+      "userId": "pIXsV32",
+      "name": "Soporte para monitores",
+      "price": 80,
+      "image": "https://mibricolaje.com/20838-large_default/soporte-monitor-doble-17-32-articulado-larryhouse.jpg",
+      "description": "Optimiza tu espacio de trabajo con este soporte de monitores resistente y ergonómico. Compatible con pantallas de 13\" a 32\"",
+      "for": "offer"
+    },
+    {
+      "id": "randomUUID-9",
+      "userId": "pIXsV32",
+      "name": "Silla gamer",
+      "price": 500,
+      "image": "https://m.media-amazon.com/images/I/41eLRO818oL.jpg",
+      "description": "Disfruta de la máxima comodidad y estilo con esta silla gamer de diseño ergonómico. Fabricada con materiales de alta calidad.  Su base robusta y ruedas giratorias garantizan estabilidad y movilidad.",
+      "for": "demand"
+    },
+    {
+      "id": "randomUUID-4",
+      "userId": "pIXsV32",
+      "name": "Plancha GHD",
+      "price": 150,
+      "image": "https://m.media-amazon.com/images/I/71leadKIJ6L._AC_UF894,1000_QL80_.jpg",
+      "description": "Consigue un cabello liso, brillante y lleno de estilo con la plancha de pelo GHD. Su tecnología de cerámica avanzada mantiene una temperatura óptima de 185 °C, garantizando un peinado rápido y sin daño excesivo. Ideal para alisar, rizar o crear ondas suaves, su diseño ergonómico y su calentamiento rápido te ofrecen resultados profesionales desde casa",
+      "for": "offer"
+    },
+    {
+      "id": "randomUUID-5",
+      "userId": "fSdikz_",
+      "name": "Tableta gráfica",
+      "price": 2200,
+      "image": "https://m.media-amazon.com/images/I/61pXSqUgLNL._AC_SX522_.jpg",
+      "description": "Tableta gráfica profesional con pantalla 4K UHD de 27\", tecnología QLED y 8192 niveles de presión. Ofrece colores precisos, fluidez en el trazo y compatibilidad con software creativo. Perfecta para ilustradores y diseñadores.",
+      "for": "demand"
+    },
+    {
+      "id": "randomUUID-6",
+      "userId": "fSdikz_",
+      "name": "Bugatti Chiron",
+      "price": 3200000,
+      "image": "https://imagenes.20minutos.es/files/image_990_556/files/fp/uploads/imagenes/2021/11/30/13-bugatti-chiron-2017.r_d.692-382.jpeg",
+      "description": "El Bugatti Chiron es un coche de lujo con un motor W16 de 8.0 litros, 1.500 CV de potencia y una velocidad máxima limitada de 420 km/h. Combina ingeniería de alta precisión con un diseño elegante y tecnología avanzada, posicionándose como uno de los coches más exclusivos y veloces del mundo.",
+      "for": "demand"
+    },
+    {
+      "id": "randomUUID-7",
+      "userId": "fSdikz_",
+      "name": "Neiman Marcus Limited Edition Fighter",
+      "price": 9400000,
+      "image": "https://motorcyclesports.net/wp-content/uploads/2024/11/Neiman-Marcus-Limited-Edition-Fighter-Price-in-India.jpg",
+      "description": "Su diseño futurista está fabricado en materiales de alta tecnología como aluminio mecanizado, inspirado en ingeniería aeronáutica. Con una producción limitada, combina exclusividad, lujo y una estética única que la convierte en una joya para coleccionistas",
+      "for": "demand"
+    },
+    {
+      "id": "randomUUID-8",
+      "userId": "fSdikz_",
+      "name": "Destino",
+      "price": 999000000000,
+      "image": "https://i.ibb.co/djfVp33/IMG-9870-01.jpg",
+      "description": "El amor de mi vida es una persona excepcional, única en su esencia. Su presencia ilumina cada rincón de mi ser, y su corazón es un refugio lleno de ternura y comprensión. Con una sonrisa que transmite paz y una mirada que refleja su alma profunda, su bondad y generosidad me inspiran a ser mejor cada día. Su amor es un regalo constante, su apoyo inquebrantable, y su conexión conmigo es algo que trasciende lo cotidiano. Es esa persona que me entiende sin palabras, que hace que el mundo se sienta más hermoso solo por estar a su lado.",
+      "for": "demand"
+    },
+    {
+      "name": "add 12",
+      "price": "12",
+      "description": "add 12 description\n",
+      "for": "demand",
+      "image": "",
+      "userId": "pIXsV32",
+      "updatedAt": "2024-11-24T22:22:54.635Z",
+      "id": "w-b5hME"
+    }
+  ],
+  "backupAdds": [
+    {
+      "name": "Backup 1",
+      "price": "99",
+      "description": "Prueba backup 1",
+      "for": "demand",
+      "image": "",
+      "userId": "pIXsV32",
+      "updatedAt": "2024-11-25T15:48:20.576Z",
+      "id": 1
+    }
+  ],
+  "backupUsers": []
+}

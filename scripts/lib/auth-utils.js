@@ -4,6 +4,7 @@ import { authUser } from '../auth-models/authUser-model.js'
 import { getUserInfo } from '../auth-models/getUserInfo-model.js'
 import { deleteAddModel } from '../auth-models/deleteAdd-model.js'
 import { createAddModel } from '../create-add/createAdd-model.js'
+import { deleteUserModel } from '../auth-models/deleteUser-model.js'
 
 export const takeLoginInputsValue = ({ emailId, passId }) => {
   const userEmailInput = document.getElementById(emailId)
@@ -101,6 +102,31 @@ export const handleDeleteAdd = async ({ element, add }) => {
       })
       await deleteAddModel({ addId: add.id, token })
       fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.DELETED_ADD })
+      setTimeout(() => {
+        window.location.href = '/'
+      }, 1500)
+    } catch (error) {
+      fireNotificationEvent({ element, type: errorNoti, errorList: [error.message] })
+    }
+  }
+}
+
+export const handleDeleteUser = async ({ element }) => {
+  const token = localStorage.getItem('JWT')
+
+  fireNotificationEvent({ element, type: loadingNoti })
+
+  if (!token) {
+    fireNotificationEvent({ element, type: errorNoti, errorList: ['UNATHORIZED Not user logged'] })
+    setTimeout(() => {
+      window.location.href = '/routes/login.html'
+    }, 1500)
+  } else {
+    try {
+      const user = await getUserInfo({ token })
+      await deleteUserModel({ userId: user.id, token })
+      localStorage.removeItem('JWT')
+      fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.DELETED_USER })
       setTimeout(() => {
         window.location.href = '/'
       }, 1500)

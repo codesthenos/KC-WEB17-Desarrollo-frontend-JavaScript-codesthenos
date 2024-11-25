@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const { setSessionNav } = sessionNavController({ element: loginMain })
 
-  setSessionNav({ homeButtonClass: 'shown', createAddButtonClass: '_', registerButtonClass: 'shown', loginButtonClass: '_' })
+  setSessionNav({ deleteUserButtonClass: '_', homeButtonClass: 'shown', createAddButtonClass: '_', registerButtonClass: 'shown', loginButtonClass: '_' })
 
   removeLoadingClassNames({ element: notificationsDiv })
 
