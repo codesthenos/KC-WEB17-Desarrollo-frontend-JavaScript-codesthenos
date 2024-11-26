@@ -1,4 +1,4 @@
-export const createAddModel = async ({ addName, addPrice, addDescription, addFor, addImage, token, endpoint }) => {
+export const createAddModel = async ({ addName, addPrice, addDescription, addFor, addImage, addTags, token, endpoint }) => {
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -7,7 +7,8 @@ export const createAddModel = async ({ addName, addPrice, addDescription, addFor
         price: addPrice,
         description: addDescription,
         for: addFor,
-        image: addImage
+        image: addImage,
+        tags: addTags
       }),
       headers: {
         "Content-Type": "application/json",

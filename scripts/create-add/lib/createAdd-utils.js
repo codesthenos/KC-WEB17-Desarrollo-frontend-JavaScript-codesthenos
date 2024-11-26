@@ -8,7 +8,13 @@ export const takeCreateAddInputsValue = () => {
   const addPriceInput = document.getElementById(CREATE_ADD_VALUES.PRICE) 
   const addDescriptionInput = document.getElementById(CREATE_ADD_VALUES.DESCRIPTION) 
   const addForInput = document.querySelector(CREATE_ADD_VALUES.FOR)
-  const addImageInput = document.getElementById(CREATE_ADD_VALUES.IMAGE) 
+  const addImageInput = document.getElementById(CREATE_ADD_VALUES.IMAGE)
+  // static tags
+  const electronicsTagInput = document.getElementById(CREATE_ADD_VALUES.ELECTRONICS_TAG)
+  const sportsTagInput = document.getElementById(CREATE_ADD_VALUES.SPORTS_TAG)
+  const motorTagInput = document.getElementById(CREATE_ADD_VALUES.MOTOR_TAG)
+
+  const staticTags = [electronicsTagInput, sportsTagInput, motorTagInput]
 
   const addNameValue = addNameInput.value 
   const addPriceValue = addPriceInput.value
@@ -16,7 +22,15 @@ export const takeCreateAddInputsValue = () => {
   const addForValue = addForInput.value
   const addImageValue = addImageInput.value
 
-  return { addNameValue, addPriceValue, addDescriptionValue, addForValue, addImageValue }
+  const addTagsValue = []
+
+  staticTags.forEach(tagInput => {
+    if (tagInput.checked) {
+      addTagsValue.push(tagInput.name)
+    }
+  })
+
+  return { addNameValue, addPriceValue, addDescriptionValue, addForValue, addImageValue, addTagsValue }
 }
 
 export const validateCreateAdd = ({ addNameValue, addDescriptionValue, addImageValue }) => {
@@ -42,9 +56,9 @@ export const validateCreateAdd = ({ addNameValue, addDescriptionValue, addImageV
 }
 
 
-export const handleCreateAdd = async ({ element, addName, addPrice, addDescription, addFor, addImage, token }) => {
+export const handleCreateAdd = async ({ element, addName, addPrice, addDescription, addFor, addImage, addTags, token }) => {
   try {
-    await createAddModel({ addName, addPrice, addDescription, addFor, addImage, token, endpoint: API.ADDS })
+    await createAddModel({ addName, addPrice, addDescription, addFor, addImage, addTags, token, endpoint: API.ADDS })
 
     fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.CREATED_ADD })
 

@@ -1,5 +1,19 @@
 import { divDescriptionClassName, pFor } from './consts.js'
 
+const addTags = addTags => {
+  const tags = []
+
+  addTags.forEach(tag => {
+    tags.push(tag)
+  })
+
+  if (addTags.length === 0) {
+    return '<p>No tags</p>'
+  } else {
+    return `<p>${tags.join(', ')}</p>`
+  }
+}
+
 export const addLiHTML = add => {
 
   return `
@@ -9,5 +23,6 @@ export const addLiHTML = add => {
   <p class="${divDescriptionClassName}">${add.description}</p>
   <p><span>Price:</span> ${add.price}€</p>
   <p class="${pFor}">${add.for.toUpperCase()}</p>
+  ${add.tags ? addTags(add.tags) : ''}
   `
 }
