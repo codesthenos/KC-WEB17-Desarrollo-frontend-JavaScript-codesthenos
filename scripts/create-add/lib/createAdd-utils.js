@@ -3,20 +3,14 @@ import { fireNotificationEvent } from '../../lib/fire-notification-event.js'
 import { createAddModel } from '../createAdd-model.js'
 import { CREATE_ADD_VALUES } from './consts.js'
 
-export const takeCreateAddInputsValue = () => {
+export const takeCreateAddInputsValue = ({ tagsContainer }) => {
   const addNameInput = document.getElementById(CREATE_ADD_VALUES.NAME) 
   const addPriceInput = document.getElementById(CREATE_ADD_VALUES.PRICE) 
   const addDescriptionInput = document.getElementById(CREATE_ADD_VALUES.DESCRIPTION) 
   const addForInput = document.querySelector(CREATE_ADD_VALUES.FOR)
   const addImageInput = document.getElementById(CREATE_ADD_VALUES.IMAGE)
-  // static tags
-  const electronicsTagInput = document.getElementById(CREATE_ADD_VALUES.ELECTRONICS_TAG)
-  const sportsTagInput = document.getElementById(CREATE_ADD_VALUES.SPORTS_TAG)
-  const motorTagInput = document.getElementById(CREATE_ADD_VALUES.MOTOR_TAG)
 
-  // dinamic tags
-
-  const staticTags = [electronicsTagInput, sportsTagInput, motorTagInput]
+  const dinamicTagsInputs = tagsContainer.querySelectorAll('input:checked')
 
   const addNameValue = addNameInput.value 
   const addPriceValue = addPriceInput.value
@@ -26,10 +20,8 @@ export const takeCreateAddInputsValue = () => {
 
   const addTagsValue = []
 
-  staticTags.forEach(tagInput => {
-    if (tagInput.checked) {
-      addTagsValue.push(tagInput.name.toLowerCase())
-    }
+  dinamicTagsInputs.forEach(tagInput => {
+    addTagsValue.push(tagInput.name.toLowerCase())
   })
 
   return { addNameValue, addPriceValue, addDescriptionValue, addForValue, addImageValue, addTagsValue }
