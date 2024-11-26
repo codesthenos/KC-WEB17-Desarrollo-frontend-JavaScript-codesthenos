@@ -3,7 +3,8 @@ import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { handleCreateAdd, takeCreateAddInputsValue, validateCreateAdd } from './lib/createAdd-utils.js'
 
 export const createAddController = ({ element }) => {
-  element.addEventListener('submit', (event) => {
+  const createAddForm = document.getElementById('create-add-form')
+  createAddForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
     fireNotificationEvent({ element, type: loadingNoti })
@@ -34,5 +35,12 @@ export const createAddController = ({ element }) => {
         token
       })
     }
+  })
+  const addCustomTagButton = document.getElementById('add-custom-tag-button')
+  addCustomTagButton.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    fireNotificationEvent({ element, type: loadingNoti })
+
   })
 }
