@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     queryParams: {
       pageValue: null,
       limitValue: null,
+      likeKey: null,
       likeValue: null
     },
     paginationParams: {

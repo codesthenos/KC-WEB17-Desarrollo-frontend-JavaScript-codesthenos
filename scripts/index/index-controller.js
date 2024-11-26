@@ -5,6 +5,7 @@ import { addsView } from './views/adds-view.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
+import { calculateFiltersState } from './lib/filtersState.js'
 
 export const indexController = async ({ element, notificationElement, state }) => {
 
@@ -16,10 +17,11 @@ export const indexController = async ({ element, notificationElement, state }) =
 
     const currentPage = currentQueryParams.pageValue
     const limitAdds = currentQueryParams.limitValue
-    const nameFilterValue = currentQueryParams.likeValue
+    const filterKey = currentQueryParams.likeKey
+    const filterValue = currentQueryParams.likeValue
 
     // In a future here he will use the current filters applied
-    const countAddsQueryParams = { pageValue: null, limitValue: null, likeValue: nameFilterValue }
+    const countAddsQueryParams = { pageValue: null, limitValue: null, likeKey: filterKey, likeValue: filterValue }
     
     const [response, response2] = await Promise.all([
       addsModel({ queryParams: currentQueryParams }),
@@ -38,31 +40,44 @@ export const indexController = async ({ element, notificationElement, state }) =
     const addsDiv = addsView({ viewState: currentViewState })
     element.innerHTML = ''
     element.appendChild(addsDiv)
+    // Show the filter VALUE after search
+    if (filterKey === 'name') {
+      const nameFilterInput = document.getElementById('name')
+      nameFilterInput.value = filterValue
+    } else {
+      const tagsFilterInput = document.getElementById('tags')
+      tagsFilterInput.value = filterValue
+    }
     // NAME FILTER
-    const nameFilterInput = document.getElementById('name')
-    nameFilterInput.value = nameFilterValue
-
     const nameFilterForm = document.getElementById('name-filter-form')
+
     nameFilterForm.addEventListener('submit', (event) => {
       event.preventDefault()
-      const nameInput = document.getElementById('name')
-      const name = nameInput.value
 
-      const queryParamsFilteredState = { pageValue: currentPage, limitValue: limitAdds, likeValue: name }
-      const filteredState = { queryParams: queryParamsFilteredState, paginationParams: { pagButtonText } }
+      const filteredState = calculateFiltersState({ inputId: 'name', pageValue: currentPage, limitValue: limitAdds, pagButtonText })
 
       indexController({ element, notificationElement, state: filteredState })
     })
+    // TAGS FILTER
+    const tagsFilterForm = document.getElementById('tags-filter-form')
 
+    tagsFilterForm.addEventListener('submit', (event) => {
+      event.preventDefault()
+
+      const filteredState = calculateFiltersState({ inputId: 'tags', pageValue: currentPage, limitValue: limitAdds, pagButtonText })
+
+      indexController({ element, notificationElement, state: filteredState })
+    })
+    
     // after adding the pagination buttons to the DOM, i add the listeners
     // PAGINATE/SHOW ALL button
     const paginateButton = document.getElementById(paginateButtonId)
     paginateButton.addEventListener('click', () => {
       if (pagButtonText === paginateButtonText) {
-        const state = calculatePagState({ page: initialPage, addsPerPage, likeValue: nameFilterValue, pagButtonText: showAllButtonText })
+        const state = calculatePagState({ page: initialPage, addsPerPage, likeKey: filterKey, likeValue: filterValue, pagButtonText: showAllButtonText })
         indexController({ element, notificationElement, state })
       } else {
-        const state = calculatePagState({ page: null, addsPerPage: null, likeValue: nameFilterValue, pagButtonText: paginateButtonText })
+        const state = calculatePagState({ page: null, addsPerPage: null, likeKey: filterKey, likeValue: filterValue, pagButtonText: paginateButtonText })
         indexController({ element, notificationElement, state })
       }
     })
@@ -70,7 +85,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     const nextPageButton = document.getElementById(nextPageButtonId)
     if (nextPageButton) {
       nextPageButton.addEventListener('click', () => {
-        const state = calculatePagState({ page: currentPage + 1, addsPerPage: currentQueryParams.limitValue, likeValue: nameFilterValue, pagButtonText })
+        const state = calculatePagState({ page: currentPage + 1, addsPerPage: currentQueryParams.limitValue, likeKey: filterKey, likeValue: filterValue, pagButtonText })
 
         indexController({ element, notificationElement, state })
       })
@@ -79,7 +94,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     const previousPageButton = document.getElementById(previousPageButtonId)
     if (previousPageButton) {
       previousPageButton.addEventListener('click', () => {
-        const state = calculatePagState({ page: currentPage - 1, addsPerPage: currentQueryParams.limitValue, likeValue: nameFilterValue, pagButtonText })
+        const state = calculatePagState({ page: currentPage - 1, addsPerPage: currentQueryParams.limitValue, likeKey: filterKey, likeValue: filterValue, pagButtonText })
 
         indexController({ element, notificationElement, state })
       })
