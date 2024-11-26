@@ -26,7 +26,7 @@ export const takeCreateAddInputsValue = () => {
 
   staticTags.forEach(tagInput => {
     if (tagInput.checked) {
-      addTagsValue.push(tagInput.name)
+      addTagsValue.push(tagInput.name.toLowerCase())
     }
   })
 

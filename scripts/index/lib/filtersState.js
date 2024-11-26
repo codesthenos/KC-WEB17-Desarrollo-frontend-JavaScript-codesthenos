@@ -1,6 +1,6 @@
 export const calculateFiltersState = ({ inputId, pageValue, limitValue, pagButtonText }) => {
   const input = document.getElementById(inputId)
-  const value = input.value
+  const value = input.value.toLowerCase()
 
   const queryParamsFilteredState = { pageValue, limitValue, likeKey: inputId, likeValue: value }
   const filteredState = { queryParams: queryParamsFilteredState, paginationParams: { pagButtonText } }

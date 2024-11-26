@@ -7,7 +7,8 @@ export const updateAddModel = async ({
   addPriceValue,
   addDescriptionValue,
   addForValue,
-  addImageValue
+  addImageValue,
+  addTagsValue
 }) => {
   try {
     const query = `${API.ADD}/${add.id}`
@@ -18,7 +19,8 @@ export const updateAddModel = async ({
         price: addPriceValue,
         description: addDescriptionValue,
         for: addForValue,
-        image: addImageValue
+        image: addImageValue,
+        tags: addTagsValue
       }),
       headers: {
         "Content-Type": "application/json",

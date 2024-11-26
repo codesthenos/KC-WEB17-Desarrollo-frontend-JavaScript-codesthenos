@@ -8,12 +8,16 @@ export const setUpdateAddInputValues = ({
   addPrice,
   addImage,
   addDescription,
-  addFor
+  addFor,
+  addTags
 }) => {
   const addNameInput = document.getElementById(CREATE_ADD_VALUES.NAME)
   const addPriceInput = document.getElementById(CREATE_ADD_VALUES.PRICE)
   const addImageInput = document.getElementById(CREATE_ADD_VALUES.IMAGE)
   const addDescriptionInput = document.getElementById(CREATE_ADD_VALUES.DESCRIPTION)
+  const electronicsTagInput = document.getElementById(CREATE_ADD_VALUES.ELECTRONICS_TAG)
+  const sportsTagInput = document.getElementById(CREATE_ADD_VALUES.SPORTS_TAG)
+  const motorTagInput = document.getElementById(CREATE_ADD_VALUES.MOTOR_TAG)
   const addOfferInput = document.getElementById('offer')
   const addDemandInput = document.getElementById('demand')
   
@@ -21,6 +25,16 @@ export const setUpdateAddInputValues = ({
   addPriceInput.value = addPrice
   addImageInput.value = addImage
   addDescriptionInput.value = addDescription
+
+  const staticTags = [electronicsTagInput, sportsTagInput, motorTagInput]
+
+  if (addTags && addTags.length > 0) {
+    staticTags.forEach(staticTag => {
+      if (addTags.some(tag => tag === staticTag.name)) {
+        staticTag.checked = true
+      }
+    })
+  }
 
   if (addFor === 'demand') {
     addDemandInput.checked = true
@@ -36,7 +50,8 @@ export const handleUpdateAdd = async ({
   addPriceValue,
   addDescriptionValue,
   addForValue,
-  addImageValue
+  addImageValue,
+  addTagsValue
 }) => {
   const token = localStorage.getItem('JWT')
 
@@ -56,7 +71,8 @@ export const handleUpdateAdd = async ({
         addPriceValue,
         addDescriptionValue,
         addForValue,
-        addImageValue
+        addImageValue,
+        addTagsValue
       })
       fireNotificationEvent({ element, type: successNoti, message: SUCCESS_MESSAGES.UPDATED_ADD })
       setTimeout(() => {

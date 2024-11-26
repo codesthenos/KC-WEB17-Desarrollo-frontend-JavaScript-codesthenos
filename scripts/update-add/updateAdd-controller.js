@@ -30,7 +30,8 @@ export const updateAddController = async ({ element, addId }) => {
         addPrice: add.price,
         addImage: add.image,
         addDescription: add.description,
-        addFor: add.for
+        addFor: add.for,
+        addTags: add.tags
       })
       element.addEventListener('submit', (event) => {
         event.preventDefault()
@@ -42,9 +43,10 @@ export const updateAddController = async ({ element, addId }) => {
           addPriceValue,
           addDescriptionValue,
           addForValue,
-          addImageValue
+          addImageValue,
+          addTagsValue
         } = takeCreateAddInputsValue()
-
+        // validate tags when dinamic
         const errors = validateCreateAdd({
           addNameValue,
           addDescriptionValue,
@@ -61,7 +63,8 @@ export const updateAddController = async ({ element, addId }) => {
             addPriceValue,
             addDescriptionValue,
             addForValue,
-            addImageValue
+            addImageValue,
+            addTagsValue
           })
         }
       })
