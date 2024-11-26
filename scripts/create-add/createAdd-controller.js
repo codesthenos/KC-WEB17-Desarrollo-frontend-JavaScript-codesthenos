@@ -1,8 +1,19 @@
 import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { fireNotificationEvent } from '../lib/fire-notification-event.js'
+import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
+import { customTagDivView } from './customTag-view.js'
 import { handleCreateAdd, takeCreateAddInputsValue, validateCreateAdd } from './lib/createAdd-utils.js'
 
-export const createAddController = ({ element }) => {
+export const createAddController = ({ element, customTag }) => {
+  const notificationElement = document.getElementById('notifications-div')
+  const tagsContainer = document.getElementById('tags-div-id')
+
+  const newTag = customTagDivView({ tagValue: customTag })
+
+  if (newTag) {
+    tagsContainer.appendChild(newTag)
+  }
+
   const createAddForm = document.getElementById('create-add-form')
   createAddForm.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -17,7 +28,7 @@ export const createAddController = ({ element }) => {
       addImageValue,
       addTagsValue
     } = takeCreateAddInputsValue()
-    // validate custom tags when added
+
     const errors = validateCreateAdd({ addNameValue, addDescriptionValue, addImageValue })
 
     if (errors.length > 0) {
@@ -37,10 +48,20 @@ export const createAddController = ({ element }) => {
     }
   })
   const addCustomTagButton = document.getElementById('add-custom-tag-button')
-  addCustomTagButton.addEventListener('submit', (event) => {
-    event.preventDefault()
-
+  addCustomTagButton.addEventListener('click', () => {
     fireNotificationEvent({ element, type: loadingNoti })
 
+    const customTagInput = document.getElementById('custom-tag-input')
+    const customTagValue = customTagInput.value
+
+    const customTagAlreadyExists = tagsContainer.querySelector(`#${customTagValue}-div-id`)
+    if (customTagAlreadyExists) {
+      fireNotificationEvent({ element, type: errorNoti, errorList: ['TAG ALREADY EXISTS'] })
+    } else {
+      customTagInput.value = ''
+      removeLoadingClassNames({ element: notificationElement })
+  
+      createAddController({ element, customTag: customTagValue })
+    }
   })
 }

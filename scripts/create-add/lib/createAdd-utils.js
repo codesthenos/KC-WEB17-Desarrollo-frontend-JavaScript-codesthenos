@@ -14,6 +14,8 @@ export const takeCreateAddInputsValue = () => {
   const sportsTagInput = document.getElementById(CREATE_ADD_VALUES.SPORTS_TAG)
   const motorTagInput = document.getElementById(CREATE_ADD_VALUES.MOTOR_TAG)
 
+  // dinamic tags
+
   const staticTags = [electronicsTagInput, sportsTagInput, motorTagInput]
 
   const addNameValue = addNameInput.value 
