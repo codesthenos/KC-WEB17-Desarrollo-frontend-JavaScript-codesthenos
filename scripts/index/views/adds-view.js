@@ -1,18 +1,24 @@
 import { addsHeading } from './addsH2-view.js'
 import { addsPaginationButtons } from './addsPaginationNav-view.js'
 import { addsList } from './addsUl-view.js'
-import { nameFilterFormView } from './nameFilterForm-view.js'
+import { clearFiltersButtonView } from './clearFiltersButton-view.js'
+import { filterFormView } from './filterForm-view.js'
 
 export const addsView = ({ viewState }) => {
   const addsDiv = document.createElement('div')
   const addsH2 = addsHeading()
-  const nameFilterForm = nameFilterFormView()
+  const nameFilterForm = filterFormView({ id: 'name', name: 'name' })
+  const tagsFilterForm = filterFormView({ id: 'tags', name: 'tags' })
+  const clearFiltersAnchor = clearFiltersButtonView()
   const addsPaginationNav = addsPaginationButtons({ pagButtonText: viewState.pagButtonText, isLastPage: viewState.isLastPage, isFirstPage: viewState.isFirstPage })
   const addsUl = addsList({ adds: viewState.adds })
     
   addsDiv.appendChild(addsH2)
   addsDiv.appendChild(nameFilterForm)
+  addsDiv.appendChild(tagsFilterForm)
+  addsDiv.appendChild(clearFiltersAnchor)
   addsDiv.appendChild(addsPaginationNav)
   addsDiv.appendChild(addsUl)
+
   return addsDiv
 }
