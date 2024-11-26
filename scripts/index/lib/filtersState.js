@@ -1,8 +1,8 @@
 export const calculateFiltersState = ({ inputId, pageValue, limitValue, pagButtonText }) => {
-  const tagsInput = document.getElementById(inputId)
-  const tags = tagsInput.value
+  const input = document.getElementById(inputId)
+  const value = input.value
 
-  const queryParamsFilteredState = { pageValue, limitValue, likeKey: inputId, likeValue: tags }
+  const queryParamsFilteredState = { pageValue, limitValue, likeKey: inputId, likeValue: value }
   const filteredState = { queryParams: queryParamsFilteredState, paginationParams: { pagButtonText } }
 
   return filteredState
