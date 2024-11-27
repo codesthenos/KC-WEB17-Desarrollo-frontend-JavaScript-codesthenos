@@ -18,7 +18,7 @@ export const filterFormView = ({ id, name }) => {
   submitButton.setAttribute('type', 'submit')
   submitButton.setAttribute('id', `${id}-filter-button`)
   submitButton.classList.add(buttonClassName)
-  submitButton.textContent = 'FILTER'
+  submitButton.textContent = 'SEARCH'
 
   filterForm.setAttribute('id', `${id}-filter-form`)
   filterForm.appendChild(input)
