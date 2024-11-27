@@ -58,41 +58,45 @@ export const updateAddController = async ({ element, addId, customTag }) => {
       })
 
       const updateAddForm = document.getElementById('update-add-form')
-      updateAddForm.addEventListener('submit', (event) => {
-        event.preventDefault()
-
-        fireNotificationEvent({ element, type: loadingNoti })
-
-        const {
-          addNameValue,
-          addPriceValue,
-          addDescriptionValue,
-          addForValue,
-          addImageValue,
-          addTagsValue
-        } = takeCreateAddInputsValue({ tagsContainer })
-
-        const errors = validateCreateAdd({
-          addNameValue,
-          addDescriptionValue,
-          addImageValue
-        })
-
-        if (errors.length > 0) {
-          fireNotificationEvent({ element, type: errorNoti, errorList: errors })
-        } else {
-          handleUpdateAdd({
-            element,
-            add,
+      if (!updateAddForm.hasSubmitListener) {
+        updateAddForm.addEventListener('submit', (event) => {
+          event.preventDefault()
+  
+          fireNotificationEvent({ element, type: loadingNoti })
+  
+          const {
             addNameValue,
             addPriceValue,
             addDescriptionValue,
             addForValue,
             addImageValue,
             addTagsValue
+          } = takeCreateAddInputsValue({ tagsContainer })
+  
+          const errors = validateCreateAdd({
+            addNameValue,
+            addDescriptionValue,
+            addImageValue
           })
-        }
-      })
+  
+          if (errors.length > 0) {
+            fireNotificationEvent({ element, type: errorNoti, errorList: errors })
+          } else {
+            handleUpdateAdd({
+              element,
+              add,
+              addNameValue,
+              addPriceValue,
+              addDescriptionValue,
+              addForValue,
+              addImageValue,
+              addTagsValue
+            })
+          }
+        })
+
+        updateAddForm.hasSubmitListener = true
+      }
       const addCustomTagButton = document.getElementById('add-custom-tag-button')
       if (!addCustomTagButton.hasClickListener) {
         addCustomTagButton.addEventListener('click', () => {
