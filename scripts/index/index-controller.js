@@ -19,24 +19,25 @@ export const indexController = async ({ element, notificationElement, state }) =
     const limitAdds = currentQueryParams.limitValue
     const filterKey = currentQueryParams.likeKey
     const filterValue = currentQueryParams.likeValue
+    const priceMin = currentQueryParams.gteValue
+    const priceMax = currentQueryParams.lteValue
 
-    // In a future here he will use the current filters applied
-    const countAddsQueryParams = { pageValue: null, limitValue: null, likeKey: filterKey, likeValue: filterValue }
+    const countAddsQueryParams = { pageValue: null, limitValue: null, likeKey: filterKey, likeValue: filterValue, gteValue: priceMin, lteValue: priceMax }
     
     const [response, response2] = await Promise.all([
       addsModel({ queryParams: currentQueryParams }),
-      // to get the count of filtered but not paginated and calculate the last page
+
       addsModel({ queryParams: countAddsQueryParams })
     ])
-    // In a future this can be a numberOfFilteredAdds
-    const numberOfTotalAdds = response2.adds.length
+
+    const numberOfFilteredAdds = response2.adds.length
 
     const uniqueTags = Array.from(
       new Set(response2.adds.flatMap(add => add.tags)))
       .filter(tag => tag)
 
     const pagButtonText = currentPaginationParams.pagButtonText
-    const isLastPage = currentPage * limitAdds >= numberOfTotalAdds
+    const isLastPage = currentPage * limitAdds >= numberOfFilteredAdds
     const isFirstPage = currentPage <= 1
 
     const currentViewState = { uniqueTags, adds: response.adds, pagButtonText, isFirstPage, isLastPage }
@@ -52,13 +53,54 @@ export const indexController = async ({ element, notificationElement, state }) =
       const tagsFilterInput = document.getElementById('tags')
       tagsFilterInput.value = filterValue.replace(/-/g, ' ')
     }
+    const priceMinInput = document.getElementById('min-price')
+    priceMinInput.value = priceMin
+
+    const priceMaxInput = document.getElementById('max-price')
+    priceMaxInput.value = priceMax
+    // PRICE FILTER
+    const priceFilterForm = document.getElementById('price-filter-form')
+
+    priceFilterForm.addEventListener('submit', (event) => {
+      event.preventDefault()
+      const minValue = priceMinInput.value
+      const maxValue = priceMaxInput.value
+
+      const price = {}
+
+      if (!minValue && !maxValue) {
+        fireNotificationEvent({ element, type: errorNoti, errorList: ['Provide min or max values'] })
+      }
+
+      if (minValue && !maxValue) {
+        price.min = minValue
+        price.max = null
+      }
+
+      if (maxValue && !minValue) {
+        price.max = maxValue
+        price.min = null
+      }
+
+      if (minValue && maxValue && minValue > maxValue) {
+        fireNotificationEvent({ element, type:errorNoti, errorList: ['MAX has to be greater than MIN'] })
+      } else {
+        price.min = minValue
+        price.max = maxValue
+
+        const filteredQueryParams = { gteValue: price.min, lteValue: price.max, pageValue: currentPage, limitValue: limitAdds, likeKey: filterKey, likeValue: filterValue }
+        const filteredState = { queryParams: filteredQueryParams, paginationParams: { pagButtonText }}
+  
+        indexController({ element, notificationElement, state: filteredState })
+      }
+    })
     // NAME FILTER
     const nameFilterForm = document.getElementById('name-filter-form')
 
     nameFilterForm.addEventListener('submit', (event) => {
       event.preventDefault()
 
-      const filteredState = calculateFiltersState({ inputId: 'name', pageValue: currentPage, limitValue: limitAdds, pagButtonText })
+      const filteredState = calculateFiltersState({ inputId: 'name', gteValue: priceMin, lteValue: priceMax, pageValue: currentPage, limitValue: limitAdds, pagButtonText })
 
       indexController({ element, notificationElement, state: filteredState })
     })
@@ -68,7 +110,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     tagsFilterForm.addEventListener('submit', (event) => {
       event.preventDefault()
 
-      const filteredState = calculateFiltersState({ inputId: 'tags', pageValue: currentPage, limitValue: limitAdds, pagButtonText })
+      const filteredState = calculateFiltersState({ inputId: 'tags', gteValue: priceMin, lteValue: priceMax, pageValue: currentPage, limitValue: limitAdds, pagButtonText })
 
       indexController({ element, notificationElement, state: filteredState })
     })
@@ -78,10 +120,10 @@ export const indexController = async ({ element, notificationElement, state }) =
     const paginateButton = document.getElementById(paginateButtonId)
     paginateButton.addEventListener('click', () => {
       if (pagButtonText === paginateButtonText) {
-        const state = calculatePagState({ page: initialPage, addsPerPage, likeKey: filterKey, likeValue: filterValue, pagButtonText: showAllButtonText })
+        const state = calculatePagState({ gteValue: priceMin, lteValue: priceMax, page: initialPage, addsPerPage, likeKey: filterKey, likeValue: filterValue, pagButtonText: showAllButtonText })
         indexController({ element, notificationElement, state })
       } else {
-        const state = calculatePagState({ page: null, addsPerPage: null, likeKey: filterKey, likeValue: filterValue, pagButtonText: paginateButtonText })
+        const state = calculatePagState({ gteValue: priceMin, lteValue: priceMax, page: null, addsPerPage: null, likeKey: filterKey, likeValue: filterValue, pagButtonText: paginateButtonText })
         indexController({ element, notificationElement, state })
       }
     })
@@ -89,7 +131,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     const nextPageButton = document.getElementById(nextPageButtonId)
     if (nextPageButton) {
       nextPageButton.addEventListener('click', () => {
-        const state = calculatePagState({ page: currentPage + 1, addsPerPage: currentQueryParams.limitValue, likeKey: filterKey, likeValue: filterValue, pagButtonText })
+        const state = calculatePagState({ gteValue: priceMin, lteValue: priceMax, page: currentPage + 1, addsPerPage: currentQueryParams.limitValue, likeKey: filterKey, likeValue: filterValue, pagButtonText })
 
         indexController({ element, notificationElement, state })
       })
@@ -98,7 +140,7 @@ export const indexController = async ({ element, notificationElement, state }) =
     const previousPageButton = document.getElementById(previousPageButtonId)
     if (previousPageButton) {
       previousPageButton.addEventListener('click', () => {
-        const state = calculatePagState({ page: currentPage - 1, addsPerPage: currentQueryParams.limitValue, likeKey: filterKey, likeValue: filterValue, pagButtonText })
+        const state = calculatePagState({ gteValue: priceMin, lteValue: priceMax, page: currentPage - 1, addsPerPage: currentQueryParams.limitValue, likeKey: filterKey, likeValue: filterValue, pagButtonText })
 
         indexController({ element, notificationElement, state })
       })

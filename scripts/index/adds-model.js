@@ -6,7 +6,7 @@ import { noAddsMessage } from './lib/consts.js'
 // _page & _limit
 export const addsModel = async ({ queryParams }) => {
   try {
-    const { pageValue, limitValue, likeKey, likeValue } = queryParams
+    const { pageValue, limitValue, likeKey, likeValue, gteValue, lteValue } = queryParams
     /* It works, but will lead in worse user experience
        cause it can show adds that are being deleted
        and wont remove them until sessionStorage expires
@@ -23,6 +23,14 @@ export const addsModel = async ({ queryParams }) => {
 
     if (likeValue) {
       query = `${query}&${likeKey}_like=${likeValue}`
+    }
+
+    if (gteValue) {
+      query = `${query}&price_gte=${gteValue}`
+    }
+
+    if (lteValue) {
+      query = `${query}&price_lte=${lteValue}`
     }
 
     const response = await fetch(query)

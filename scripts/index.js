@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
       pageValue: null,
       limitValue: null,
       likeKey: null,
-      likeValue: null
+      likeValue: null,
+      gteValue: null,
+      lteValue: null
     },
     paginationParams: {
       pagButtonText: paginateButtonText

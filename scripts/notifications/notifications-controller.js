@@ -19,7 +19,7 @@ export const notificationsController = ({ element }) => {
         element.innerHTML = ''
         element.classList.remove(errorNoti)
         element.classList.remove('notifications-div')
-      }, 3000)
+      }, 5000)
     } else if (type === loadingNoti) {
       setNotification({
         notification: element,
