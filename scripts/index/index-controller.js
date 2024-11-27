@@ -44,9 +44,9 @@ export const indexController = async ({ element, notificationElement, state }) =
     if (filterKey === 'name') {
       const nameFilterInput = document.getElementById('name')
       nameFilterInput.value = filterValue
-    } else {
+    } else if (filterKey === 'tags') {
       const tagsFilterInput = document.getElementById('tags')
-      tagsFilterInput.value = filterValue
+      tagsFilterInput.value = filterValue.replace(/-/g, ' ')
     }
     // NAME FILTER
     const nameFilterForm = document.getElementById('name-filter-form')
