@@ -32,7 +32,7 @@ export const updateAddController = async ({ element, addId, customTag }) => {
       
       const staticTags = ['electronics', 'sports', 'motor']
 
-      const dinamicTagsInputs = add.tags.filter(tag => !staticTags.includes(tag))
+      const dinamicTagsInputs = add.tags ? add.tags.filter(tag => !staticTags.includes(tag)) : []
 
       if (customTag) {
         const newTag = customTagDivView({ tagValue: customTag })
@@ -53,7 +53,7 @@ export const updateAddController = async ({ element, addId, customTag }) => {
         addImage: add.image,
         addDescription: add.description,
         addFor: add.for,
-        addTags: add.tags,
+        addTags: add.tags ? add.tags : [],
         tagsContainer
       })
 
