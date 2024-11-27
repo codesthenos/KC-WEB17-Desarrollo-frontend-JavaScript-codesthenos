@@ -38,9 +38,24 @@
       padding: .5rem;
       order: 3;
     }
-    a {
-      margin: 0;
+    #min-price {
+      max-width: 77px;
+      order: 2;
+      +label {
+        max-width: fit-content;
+        order: 1;
+      }
+    }
+    #max-price {
+      max-width: 77px;
       order: 4;
+      +label {
+        max-width: fit-content;
+        order: 3;
+      }
+    }
+    #price-filter-button {
+      order: 5;
     }
   }
   #clear-filters-button {

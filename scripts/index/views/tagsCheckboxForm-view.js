@@ -20,7 +20,6 @@ export const tagsCheckBoxesFormView = ({ uniqueTags }) => {
 
   const submitButton = document.createElement('button')
 
-
   submitButton.setAttribute('type', 'submit')
   submitButton.setAttribute('id', 'tags-checkbox-filter-button')
   submitButton.classList.add(buttonClassName)
