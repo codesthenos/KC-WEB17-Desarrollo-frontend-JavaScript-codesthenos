@@ -52,16 +52,22 @@ export const createAddController = ({ element, customTag }) => {
     fireNotificationEvent({ element, type: loadingNoti })
 
     const customTagInput = document.getElementById('custom-tag-input')
-    const customTagValue = customTagInput.value
+    const customTagValue = customTagInput.value.toLowerCase().trim()
 
-    const customTagAlreadyExists = tagsContainer.querySelector(`#${customTagValue}-div-id`)
-    if (customTagAlreadyExists) {
-      fireNotificationEvent({ element, type: errorNoti, errorList: ['TAG ALREADY EXISTS'] })
+    const tagRegexp = /^\s*\S.*$/
+
+    if (!tagRegexp.test(customTagValue)) {
+      fireNotificationEvent({ element, type: errorNoti, errorList: ['PLEASE FILL THE TAG'] })
     } else {
-      customTagInput.value = ''
-      removeLoadingClassNames({ element: notificationElement })
-  
-      createAddController({ element, customTag: customTagValue })
+      const customTagAlreadyExists = tagsContainer.querySelector(`#${customTagValue}-div-id`)
+      if (customTagAlreadyExists) {
+        fireNotificationEvent({ element, type: errorNoti, errorList: ['TAG ALREADY EXISTS'] })
+      } else {
+        customTagInput.value = ''
+        removeLoadingClassNames({ element: notificationElement })
+    
+        createAddController({ element, customTag: customTagValue })
+      }
     }
   })
 }

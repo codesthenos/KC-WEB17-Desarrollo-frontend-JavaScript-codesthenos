@@ -4,7 +4,7 @@ const addTags = addTags => {
   const tags = []
 
   addTags.forEach(tag => {
-    tags.push(tag)
+    tags.push(tag.replace(/-/g, ' '))
   })
 
   if (addTags.length === 0) {

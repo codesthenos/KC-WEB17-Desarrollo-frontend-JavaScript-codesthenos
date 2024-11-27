@@ -4,16 +4,16 @@ export const customTagDivView = ({ tagValue }) => {
   const customTagLabel = document.createElement('label')
 
   customTagInput.setAttribute('type', 'checkbox')
-  customTagInput.setAttribute('id', tagValue)
-  customTagInput.setAttribute('name', tagValue)
+  customTagInput.setAttribute('id', tagValue.replace(/\s+/g, '-'))
+  customTagInput.setAttribute('name', tagValue.replace(/\s+/g, '-'))
 
-  customTagLabel.setAttribute('for', tagValue)
-  customTagLabel.textContent = tagValue
+  customTagLabel.setAttribute('for', tagValue.replace(/\s+/g, '-'))
+  customTagLabel.textContent = tagValue.replace(/-/g, ' ')
 
   customTagDiv.appendChild(customTagInput)
   customTagDiv.appendChild(customTagLabel)
   customTagDiv.classList.add('tag-div')
-  customTagDiv.setAttribute('id', `${tagValue}-div-id`)
+  customTagDiv.setAttribute('id', `${tagValue.replace(/\s+/g, '-')}-div-id`)
 
-  return tagValue ? customTagDiv : null
+  return customTagDiv
 }

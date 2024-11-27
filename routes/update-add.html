@@ -30,7 +30,7 @@
   <div id="notifications-div" class="notifications-div loading"></div>
 
   <main id="update-add">
-    <form>
+    <form id="update-add-form">
       <h2>Update add</h2>
       <div class="input-text">
         <input id="name" type="text" name="name" minlength="3" required />
@@ -62,6 +62,11 @@
           <input type="checkbox" name="motor" id="motor">
           <label for="motor">motor</label>
         </div>
+      </div>
+      <h3>Add custom Tag</h3>
+      <div class="custom-tag-div">
+        <input type="text" id="custom-tag-input" name="custom-tag-input">
+        <button type="button" class="btn" id="add-custom-tag-button">ADD</button>
       </div>
       <h3>For</h3>
       <div class="input-text radio-divs-container">
