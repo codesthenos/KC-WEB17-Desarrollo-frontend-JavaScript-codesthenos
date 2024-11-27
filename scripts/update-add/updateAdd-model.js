@@ -16,7 +16,7 @@ export const updateAddModel = async ({
       method: 'PUT',
       body: JSON.stringify({
         name: addNameValue,
-        price: addPriceValue,
+        price: +addPriceValue,
         description: addDescriptionValue,
         for: addForValue,
         image: addImageValue,

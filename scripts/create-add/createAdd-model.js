@@ -4,7 +4,7 @@ export const createAddModel = async ({ addName, addPrice, addDescription, addFor
       method: 'POST',
       body: JSON.stringify({
         name: addName,
-        price: addPrice,
+        price: +addPrice,
         description: addDescription,
         for: addFor,
         image: addImage,

@@ -6,6 +6,7 @@ import { fireNotificationEvent } from '../lib/fire-notification-event.js'
 import { errorNoti, loadingNoti } from '../lib/consts.js'
 import { removeLoadingClassNames } from '../lib/removeLoadingClassNames.js'
 import { calculateFiltersState } from './lib/filtersState.js'
+import { validatePrice } from './lib/validatePriceFilter.js'
 
 export const indexController = async ({ element, notificationElement, state }) => {
 
@@ -66,27 +67,13 @@ export const indexController = async ({ element, notificationElement, state }) =
       const minValue = priceMinInput.value
       const maxValue = priceMaxInput.value
 
-      const price = {}
+      const { price, errors } = validatePrice({ minValue, maxValue })
 
-      if (!minValue && !maxValue) {
-        fireNotificationEvent({ element, type: errorNoti, errorList: ['Provide min or max values'] })
-      }
-
-      if (minValue && !maxValue) {
-        price.min = minValue
-        price.max = null
-      }
-
-      if (maxValue && !minValue) {
-        price.max = maxValue
-        price.min = null
-      }
-
-      if (minValue && maxValue && minValue > maxValue) {
-        fireNotificationEvent({ element, type:errorNoti, errorList: ['MAX has to be greater than MIN'] })
+      if (errors.length > 0) {
+        fireNotificationEvent({ element, type: errorNoti, errorList: errors })
       } else {
-        price.min = minValue
-        price.max = maxValue
+        price.min = minValue ? minValue : null
+        price.max = maxValue ? maxValue : null
 
         const filteredQueryParams = { gteValue: price.min, lteValue: price.max, pageValue: currentPage, limitValue: limitAdds, likeKey: filterKey, likeValue: filterValue }
         const filteredState = { queryParams: filteredQueryParams, paginationParams: { pagButtonText }}
