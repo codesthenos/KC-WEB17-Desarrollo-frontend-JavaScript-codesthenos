@@ -4,13 +4,13 @@ Esta práctica consiste en el desarrollo de una aplicación web similar a Wallap
 
 Además, deberás proporcionar un archivo db.json para el backend con los datos de ejemplo para la corrección de la práctica.
 
-## Como usar app en tu ordenador
-
-## Inidice de desarrollo
-
 ## USUARIOS / CONTRASEÑAS
 
 1. edu@aguilar.com / edu123
 
 2. sara@eli.com / sara123
 3. guille@ruiz.com / guille123
+
+## Inidice de desarrollo
+
+En los commits, esta vez no he podido ir documentando en el readme, pero en los commits voy describiendo lo hecho
