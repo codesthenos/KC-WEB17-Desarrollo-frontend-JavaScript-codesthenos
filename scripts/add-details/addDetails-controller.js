@@ -57,5 +57,8 @@ export const addDetailsController = async ({ element, notificationElement, addId
     removeLoadingClassNames({ element: notificationElement })
   } catch (error) {
     fireNotificationEvent({ element, type: errorNoti, errorList: [error.message]})
+    setTimeout(() => {
+      window.location.href = '/'
+    }, 1500)
   }
 }

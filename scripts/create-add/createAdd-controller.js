@@ -38,6 +38,12 @@ export const createAddController = ({ element, customTag }) => {
         fireNotificationEvent({ element, type: errorNoti, errorList: errors })
       } else {
         const token = localStorage.getItem('JWT')
+        if (!token) {
+          fireNotificationEvent({ element, type: errorNoti, errorList: ['PLEASE LOG IN'] })
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 1500)
+        }
         handleCreateAdd({
           element,
           addName: addNameValue,
