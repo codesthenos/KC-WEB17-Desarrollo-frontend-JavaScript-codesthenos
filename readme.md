@@ -7,3 +7,10 @@ Además, deberás proporcionar un archivo db.json para el backend con los datos 
 ## Como usar app en tu ordenador
 
 ## Inidice de desarrollo
+
+## USUARIOS / CONTRASEÑAS
+
+1. edu@aguilar.com / edu123
+
+2. sara@eli.com / sara123
+3. guille@ruiz.com / guille123
