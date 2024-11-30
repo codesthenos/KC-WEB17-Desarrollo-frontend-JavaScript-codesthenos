@@ -6,10 +6,10 @@ Además, deberás proporcionar un archivo db.json para el backend con los datos 
 
 ## USUARIOS / CONTRASEÑAS
 
-1. edu@aguilar.com / edu123
+1. **email:** `edu@aguilar.com` **password:** `edu123`
 
-2. sara@eli.com / sara123
-3. guille@ruiz.com / guille123
+2. **email:** `sara@eli.com` **password:** `sara123`
+3. **email:** `guille@ruiz.com` **password:** `guille123`
 
 ## Inidice de desarrollo
 
